@@ -1,0 +1,88 @@
+page-exercises-result {
+
+
+//页面初始化的一些样式 start 
+
+
+.toolbar-background{
+    background: transparent !important;
+    border: none !important;
+}
+
+   .back-button-icon:before{//返回按钮的默认内容 背景 文本等
+       content: '';
+    }
+    .back-button-ios,.back-button-md{//设置返回按钮的位置样式等
+        position: absolute;
+        left: 10px;
+//      top:20px;
+        font-size: 19px;
+        font-weight: normal;
+        margin: 0;
+        min-width: auto;
+        min-height: auto;
+    }
+   .back-button{//设置返回按钮的背景图
+        width: 12px;
+        height: 20px;
+        background: url(../assets/imgs/read/back_black.png) center center no-repeat;
+        background-size:12px 20px;
+        z-index: 10;
+    }
+    .back-button-text{//返回按钮的文本
+       display: none;
+    }
+    .toolbar{
+//      min-height: 60px !important;
+    }
+    .scroll-content{
+        padding: 0 !important;
+    }
+    
+//页面初始化的一些样式 end
+
+
+
+
+.exe_list{
+    margin-top: 10px;
+    display: flex;
+    span{
+        margin-right: 5px;
+    }
+    div{
+        width: 100%;
+    }
+    img{
+        width: 120px;
+        height: 120px;
+    }
+}
+.exe_list_t{
+    font-size: 15px;
+    color: #333333;
+    position: relative;
+}
+.t_num{
+   
+}
+.exe_list_d{
+   font-size: 13px; 
+   margin-left: 15px;
+   display: flex;
+}
+.correct_answer{
+    color: #a4d402;
+}
+.error_answer{
+    color: #fe4743;
+}
+.re_content{
+   border-top: 1px solid #ebebeb;
+}
+.re_list{
+    margin: 0 15px;
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 12px;
+}
+}

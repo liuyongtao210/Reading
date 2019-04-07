@@ -1,0 +1,35 @@
+<!-- Generated template for the IonVideoPlayerComponent component -->
+<div class="myVideoComponentBox" [ngClass]="{'videoBoxActive':isFullscreen}" (tap)="showControlBar($event)">
+	<video class="myVideoComponent" [src]="videoSrc" [poster]="videoPoster" 
+		[style.width]="videoWidth" [style.height]="videoHeight" [style.minHeight]="videoMinHeight" 
+		(loadstart)="loadstart($event)" 
+		(durationchange)="durationchange($event)" 
+		(waiting)="waiting($event)" 
+		(canplay)="canplay($event)"  
+		(loadedmetadata)="loadedmetadata($event)" 
+		(timeupdate)="timeupdate($event)" 
+		(ended)="ended($event)" 
+		preload="auto" playsinline webkit-playsinline>
+	</video>
+	<div class="myVideoComponent_buffer" [hidden]="!isBuffer">
+		<div class="spinnerBox">
+			<ion-spinner></ion-spinner>
+		</div>
+	</div>
+	<div class="myVideoComponent_controlBox" [@controlBarState]="isBarShow">
+		<div class="spinnerBox" *ngIf="isLoading">
+			<ion-spinner></ion-spinner>
+		</div>
+		<button ion-button class="playButton" [class.pause]="isPlay" *ngIf="!isLoading" (tap)="playVideo()" small icon-only></button>
+		<div class="progressBarBox" (tap)="tapProgress($event)" (pan)="panProgress($event)">
+			<div class="progressBar">
+				<div class="progress" [style.transform]="videoProgress"></div>		
+			</div>
+			<div class="progress-ball" [style.transform]="videoProgressBall"></div> 
+		</div>
+		<div class="timeCount">
+			{{formatTime(currentTime)}} / {{formatTime(durationTime)}}
+		</div>
+		<button ion-button class="btn-fullscreen" [class.exit]="isFullscreen" (tap)="videoFullscreen()" small icon-only></button>
+	</div>
+</div>

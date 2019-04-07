@@ -1,0 +1,76 @@
+page-media-player {
+.player_content{
+    min-height: 40px;
+    height: 100%;
+}
+
+.player{
+    width: 100%;
+    height:100%;
+    background: #474747;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+.audio_ele{
+    display: none;
+    width: 0;
+    height: 0;
+    position: absolute;
+    z-index: -10;
+}
+.progress_control{
+    height: 25px;
+    flex: 1;
+    margin: 0 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.progress_box{
+    width: 100%;
+    height: 3px;
+    background: #6c6c6c;
+    border-radius: 3px;
+    position: relative;
+}
+.player_btn{
+    display: flex;
+    align-items: center;
+}
+.play_btn_icon{
+    width: 19px;
+    height: 23px;
+}
+.progress_line{
+    width: 90px;
+    height: 100%;
+    border-radius: 3px;
+    background: #ffffff;
+}
+.progress_yuan_box{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: -4px;
+    top: -8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.progress_yuan{
+    width: 12px;
+    height:12px;
+    border-radius: 50%;
+    background: #ffffff;
+}
+.progress_time{
+    position: absolute;
+    right: 0;
+    top:5px;
+    color: #ffffff;
+}
+
+}

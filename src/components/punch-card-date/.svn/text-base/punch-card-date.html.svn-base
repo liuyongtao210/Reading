@@ -1,0 +1,22 @@
+<!--日历组件-->
+<div class="punchCard_pad" [ngStyle]="{'height':dateHeight +'px'}">
+	<ng-container *ngFor="let item of slidesArr;let Index = index">
+		<div (swipe)="slideChanged($event,Index)" [ngStyle]="{'left':item.index < 0 ? '-'+dateWidth+'px' : item.index == 0 ? '0' : dateWidth+'px','transition':IsInitData ? '' :'left 0.6s'}">
+			<div class="punchCard_frame" #dateDom>
+				<div class="punchCard_home">
+				<div class="punchCard_date_top" >{{item.year}}年{{item.month}}月</div>
+				<div class="punchCard_date_weeks">
+					<div *ngFor="let week of weeks;let weekIndex = index" [ngStyle]="{'height':weekHeight+'px'}" >{{week}}</div>
+				</div>
+				<div class="punchCard_date_month">
+					<div *ngFor="let day of item.date;let dayIndex = index" [ngStyle]="{'height':monthHeight+'px'}">
+						<div class="month_sin_" [class.cur]="day.CurrDay == 'cur_'" [class.yes]="!day.isCurrent" [class.already]="day.AlreadyCard == 'already'">{{day.txt}}</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</ng-container>
+
+</div>
+<!--日历组件-->

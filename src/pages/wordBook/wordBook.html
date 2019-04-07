@@ -1,0 +1,107 @@
+<ion-header #header>
+	<ion-navbar color="">
+		<ion-buttons left>
+			<button class="back" ion-button left (tap)="backPage()"></button>
+		</ion-buttons>
+		<ion-title>生词本</ion-title>
+		<ion-buttons right>
+			<button class="manage_title" ion-button right (tap)="manage()">{{manageFlag ? '完成' : '管理'}}</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<div class="wordBook_middle" [ngStyle]="{paddingTop:'44px',paddingBottom:manageFlag ? '50px' : 0}">
+		<ion-list *ngIf="!manageFlag">
+			<ng-container *ngFor="let word of words;let Index = index">
+				<div class="workBook_list_frame">
+					<div class="workBook_list_all">
+						<ion-item-sliding *ngIf='words.length>0'>
+							<ion-item>
+								<div class="workBook_list_top">
+									<div class="workBook_li_left">{{word.name}}</div>
+									<div class="workBook_li_middle">/{{word.pronounce}}/</div>
+									<div class="workBook_li_right" [class.cur]="word.isPlay" (tap)="audioEvent(Index)"></div>
+
+								</div>
+								<div class="workBook_list_top">
+									<div class="workBook_li_all">
+										<ng-container>
+											{{word.zh}}
+										</ng-container>
+									</div>
+								</div>
+
+							</ion-item>
+							<ion-item-options side="right">
+								<button class="wordBook_delete_icon" ion-button expandable (tap)="deleteItem(Index)"></button>
+							</ion-item-options>
+						</ion-item-sliding>
+					</div>
+				</div>
+			</ng-container>
+			<ng-container *ngIf="words.length>0">
+				<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+					<ion-infinite-scroll-content [loadingText]="moreWords"></ion-infinite-scroll-content>
+				</ion-infinite-scroll>
+			</ng-container>
+		</ion-list>
+		<!--编辑模式-->
+		<ng-container *ngIf="manageFlag">
+			<div class="workBook_list_frame_manage">
+				<ng-container *ngFor="let word of words;let Index = index">
+					<div class="workBook_list_frame manage" *ngIf='words.length>0'>
+
+						<div class="workBook_list_alls">
+							<div class="workBook_list_Left" [class.cur]="word.isClick" (tap)="clickEvent(Index)"></div>
+							<div class="workBook_list_all_">
+								<div class="workBook_list_top">
+									<div class="workBook_li_left">{{word.name}}</div>
+									<div class="workBook_li_middle">{{word.pronounce}}</div>
+									<div class="workBook_li_right" [class.cur]="word.isPlay" (tap)="audioEvent(Index)"></div>
+
+								</div>
+								<div class="workBook_list_top">
+									<div class="workBook_li_all">
+										<ng-container>
+											{{word.zh}}
+										</ng-container>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</ng-container>
+			</div>
+
+		</ng-container>
+
+		<!--*ngIf="Datas.length>0"-->
+
+	</div>
+</ion-content>
+
+<!--top-->
+<ng-container *ngIf="isShowHeader">
+	<div class="wordBook_top" [ngStyle]="{top:headerHeight+'px'}">
+		<!--播放器-->
+		<div class="workBook_audio">
+			<audio #audio controls='' (play)='audioPlay()' (pause)="audioEnded()"></audio>
+		</div>
+		<div class="wordBook_topL">共<span>{{total}}</span>个单词</div>
+		<div class="wordBook_topR">
+			<ng-container *ngFor="let sortType of sortTypeArr;let Index = index">
+				<div class="wordBookSort" [class.cur]="sortType.isClick">
+					<div class="wordBook_topR_txt" (tap)="sortFn(Index)">{{sortType.sortName}}
+						<div class="wordBook_topR_down" [class.cur]="sortType.sortType"></div>
+					</div>
+				</div>
+			</ng-container>
+		</div>
+	</div>
+</ng-container>
+<!--bottom-->
+<div class="wordBook_bottom" *ngIf="manageFlag">
+	<div class="wordBook_bottomL" [class.cur]="isCheckAll" (tap)="checkAll()">全选</div>
+	<div class="wordBook_bottomR" (tap)="removeWord()">移除生词本</div>
+</div>

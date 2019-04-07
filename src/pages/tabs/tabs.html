@@ -1,0 +1,14 @@
+<ion-tabs #indexTabs class="indexTabs" (ionChange)="onTabChange($event)">
+  <ion-tab [root]="tab1Root" tabTitle="首页" tabIcon="icon-tab-1"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="阅读" tabIcon="icon-tab-2"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="课程" tabIcon="icon-tab-3"></ion-tab>
+  <ion-tab [root]="tab4Root" tabTitle="云课堂" tabIcon="icon-tab-4"></ion-tab>
+  <ion-tab [root]="tab5Root" tabTitle="我的" tabIcon="icon-tab-5"></ion-tab>
+</ion-tabs>
+<div class="ad-panel" [hidden]="!showAdvert">
+  <img [src]="advertData.picUrl" (click)="onImgTap()">
+  <a class="btn-close" (click)="onCloseTap()"></a>
+</div>
+<div class="ad-panel tip" *ngIf="showReadTip" (click)="onReadTipTap()">
+  <img class="read-tip" src="assets/imgs/read/tip_cover_zone.png">
+</div>

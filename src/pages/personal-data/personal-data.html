@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+			<button class="back" ion-button left (tap)="backPage()"></button>
+		</ion-buttons>
+		<ion-title>个人资料</ion-title>
+		<ion-buttons right>
+			<button class="personal_title" ion-button right (tap)="save()">保存</button>
+		</ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+	<div class="personal_data_pad">
+		 <div class="personal_data_box" (tap)="changeAvatar()">
+		 	 <div class="personal_data_boxL">头像</div>
+		 	 <img [src]="personalInfo.userImg" class="personalInfoAvatar" (error)="errFn($event)">
+		 	 <div class="personalInforight"></div>
+		 </div>
+		 
+		 	  <div class="personal_data_box">
+		 	  	<div class="personal_data_boxL_">昵称</div>
+		 	  	<div class="personal_data_R">
+		 	  		<input placeholder="请填写" [(ngModel)]="personalInfo.NickName" />
+		 	  	</div>
+		 	  </div>
+		 	   <div class="personal_data_box">
+		 	  	<div class="personal_data_boxL_">姓名</div>
+		 	  	<div class="personal_data_R">
+		 	  		<div class="personalInfo_name">{{personalInfo.name}}</div>
+		 	  	</div>
+		 	  </div>
+		 	  <div class="personal_data_box">
+		 	  	<div class="personal_data_boxL_">性别：</div>
+				 	<ion-item  class="personal_data_R">
+		        <ion-label [class.dis]="personalInfo.sex == '请选择'" >{{personalInfo.sex}}</ion-label>
+		       <ion-multi-picker item-content [doneText]="'确定'" [cancelText]="'取消'" (ionChange)="changeText($event,0)" [multiPickerColumns]="sexArr"></ion-multi-picker>
+		      </ion-item>
+		 	  	
+		 	  </div>
+		 	  <div class="personal_data_box">
+		 	  	<div class="personal_data_boxL_">出生日期：</div>
+		 	  	<ion-item class="personal_data_R">
+				  <ion-label [class.dis]="personalInfo.date == '请选择'">{{personalInfo.date}}</ion-label>
+				  <ion-datetime displayFormat="YYYY/MM/DD" [cancelText]="'取消'" [doneText]="'确定'" (ionChange)="changeText($event,1)" [(ngModel)]="myDate"></ion-datetime>
+				</ion-item>
+		 	  </div>
+		 	  <div class="personal_data_box">
+		 	  	<div class="personal_data_boxL_">地区：</div>
+		 	  	<ion-item  class="personal_data_R">
+		        <ion-label [class.dis]="province == '' && city == '' && area == '' ">{{province + city + area}}</ion-label>
+		       <ion-multi-picker item-content [doneText]="'完成'" [cancelText]="'取消'" (ionChange)="changeText($event,2)" [multiPickerColumns]="cities"></ion-multi-picker>
+		      </ion-item>
+		 	  </div>
+		 
+	</div>
+</ion-content>

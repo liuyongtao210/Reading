@@ -1,0 +1,36 @@
+<ion-header #header>
+	<ion-navbar>
+		<ion-buttons left>
+			<button class="back" ion-button left (tap)="backPage()"></button>
+		</ion-buttons>
+		<ion-title>日历</ion-title>
+		<!--<ion-buttons right>
+			<button class="share_" ion-button right ></button>
+		</ion-buttons>-->
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<!--日历组件-->
+	<punch-card-date (childEvent)="fatherFunction($event)" [weekHeight_]="weekHeight" [monthHeight_]="monthHeight" [slidesArr_]="slidesArr"></punch-card-date>
+	<!--日历组件-->
+	<!--<div class="punchCard_date_btn" (tap)="showCanvas()">点我开始画图</div>-->
+	<canvas id="Canvas" class="punchCanvas" #punchCanvas width="750" [height]="1334" style="display: none;"></canvas>
+	<img [src]="dataURL" class="punchCanvas" style="width: 100vw;height: 100vh;" [hidden]="dataURL==''" style="display: none;" />
+	<!--<div class="punch-card_date_bottom">
+		<div class="date_bottom_all">
+			<div class="date_bottom_top">累计打卡<span>{{dayNumber}}</span>天</div>
+		</div>
+	</div>
+	<div class="punch_card_footer">
+		<div (tap)="shareFn_title()">{{isPunchCard ? '已打卡' : '打卡'}}</div>
+	</div>-->
+	<div class="punchCard_all">
+		<div class="punchCard_all_list">
+			<div class="punchCard_all_listL">签到打卡 <span>{{dayNumber}}</span>天</div>
+		    <div class="punchCard_all_listR" (tap)="shareFn_title()">{{isPunchCard ? '已打卡' : '打卡'}}</div>
+		</div>
+	</div>
+
+</ion-content>
+<!--<img #img_  [src]="canvasContent[0].imgPath" class="hidden_"/>-->

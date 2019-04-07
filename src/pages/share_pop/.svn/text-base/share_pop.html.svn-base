@@ -1,0 +1,27 @@
+<ion-header no-border>
+	<ion-navbar>
+		<ion-title></ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<div class="judge_show_pad" tappable (click)="closePops($event)">
+		<div class="date_share_all">
+			<div class="date_share_frame" tappable (click)="goShare(0,$event)">
+				<div class="date_share_img wx"></div>
+				<div class="data_share_txt">微信好友</div>
+			</div>
+			<div class="date_share_frame" tappable (click)="goShare(1,$event)">
+				<div class="date_share_img wxfriend"></div>
+				<div class="data_share_txt">朋友圈</div>
+			</div>
+		</div>
+		
+	</div>
+</ion-content>
+<ion-footer no-border>
+  <ion-toolbar class="data_share_btn">
+    <ion-title (tap)="closePop()">取消</ion-title>
+  </ion-toolbar>
+	<!--<div class="data_share_btn" (tap)="closePop()">取消</div>-->
+</ion-footer>

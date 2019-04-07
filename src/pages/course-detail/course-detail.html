@@ -1,0 +1,92 @@
+<ion-header [hidden]="isFullscreen">
+
+  <ion-navbar>
+    <ion-title>课程</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="dark" class="btn-share" (tap)="onShareTap()"></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <!-- 自定义视频播放器 -->
+  <common-video-player
+    [vurl]="videoUrl" 
+    [aurl]="filePath+course.audioPath"
+    (fullscreen)="fullscreenEvent($event)"
+    [cover]="course.bigPic">
+  </common-video-player>
+  <!-- <ion-video-player 
+    [src]="videoUrl" 
+    [audioSrc]="course.audioUrl" 
+    [poster]="course.bigPic" 
+    videoWidth="100%" videoHeight="auto" 
+    (loadedActive)="videoLoadedActive($event)" 
+    (active)="videoActive($event)" 
+    (fullscreenEvent)="fullscreenEvent($event)">
+  </ion-video-player> -->
+  <!-- 屏幕视频下方区域 -->
+  <div class="main-content" [hidden]="isFullscreen">
+    <!-- tab按钮 -->
+    <ul class="tab">
+      <li [class.active]="mode==0" (tap)="mode=0">课程介绍</li>
+      <li [class.active]="mode==1" (tap)="mode=1" *ngIf="!singleVideo">选集</li>
+      <li [class.active]="mode==3" (tap)="mode=3" *ngIf="singleVideo">PPT</li>
+    </ul>
+    <!-- 课程介绍区域 -->
+    <div class="panel course" [hidden]="mode!=0">
+      <!-- 课程介绍 -->
+      <div class="module">
+          <h1 class="title">课程介绍</h1>
+          <div class="detail" [innerHtml]="course.des | html"></div>
+      </div>
+      <!-- 老师介绍 -->
+      <div class="module">
+          <h1 class="title">老师介绍</h1>
+          <!-- 老师信息栏 -->
+          <div class="teacher-bar" (tap)="gotoTeacherDetail()">
+            <div class="cover"><img [src]="course.teacherPic" /></div>
+            <div class="intro">
+                <p class="teacher-name">{{course.teacherName}}</p>
+                <p class="teacher-intro">{{course.teacherIntro}}</p>
+            </div>
+          </div>
+      </div>
+      <!-- PPT课件 -->
+      <div class="module" *ngIf="!singleVideo">
+          <h1 class="title">课件</h1>
+          <!-- 课件图片列表 -->
+          <ul class="ppt-list">
+            <li *ngFor="let ppt of course.pptList"><img [src]="filePath+ppt" /></li>
+          </ul>
+      </div>
+    </div>
+    <!-- 选集区域 -->
+    <div class="panel list" [hidden]="mode!=1">
+      <ul class="course-list">
+        <li *ngFor="let item of courseList; let i=index" (tap)="onCourseTap(item, i)">
+          <span class="line"></span>
+          <span class="icon"></span>
+          <p class="lesson">{{item.sourceName}}</p>
+          <a class="play" [hidden]="currentIndex==i"></a>
+          <a class="current" [hidden]="currentIndex!=i"></a>
+        </li>
+      </ul>
+    </div>
+    <!-- PPT区域 -->
+    <div class="panel ppt" [hidden]="mode!=3">
+      <div class="module" *ngIf="singleVideo">
+          <ul class="ppt-list">
+            <li *ngFor="let ppt of course.pptList"><img [src]="filePath+ppt" /></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer no-border *ngIf="!singleVideo && bookInfo.isBuy!=1">
+  <ion-toolbar>
+    <a class="btn-buy" (tap)="onBuyTap()">{{bookInfo.price<=0 ? '免费获取' : '购买课程 ¥ '+(bookInfo.price/100).toFixed(2)}}</a>
+  </ion-toolbar>
+</ion-footer>

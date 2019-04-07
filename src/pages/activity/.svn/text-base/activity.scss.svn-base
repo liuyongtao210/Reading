@@ -1,0 +1,93 @@
+page-activity {
+    .toolbar-title-md{
+        padding-right: 56px !important;
+    }
+    .specila_share{
+      background: url('../assets/imgs/mine/specila_share.png') no-repeat center;
+      background-size:29px auto;
+      width: 40px;
+      height: 20px;
+  }
+  .special_all{
+      padding: 17px 15px 15px 15px;
+      overflow: hidden;
+      box-sizing: border-box;
+  }
+  .special_frame{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 13px;
+      box-shadow: 0 3px 9px #d8d8d8;
+      border-radius: 8px;
+      overflow: hidden;
+  }
+  .special_frame:last-child{
+      margin-bottom: 0;
+  }
+  .special_frame img{
+      width: 100%;
+      border-radius: 8px;
+  }
+  .special_list{
+      width: 50%;
+  }
+  .special_li{
+      margin-right: 8px;
+      overflow: hidden;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+  .special_li img{
+      width: 100%;
+      border-radius: 5px;
+  }
+  .special_li p{
+      color: #333;
+      font-size: 14px;
+      line-height: 20px;
+      height: 20px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      text-align: center;
+      -webkit-box-orient: vertical;
+  }
+  .scroll-content{
+      background-color: #f6f6f6;
+  }
+  .p-nomore{
+    text-align: center;
+    padding-bottom: 20px;
+    color: #999999;
+    margin: 0;
+    font-size: 12px;
+}
+.no_data_show{
+    padding-top: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.no_data_img{
+    background:url('../assets/imgs/teacher/no_data_img.png') no-repeat top center;
+    background-size:175px 134px;
+    width: 175px;
+    height: 134px;
+}
+.no_data_txt{
+    padding-top: 32px;
+    font-size: 16px;
+    color: #999999;
+    width: 100%;
+    text-align: center;
+}
+
+}

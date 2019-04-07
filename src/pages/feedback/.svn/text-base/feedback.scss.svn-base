@@ -1,0 +1,27 @@
+page-feedback {
+    .scroll-content{
+        height: 100%;
+        overflow: hidden;
+    }
+    .submit{
+        .button-inner{
+            font-size: 16px;
+            color: #fe4747;
+        }
+    }
+    h1{
+        font-size: 16px;
+        color: #333333;
+        margin: 0 0 10px 0 !important;
+    }
+    .my-textarea{
+        width: 100%;
+        height: 41vw;
+        resize: none;
+        background: none;
+        border: none;
+        border-bottom: solid 1px #ebebeb;
+        outline: none;
+        font-size: 14px;
+    }
+}

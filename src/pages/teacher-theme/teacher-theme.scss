@@ -1,0 +1,126 @@
+page-teacher-theme {
+    .toolbar-title-md{
+        padding-right: 56px !important;
+    }
+   .teacher_theme_pad{
+       padding: 0 15px;
+       background-color: #ffffff;
+   }
+   .teacher_theme_frame{
+       padding-top: 15px;
+   }
+   .teacher_theme_list{
+       border-radius: 10px;
+       box-shadow: 0 3px 15px #e8e8e8;
+       display: flex;
+       justify-content:flex-start;
+       align-items: flex-start;
+       flex-direction: column;
+       padding: 15px;
+   }
+   .teacher_theme_liT{
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       width: 100%;
+       padding-bottom: 15px;
+       
+   }
+   .teacher_theme_liT_img{
+       height: 53px;
+       width: 53px;
+       border-radius: 50%;
+       position: relative;
+       background-color: #dedede;
+       overflow: hidden;
+       
+   }
+   .teacher_theme_liT_img img{
+       width: 49px;
+       height: 49px;
+       position: absolute;
+       left: 50%;
+       top: 50%;
+       border-radius: 50%;
+       transform: translate(-50%,-50%);
+   }
+   .teacher_theme_liMiddle{
+       padding: 0 10px;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       flex: 1;
+   }
+   .teacher_theme_liMiddleL{
+       background: url('../assets/imgs/teacher/teacher_theme_liMiddleL.png') no-repeat right center;
+       background-size:1px 10px;
+       width: 45%;
+       box-sizing: border-box;
+       text-align: left;
+       font-size: 18px;
+       color: #333;
+       font-weight: 700;
+       overflow: hidden;
+       text-overflow:ellipsis;
+       white-space: nowrap;
+       padding-right: 13px;
+   }
+   .teacher_theme_liMiddleR{
+       flex: 1;
+       text-align: center;
+       font-size: 13px;
+       color: #333;
+   }
+   .teacher_theme_liRight{
+       height: 30px;
+       line-height: 30px;
+       width: 70px;
+       border-radius: 15px;
+       border: 1px solid #bebebe;
+       color: #666;
+       font-size: 15px;
+       text-align: center;
+   }
+   .teacher_theme_liRight.no-border{
+       border: none;
+       pointer-events: none;
+   }
+   .teacher_theme_liB{
+       display: -webkit-box;
+       -webkit-box-orient: vertical;
+       -webkit-line-clamp: 2;
+       overflow: hidden;
+       line-height: 25px;
+       color: #333;
+       font-size: 14px;
+   }
+    .p-nomore{
+    text-align: center;
+    padding: 20px 0;
+    color: #999999;
+    margin: 0;
+    font-size: 12px;
+    width: 100%;
+}
+.no_data_show{
+    padding-top: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.no_data_img{
+    background:url('../assets/imgs/teacher/no_data_img.png') no-repeat top center;
+    background-size:175px 134px;
+    width: 175px;
+    height: 134px;
+}
+.no_data_txt{
+    padding-top: 32px;
+    font-size: 16px;
+    color: #999999;
+    width: 100%;
+    text-align: center;
+}
+}

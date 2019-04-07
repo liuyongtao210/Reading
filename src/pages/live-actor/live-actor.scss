@@ -1,0 +1,613 @@
+page-live-actor {
+    @import "theme/or_panel";
+    background: none; 
+    .toolbar-background{
+        background-color: #ffffff !important;
+    }
+    .toolbar-ios {
+        min-height: 44px !important;
+    }
+    .toolbar-md {
+        min-height: 44px !important;
+    }
+    .fixed-content {
+        margin-bottom: 0 !important;
+    }
+    .scroll-content {
+        margin-bottom: 0 !important;
+        overflow: hidden !important;
+        /*ios能够上下拖动整个页面问题*/
+    }
+    .toolbar-content{
+        padding-right:44px;
+    }
+    .backButton{
+        width: 36px;
+        height: 36px;
+        background: url('../assets/imgs/icon-back.png') no-repeat center center;
+        background-size:12.5px 21px;
+    }
+    .back-button{
+        height: 36px;
+    }
+    .eVisible {
+        position: relative;
+        visibility: visible !important;
+    }
+    .streamVideoContent {
+        position: relative;
+        width: 100%;
+        margin: auto;
+    }
+    .barrageArea{
+        position: absolute;
+        top: 60%;
+        bottom: 0;
+        width: 75%;
+        overflow: hidden;
+    }
+    .barrage_video{
+        position: relative;
+        width: 80%;
+        margin: 3px 0 3px 10px;
+    }
+    .barrage_videoStyle{
+        display: inline-block;
+        line-height: 21px;
+        background-color: rgba(85,85,85,0.7);
+        border-radius: 22px;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        font-size: 11px;
+        color: #FFFFFF;
+        padding-top: 2px;
+        padding-left: 11px;
+        padding-right: 11px;
+        
+    }
+    .barrage_video_studentStyle{
+        color: #FFFFFF;
+        
+    }
+    .barrage_video .barrage_video_teacherStyle{
+        padding-left: 31px;
+        color: #f8673b;
+    }
+    .barrage_video .barrage_video_teacherStyle img{
+        position: absolute;
+        top: -1px;
+        left: 0;
+        width: 26px;
+        height: 26px;
+        border: 1px solid #FFFFFF;
+        border-radius: 30px;  
+    }
+    .videoTop {
+        position: absolute;
+        width: 100%;
+        height: 30px;
+        top: 5px;
+        left: 0;
+        background-color: transparent;
+    }
+    .videoLeft {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 30px;
+        display: inline-block;
+        margin-left: 3.33%;
+    }
+    .videoLeft_pic {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        border: 2px solid #FFFFFF;
+        border-radius: 80px;
+        float: left;
+    }
+    .videoLeft_img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 80px;
+    }
+    .videoLeft_img_icon {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 7px;
+        height: 7px;
+        display: block;
+        background-color: #64c757;
+        border: 1px solid #FFFFFF;
+        border-radius: 20px;
+    }
+    .videoLeft_name {
+        position: relative;
+        line-height: 30px;
+        height: 30px;
+        font-size: 12px;
+        color: #4fc5ce;
+        display: inline-block;
+        float: left;
+        margin-left: 8px;
+    }
+    .videoRight {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 30px;
+        display: inline-block;
+        margin-right: 3.33%;
+        line-height: 30px;
+        font-size: 12px;
+        color: #63351D;
+    }
+    .clock_hour {
+        position: relative;
+        display: inline-block;
+        width: 24px;
+        height: 23px;
+//      background: url('../assets/imgs/clockBg_2.png')no-repeat center center;
+//      background-size: 100%;
+        background-color: rgba(0,0,0,0.6);
+        font-size: 15px;
+        color: #FFFFFF;
+        line-height: 24px;
+        text-align: center;
+        border-radius: 4px;
+    }
+    .clock_minute {
+        position: relative;
+        display: inline-block;
+        width: 24px;
+        height: 23px;
+//      background: url('../assets/imgs/clockBg_1.png')no-repeat center center;
+//      background-size: 100%;
+        background-color: rgba(0,0,0,0.6);
+        font-size: 15px;
+        color: #FFFFFF;
+        line-height: 24px;
+        text-align: center;
+        border-radius: 4px;
+    }
+    .clock_second {
+        position: relative;
+        display: inline-block;
+        width: 24px;
+        height: 23px;
+//      background: url('../assets/imgs/clockBg_2.png')no-repeat center center;
+//      background-size: 100%;
+        background-color: rgba(0,0,0,0.6);
+        font-size: 15px;
+        color: #FFFFFF;
+        line-height: 24px;
+        text-align: center;
+        border-radius: 4px;
+    }
+    .liveBox {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 50px;
+        background-color: #f8f5f4;
+        overflow: hidden;
+    }
+    .liveBox_tags {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        text-align: center;
+        font-size: 17px;
+        color: #888888;
+        background-color: #FFFFFF;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-around;
+    }
+    .tagLine{
+       position: relative;
+       display: inline-block;
+       height: 41px;
+       box-sizing: border-box;
+       -webkit-box-sizing: border-box;
+    }
+    .liveBox_tags_info {
+        position: relative;
+        width: calc(100% / 3);
+        height: 45px;
+        display: inline-block;
+        line-height: 45px;
+        background-color: #FFFFFF;
+    }
+    .liveBox_tags_ppt {
+        position: relative;
+        width: calc(100% / 3);
+        height: 45px;
+        display: inline-block;
+        line-height: 45px;
+        background-color: #FFFFFF;
+    }
+    .liveBox_tags_barrage {
+        position: relative;
+        width: calc(100% / 3);
+        height: 45px;
+        display: inline-block;
+        line-height: 45px;
+        background-color: #FFFFFF;
+    }
+    .tagActivity {
+        color: #333333;
+        font-size: 17px;
+    }
+    .tagActivity .tagLine{
+//      border-bottom: 4px solid #333333;
+    }
+    .slide_line{
+        position: absolute;
+        bottom: 0;
+        width: 36px;
+        border-radius: 4px;
+        left: 0;
+        height: 4px;
+        background-color: #333333;
+        transform:translate(0,0);
+        transition:transform 0.3s;
+        -webkit-transition: transform 0.3s;
+    }
+    .img-canvas {
+        position: absolute;
+        top: 41px;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: calc(100% - 41px);
+        z-index: 999;
+        text-align: center;
+        visibility: visible;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    #pptImg {
+        position: relative;
+        height: 100%;
+        width: auto;
+        flex-shrink: 0;
+    }
+    .pptImg_2 {
+        height: auto !important;
+        width: 100% !important;
+    }
+    .barrage {
+        position: absolute;
+        top: 41px;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: calc(100% - 41px);
+        z-index: 999;
+        overflow: auto;
+        visibility: hidden;
+        padding-bottom: 40px;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+    }
+    .barrage_p {
+        position: relative;
+        margin: 8px 13px;
+        padding-left: 48px;
+        padding-right: 48px;
+        min-height:40px;
+    }
+    .barrage_imgBox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        background: url('../assets/imgs/live/default_photo.png')no-repeat center center;
+        background-size: 100%;
+        overflow: hidden;
+    }
+    .barrage_imgBox img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 40px;
+    }
+    .barrage_arrow {
+        position: absolute;
+        display: inline-block;
+        width: 5px;
+        height: 9px;
+        top: 15px;
+        left: 48px;
+        background: url('../assets/imgs/live/message_icon1.png')no-repeat center center;
+        background-size:  100% 100%;;
+    }
+    .barrage_content {
+        position: relative;
+        display: inline-block;
+        line-height: 24px;
+        background-color: #FFFFFF;
+        padding: 8px 9px 8px 9px;
+        font-size: 12px;
+        color: #333333;
+        border: 1px solid rgba(190,190,190,0.2);
+        border-radius: 6px;
+        max-width: 90%;
+        margin-left: 4px;
+        margin-right: 4px;
+        min-height: 40px;
+        min-width: 40px;
+    }
+    .studentStyle {
+        overflow: hidden;
+    }
+    .studentStyle .barrage_imgBox{
+        right: 0;
+        left: auto;
+    }
+    .studentStyle .barrage_arrow {
+        right: 48px;
+        left: auto;
+        background: url('../assets/imgs/live/message_icon3.png')no-repeat center center;
+        background-size: 100% 100%;
+    }
+    .studentStyle .barrage_content {
+        float: right;
+        right: 0;
+//      background-color: #f8673b;
+//      color: #FFFFFF;
+    }
+    .teacherStyle {
+        overflow: hidden;
+    }
+    .teacherStyle .barrage_imgBox{
+        margin-top: 5px;
+    }
+    .teacherStyle .teacherTitle{
+        color: #666666;
+        font-size: 12px;
+        margin-bottom: 1px;
+    }
+    .teacherStyle .teacherTitle span{
+        position: relative;
+        display: inline-block;
+        line-height: 14px;
+        border: 1px solid #bfa155;
+        border-radius: 4px;
+        color: #bfa155;
+        font-size: 12px;
+        transform: scale(0.75);
+        padding: 3px;        
+    }
+    .teacherStyle .barrage_arrow {
+        top: 30px;
+    }
+    .teacherStyle .barrage_content {
+        float: left;
+    }
+    .inputArea {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        padding: 7px 58px 9px 47px;
+        background-color: #FFFFFF;
+        border-top: 1px solid #F8F8F8;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+    }
+    .requestActor {
+        position: absolute;
+        top: 11px;
+        left: 0;
+        width: 47px;
+        height: 25px;
+        background: url('../assets/imgs/live/inputArea_requestActor_icon.png')no-repeat center center;
+        background-size: 21px 21px;
+        border-right: 1px solid #EBEBEB;
+    }
+    .sendEmot {
+        position: absolute;
+        top: 11px;
+        left: 0;
+        width: 47px;
+        height: 25px;
+        background: url('../assets/imgs/live/emoj_icon.png')no-repeat center center;
+        background-size: 21px 21px;
+        border-right: 1px solid #EBEBEB;
+    }
+    .sentInput {
+        position: relative;
+        width: 100%;
+        height: 34px;
+        line-height: 34px;
+        border: none;
+//      border-radius: 8px;
+        background-color: #FFFFFF;
+        color: #666666;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .sendButton {
+        position: absolute;
+        top: 7px;
+        right: 0px;
+        min-width: 58px;
+        height: 35px;
+        text-align: center;
+        line-height: 35px;
+        background-color: #FFFFFF;
+        font-size: 14px;
+        color: #f8673b;
+        border-left: 1px solid #EBEBEB;
+    }
+    .sendButton:before {
+        top: 6px;
+        opacity: 1;
+    }
+    .sendButton:active {
+        top: 7px;
+        opacity: 0.8;
+    }
+    .voicePanel {
+        position: absolute;
+        top: 30%;
+        z-index: 1001;
+    }
+    .voicePanel_content {
+        position: relative;
+        width: 100%;
+        text-align: center;
+    }
+    .voicePanel_content_button {
+        width: 60px;
+        height: 60px;
+    }
+    .liveRoomInfoPanel{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: #000000;
+        color: #FFFFFF;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        font-size: 14px;
+    }
+    .courseInfo{
+        position: relative;
+        top: 2px;
+        width: 100%;
+//      height: 100%;
+        height: calc(100% - 45px);
+        z-index: 999;
+        overflow: auto;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        background-color: #FFFFFF;
+        p{
+            margin: 0;
+        }
+        .teacherInfoBox{
+            position: relative;
+            width: 100%;
+            height: 37px;
+            padding-top: 10px;
+            margin-bottom: 13px;
+            line-height: 0;
+            overflow: hidden;
+            .teacherInfoBox_img{
+                position: relative;
+                width: 27px;
+                height: 27px;
+                border-radius: 27px;
+                float: left;
+                margin-right: 13px;
+            }
+            .teacherInfoBox_name{
+                position: relative;
+                line-height: 27px;
+                float: left;
+            }
+        }
+    }
+    .courseInfoPanel{
+        .courseInfo_img{
+            position: absolute;
+            width: auto;
+            height: 100%;
+            max-width: none;
+            top: 0;
+            margin: auto;
+            line-height: 0;
+        }
+        .courseInfo_Time {
+            position: relative;
+            font-size: 13px;
+            color: #FFFFFF;
+        }
+        .appointmentButton {
+            position: relative;
+//          width: 80px;
+            min-width: 80px;
+            height: 27px;
+            border: 1px solid #ffffff;
+            font-size: 13px;
+            color: #FFFFFF;
+            background: transparent;
+            border-radius: 5px;
+        }
+    }
+    .liveSkeletonScreen_box{
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        .liveSkeletonScreen_videoBox{
+            position: relative;
+            width: 100%;
+            height: 100vw*3/4;
+            background-color: #333333;  
+        }
+        .liveSkeletonScreen_liveBox{
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-color: #FFFFFF;  
+            .liveSkeletonScreen_liveBox_header{
+                position: relative;
+                width: 100%;
+                height: 45px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                .liveSkeletonScreen_liveBox_menu{
+                    position: relative;
+                    width: 50%;
+                    height: 45px;
+                    line-height: 45px;
+                    float: left;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    span{
+                        display: inline-block;
+                        width: 50%;
+                        height: 16px;
+                        background-color:#f0f0f0;
+                    }
+                }
+            }
+            .liveSkeletonScreen_liveBox_content{
+                position: relative;
+                width: 100%;
+                padding: 10px;
+                .liveSkeletonScreen_liveBox_content_title{
+                    
+                }
+                p{
+                    position: relative;
+                    display: block;
+                    width: 20%;
+                    height: 16px;
+                    background-color:#f0f0f0;
+                }
+            }
+        }
+    }
+}

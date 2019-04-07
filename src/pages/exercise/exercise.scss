@@ -1,0 +1,182 @@
+page-exercise {
+
+
+
+//页面初始化的一些样式 start 
+
+
+.toolbar-background{
+    background: transparent !important;
+    border: none !important;
+}
+
+   .back-button-icon:before{//返回按钮的默认内容 背景 文本等
+       content: '';
+    }
+    .back-button-ios,.back-button-md{//设置返回按钮的位置样式等
+        position: absolute;
+        left: 10px;
+//      top:20px;
+        font-size: 19px;
+        font-weight: normal;
+        margin: 0;
+        min-width: auto;
+        min-height: auto;
+    }
+   .back-button{//设置返回按钮的背景图
+        width: 12px;
+        height: 20px;
+        background: url(../assets/imgs/read/back_black.png) center center no-repeat;
+        background-size:12px 20px;
+        z-index: 10 ;
+    }
+    .daan .back-button{
+        width: 17px;
+        height: 17px;
+        background: url(../assets/imgs/read/close_btn.png) center center no-repeat !important;
+        background-size:17px 17px !important;
+    }
+    .back-button-text{//返回按钮的文本
+       display: none;
+    }
+    .toolbar{
+//      min-height: 60px !important;
+    }
+    .scroll-content{
+        padding: 0 !important;
+    }
+    
+//页面初始化的一些样式 end
+
+.my-slide{
+    width: 90%;
+    margin: 0 auto;
+}
+ion-slide{
+    padding-right: 5px;
+}
+
+
+
+.answer_list{
+    min-height: 50px;
+    border: 1px solid #333333;
+    margin-top: 22px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    text-align:left;
+    img{
+        width: 120px;
+        height: 120px;
+    }
+}
+.answer_list div{
+    width: 100%;
+}
+.correct_answer{
+    color: #ffffff;
+    border:none;
+    background: #a4d402;
+}
+.error_answer{
+    color: #ffffff;
+     border:none;
+     background: #fe4743;
+}
+.exer_result{
+//  position: fixed;
+    background: #ffffff;
+    border-top: 1px solid #ebebeb;
+}
+.result_con{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.close_result{
+    font-size: 30px;
+//  margin-left: 150px;
+}
+.e_conte{
+    border-top: 1px solid #ebebeb;
+}
+.cur_num{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+     margin-top: 18px;
+    margin-bottom:62px;
+}
+.cur_num span{
+    color: #fe4743;
+}
+.qu_t{
+    color: #333333;
+    font-size: 15px;
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+.anwser_num{
+    text-align: center;
+    font-size: 18px;
+     margin-top: 40px;
+}
+.correct_num{
+    color: #1fc40f;
+    margin-right: 25px;
+   
+}
+.error_num{
+    color: #d81d4a;
+}
+.check_btn{
+    color: #fefefe;
+    font-size: 18px;
+    background: #f5bb0a;
+    width: 142px;
+    height: 53px;
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-top: 98px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(../assets/imgs/read/check_btn_bg.png) center center no-repeat ;
+    background-size:100% 100% ;
+}
+.close_btn{
+    width: 17px;
+    height: 17px;
+    margin-top: 30px;
+    margin-left: 15px;
+}
+
+.answer_result_icon{
+    width: 282px;
+    height: 139px;
+    margin: 0 auto;
+}
+.answer_asd{
+     width: 282px;
+     margin: 0 auto;
+     display: flex;
+     margin-top: 20px;
+}
+.answer_c,.answer_d{
+    width: 50%;
+    text-align: center;
+    font-size: 30px;
+}
+.answer_c{
+    color: #fe4743;
+}
+.answer_d{
+    color: #aed629;
+}
+}

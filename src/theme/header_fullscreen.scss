@@ -1,0 +1,31 @@
+.toolbar-ios {
+    min-height: 44px !important;
+}
+
+.toolbar-md {
+    min-height: 44px;
+    height: 44px !important;
+    padding: 0;
+}
+
+.toolbar-background {
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 1) calc(100% - 45px), rgba(0, 0, 0, 0) calc(100% - 44px)) !important;
+    background: linear-gradient(rgba(0, 0, 0, 1) 0, rgba(0, 0, 0, 1) calc(100% - 44px), rgba(0, 0, 0, 0) calc(100% - 44px)) !important;
+}
+
+.fixed-content {
+    //      margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.scroll-content {
+    //      margin-top: 0 !important;
+    margin-bottom: 0 !important;
+//  overflow: hidden !important;
+    /*ios能够上下拖动整个页面问题*/
+    top: -44px;
+}
+ion-refresher{
+    top: 0 !important;
+}
+

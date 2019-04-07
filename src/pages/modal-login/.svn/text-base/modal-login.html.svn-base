@@ -1,0 +1,126 @@
+<ion-header no-border>
+	<ion-navbar [hidden]="loginPanelMode==0">
+		<ion-buttons left>
+			<button ion-button icon-only class="btn-back" [class.light]="loginPanelMode!=0" (tap)="closeLogin()"></button>
+		</ion-buttons>
+		<ion-title></ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content fullscreen>
+	<!--登录-->
+	<div class="loginPanelBox">
+		<!-- 登录开始界面 -->
+		<div class="loginPanel start" *ngIf="loginPanelMode==0">
+			<div class="login_logoBox">
+				<img class="login_logoBox_img" src="assets/imgs/login/login-logo.png" />
+			</div>
+			<div class="loginButtonGroup">
+				<button class="loginButton accountLoginButton" ion-button full outline color="theme" (tap)="setLoginMode(1)">
+					<img class="buttonIcon" src="assets/imgs/login/login-icon-user.png">账号登录
+				</button>
+				<button class="loginButton wxLoginButton" ion-button full color="theme" (tap)="goWxLogin()">
+					<img class="buttonIcon" src="assets/imgs/login/login-icon-wx.png">微信登录
+				</button>
+			</div>
+		</div>
+		<!-- 登录表单界面 -->
+		<div class="loginPanel form" *ngIf="loginPanelMode==1">
+			<!-- 账号登录tab栏 -->
+			<div class="loginPanel_tabs">
+				<a [class.tabActive]="loginType==0" (tap)="loginTypeChange(0)">短信登录</a>
+				<span class="line"></span>
+				<a [class.tabActive]="loginType==1" (tap)="loginTypeChange(1)">账号登录</a>
+			</div>
+			<!--短信登录-->
+			<div class="loginInputGroup" *ngIf="loginType==0">
+				<ion-item>
+					<ion-input type="tel" maxLength='11' placeholder="请输入手机号" [(ngModel)]="userPhone" (ionChange)="onInput($event)"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-input type="tel" placeholder="请输入验证码" [(ngModel)]="phoneCode"></ion-input>
+					<button class="sendMessageButton" *ngIf="!isCodeSend" ion-button color="theme" (tap)="sendMessage()" small round item-end>发送验证码</button>
+					<button class="sendMessageButton" *ngIf="isCodeSend" ion-button color="theme" small round item-end>已发送({{timeCount}}s)</button>
+				</ion-item>
+			</div>
+			<!--账号登录-->
+			<div class="loginInputGroup" *ngIf="loginType==1">
+				<ion-item>
+					<ion-input type="tel" maxLength='11' placeholder="请输入用户名" [(ngModel)]="userPhone" (ionChange)="onInput($event)"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-input type="password" placeholder="请输入密码" [(ngModel)]="password"></ion-input>
+				</ion-item>
+			</div>
+			<div class="loginBottom">
+				<button [class.disable]="notinput" ion-button full color="theme" (tap)="goLogin()">登录</button>
+				<button class="smallButton" [hidden]="loginType!=1" ion-button outline small (tap)="setLoginMode(3)">忘记密码</button>
+			</div>
+		</div>
+		<!--注册-->
+		<div class="loginPanel form" *ngIf="loginPanelMode==2">
+			<!-- 账号登录tab栏 -->
+			<div class="loginPanel_tabs">
+				<a class="tabActive">注册</a>
+			</div>
+			<div class="loginInputGroup">
+				<ion-item>
+					<ion-input type="tel" maxLength='11' placeholder="请输入手机号" [(ngModel)]="userPhone"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-input type="tel" placeholder="请输入验证码" [(ngModel)]="phoneCode"></ion-input>
+					<button class="sendMessageButton" *ngIf="!isCodeSend" ion-button color="theme" (tap)="sendMessage()" small round item-end>发送验证码</button>
+					<button class="sendMessageButton" *ngIf="isCodeSend" ion-button color="theme" small round item-end>已发送&nbsp;&nbsp;({{timeCount}}&nbsp;s)</button>
+				</ion-item>
+				<ion-item>
+					<ion-input type="password" placeholder="请输入密码" [(ngModel)]="password_register"></ion-input> 
+				</ion-item>
+			</div>
+			<div class="loginBottom">
+				<button ion-button full color="theme" (tap)="goRegist(0)">注册</button>
+			</div>
+		</div>
+		<!--忘记密码-->
+		<div class="loginPanel form" *ngIf="loginPanelMode==3">
+			<div class="loginPanel_tabs">
+				<a class="tabActive">找回密码</a>
+			</div>
+			<div class="loginInputGroup">
+				<ion-item>
+					<ion-input type="tel" maxLength='11' placeholder="请输入手机号" [(ngModel)]="userPhone"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-input type="tel" placeholder="请输入验证码" [(ngModel)]="phoneCode"></ion-input>
+					<button class="sendMessageButton" *ngIf="!isCodeSend" ion-button color="theme" (tap)="sendMessage()" small round item-end>发送验证码</button>
+					<button class="sendMessageButton" *ngIf="isCodeSend" ion-button color="theme" small round item-end>已发送&nbsp;&nbsp;({{timeCount}}&nbsp;s)</button>
+				</ion-item>
+				<ion-item>
+					<ion-input type="password" placeholder="请输入新密码" [(ngModel)]="password_new"></ion-input> 
+				</ion-item>
+			</div>
+			<div class="loginBottom">
+				<button ion-button full color="theme" (tap)="goModify()">确定</button>
+				<button class="smallButton" ion-button outline small (tap)="setLoginMode(1)">返回登录</button>
+			</div>
+		</div>
+		<!--绑定手机号-->
+		<div class="loginPanel form" *ngIf="loginPanelMode==4">
+			<div class="loginPanel_tabs">
+				<a class="tabActive">绑定手机号</a>
+			</div>
+			<div class="loginInputGroup">
+				<ion-item>
+					<ion-input type="tel" maxLength='11' placeholder="请输入手机号" [(ngModel)]="userPhone"></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-input type="tel" placeholder="请输入验证码" [(ngModel)]="phoneCode"></ion-input>
+					<button class="sendMessageButton" *ngIf="!isCodeSend" ion-button color="theme" (tap)="sendMessage()" small round item-end>发送验证码</button>
+					<button class="sendMessageButton" *ngIf="isCodeSend" ion-button color="theme" small round item-end>已发送&nbsp;&nbsp;({{timeCount}}&nbsp;s)</button>
+				</ion-item>
+			</div>
+			<div class="loginBottom">
+				<button ion-button full color="theme" (tap)="goRegist(1)">确定绑定</button>
+			</div>
+		</div>
+	</div>
+</ion-content>

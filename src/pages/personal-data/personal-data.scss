@@ -1,0 +1,157 @@
+page-personal-data {
+   .personal_data_pad{
+       background-color: #fff;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       width: 100%;
+       flex-direction: column;
+       box-sizing: border-box;
+       border-top: 10px solid #f3f3f3;
+       padding-left: 18px;
+   }
+   .personal_data_avatar{
+       width: 50px;
+       height: 50px;
+       border-radius: 50%;
+   } 
+   .personalInfoAvatar{
+       width: 50px;
+       height: 50px;
+       border-radius: 50%;
+       vertical-align: top; 
+       
+   }
+   .personalInforight{
+       background: url('../assets/imgs/personal-data/personalInforight.png') no-repeat right center;
+       background-size: 6px auto;
+       width: 26px;
+       height: 26px;
+   }
+   .personal_data_boxL{
+       color: #333;
+       font-size: 15px;
+       flex: 1;
+   }
+   .personal_data_boxL_{
+       width: 80px;
+       text-align: left;
+       color: #333;
+       font-size: 15px;
+   }
+   .personal_data_frame{
+       flex-grow: 1;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       width: 100%;
+       flex-direction: column;
+       padding-top: 20px;
+       padding-left: 50px;
+   }
+   .personal_data_list{
+       margin-top: 20px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       width: 100%;
+   }
+   .personal_data_L{
+       color: #333;
+       font-size: 14px;
+       width: 70px;
+       text-align: left;
+   }
+   .personal_data_R{
+       flex: 1;
+       color: #333;
+       font-size: 14px;
+       min-height: 55px;
+       text-align: right;
+   }
+   .personal_data_R input{
+       border: 0;
+       outline: none;
+       width: 100%;
+       text-align: right;
+       min-height: 55px;
+   }
+   .personalInfo_name{
+        border: 0;
+        width: 100%;
+        text-align: right;
+        min-height: 55px;
+        line-height: 55px;
+        color: #333;
+   }
+   .personal_data_R input:-ms-input-placeholder{
+       color: #999;
+   }
+   //修改原生
+   .item-ios.item-block .item-inner{
+       padding-right: 0;
+       border: none;
+   }
+   .item-md.item-block .item-inner{
+        padding-right: 0;
+        border: none;
+   }
+   .item-multi-picker .label-md{
+       color: #333;
+   }
+   .item-input .label-md, .item-select .label-md, .item-datetime .label-md{
+       color: #333;
+   }
+   .label-ios{
+       margin: 0;
+   }
+   .item-block{
+       min-height: auto;
+       height: 20px;
+   }
+   
+  .multi-picker-text{
+      opacity: 0;
+      display: none;
+  }
+  .datetime-text{
+      opacity: 0;
+      display: none;
+  }
+  .personal_title{
+      color: #fe4743;
+      font-size: 14px;
+      height: 25px;
+      line-height: 25px;
+      padding: 0 10px;
+      border-radius: 5px;
+  }
+  .personal_data_box{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 55px;
+      border-bottom: 1px solid #ebebeb;
+      padding-right: 15px;
+  }
+  .personal_data_box:first-child{
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+   ion-multi-picker{
+      padding: 0!important;
+  }
+  .datetime-ios{
+      padding: 0!important;
+  }
+  .datetime-md{
+       padding: 0!important;
+  }
+  .label-md{
+      margin: 13px 0;
+  }
+  .dis{
+      color: #999999;
+  }
+}

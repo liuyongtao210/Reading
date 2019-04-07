@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>申请规划</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+	  <div class="set_top">
+	  	<div></div>
+	  </div>
+	  <div class="set_form_all">
+	  	 <div class="set_form_list">
+	  	 	 <div class="set_form_liL">姓名：</div>
+	  	 	 <input class="set_form_liR" placeholder="请输入姓名" [(ngModel)]="name" />
+	  	 </div>
+	  	  <div class="set_form_list">
+	  	 	 <div class="set_form_liL">手机号：</div>
+	  	 	 <input class="set_form_liR" type="tel" maxlength="11" [(ngModel)]="phoneNumber" placeholder="请输入手机号" />
+	  	 </div>
+	  </div>
+	  <div class="setBtn">
+	  	 <div (tap)="submit()">提交</div>
+	  </div>
+</ion-content>

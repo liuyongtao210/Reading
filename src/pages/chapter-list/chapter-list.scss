@@ -1,0 +1,344 @@
+page-chapter-list {
+
+
+//页面初始化的一些样式 start 
+
+.scroll-content{
+    margin-top: 0 !important;
+    background: #f5f5f5;
+}
+.toolbar-background{
+    background: transparent !important;
+}
+
+   .back-button-icon:before{//返回按钮的默认内容 背景 文本等
+       content: '';
+    }
+    .back-button-ios,.back-button-md{//设置返回按钮的位置样式等
+//      position: absolute;
+//      left: 10px;
+//      top:20px;
+        font-size: 19px;
+        font-weight: normal;
+        margin: 0;
+        min-width: auto;
+        min-height: auto;
+        margin-left: 5px;
+    }
+   .back-button{//设置返回按钮的背景图
+        width: 29px;
+        height: 29px;
+        background: url(../assets/imgs/read/back_btn_new.png) center center no-repeat;
+        background-size:29px 29px;
+        z-index: 10;
+        margin-left: 22px;
+    }
+    .back-button-text{//返回按钮的文本
+       display: none;
+    }
+    .toolbar{
+//      min-height: 60px !important;
+    }
+    
+//页面初始化的一些样式 end
+
+
+
+.share_content{
+    position: fixed;
+    left: 0;
+    top:0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    background: rgba(0,0,0,0.3);
+    z-index: 10;
+}
+.share_con{
+    width: 280px;
+    height: 280px;
+    background: #ffffff;
+    position: fixed;
+    left: 0;
+    top:0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 11;
+    border-radius: 10px;
+    text-align: center;
+}
+.book_name{
+    margin-top: 30px;
+    margin-bottom: 45px;
+}
+.share_select{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 45px;
+    margin-top: 45px;
+}
+.share_btn{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    font-size: 14px;
+    color: #333333;
+}.share_btn img{
+    width: 42px;
+    height: 42px;
+    margin-bottom: 10px;
+}
+.share_txt{
+    font-size: 18px;
+}
+.share_txt span{
+    color: #dd4c55;
+}
+.book_title{
+    width: 100%;
+    height: 150px;
+    border: 1px solid #999999;
+}
+.book_tab{
+    display: flex;
+    justify-content: center;
+    height: 75px;
+    align-items: center;
+    background: #ffffff;
+    box-shadow: 0 0px 20px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+}
+.chap_list{
+    height: 55px;
+    margin: 0 15px;
+    background: #ffffff;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+.synopsis{
+    margin-right: 145px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.difficulty_1{
+   width: 22px;
+   height: 25px;
+   margin-bottom: 5px;
+}
+.difficulty_2{
+   width: 28px;
+   height: 27px;
+    margin-bottom: 5px;
+}
+.chap_item{
+    display: flex;
+//  justify-content: space-between;
+    align-items: center;
+    color: #333333;
+    font-size: 14px;
+    width: 100%;
+}
+.chap_proc{
+    flex: 1;
+    display: flex;
+//  justify-content: flex-end;
+    align-items: center;
+//  width: 60%;
+    margin-left: 90px;
+    margin-right: 50px;
+    height: 9px;
+    border: 1px solid #67c53b;
+    border-radius: 5px;
+    position: relative;
+    padding: 0 2px;
+}
+.read_process{
+    height: 5px;
+//  width: 50%;
+    border-radius: 5px;
+    background: #67c53b;
+}
+.percentage{
+    position: absolute;
+    color: #4fb233;
+    font-size: 14px;
+    left: 100%;
+    padding-left: 8px;
+}
+
+.t_img{
+    width: 100%;
+    background: rgba(0,0,0,0.05);    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    .book_header_bg{
+        width: 100%;
+        height: 100%;
+    }
+}
+.collection_icon{
+    position: absolute;
+    bottom: 25px;
+    right: 15px;
+    width: 33px;
+    height: 33px;
+}
+.collection_icon img{
+    width: 100%;
+    height: 100%;
+}
+.seriesName{
+    color: #ffffff;
+    font-size: 20px;
+    position: absolute;
+}
+.seriesPic{
+    width: 100%;
+}
+.circle{
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #5bb4ba;
+    margin: 0 13px;
+}
+.complete{
+    position: absolute;
+    right: 30px;
+    width: 16px;
+    height: 16px;
+}
+
+
+//new  start 
+ion-title{
+    padding-right: 0 !important;
+}
+.read_content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: url(../assets/imgs/read/read_content_bg.png) top center no-repeat ;
+}
+.cha_header{
+    height: 168px;
+    border: 1px solid #333333;
+}
+.slides_style{
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+   border-radius: 10px;
+   background: #ffffff;
+}
+.intro_icon{
+    width: 33px;
+    height: 33px;
+    margin-right: 20px;
+}
+.intro_msg{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.slide_content{
+    flex: 1;
+}
+.swiper-container{
+    padding-top: 15px;
+    padding-bottom: 20px; 
+}
+.slide_detail_list{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.chap_list_con{
+    padding: 0 15px;
+     padding-top: 20px;
+    flex: 1;
+    height: 340px;
+    overflow: auto;
+}
+.chap_list_item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 58px;
+    background: #frfffff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 0 14px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+.slide-zoom{
+    height: 100%;
+}
+.chap_title{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 0 15px;
+   padding-top: 25px;
+}
+.t_title{
+    font-size: 24px;
+    color: #333333;
+}
+.succ_pro{
+    font-size: 15px;
+}
+.succ_pro span{
+    color: #fe4743;
+}
+.task_success_icon{
+    width: 23px;
+    height: 23px;
+}
+.cha_point{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+.cha_point span{
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #000000;
+}
+.item_left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.no_chap_img{
+    width: 290px;
+    height: 273px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 56px;
+}
+//new end
+
+}

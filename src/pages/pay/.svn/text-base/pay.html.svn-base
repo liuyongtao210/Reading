@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-navbar>
+      <ion-buttons left>
+        <button ion-button icon-only class="btn-back" (tap)="onClose()"></button>
+      </ion-buttons>
+    <ion-title>确认订单</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  
+  <!-- 产品信息 -->
+  <div class="product" *ngFor="let product of orderDetail.orderList">
+    <div class="cover">
+      <img [src]="product.cusGoodsPic">
+    </div>
+    <div class="content">
+        <h1 class="product-name double-line">{{product.cusGoodsName}}</h1>
+        <h3>订单号：{{orderDetail.orderNumber}}</h3>
+        <h2 class="product-price"><span>¥</span>{{product.price/100}}</h2>
+    </div>
+  </div>
+
+  <!-- 支付模块（安卓） -->
+  <div class="pay-panel" *ngIf="!isIOS" [hidden]="orderDetail.orderStatus!=0">
+    <p class="pay-title">
+      <img src="assets/imgs/pay/line.png">
+      请选择支付方式
+      <img src="assets/imgs/pay/line.png">
+    </p>
+    <div class="pay-mode-list">
+      <div class="pay-mode ali" (tap)="onZfbTap()">
+        <img src="assets/imgs/pay/icon-ali.png">
+        <p>支付宝支付</p>
+      </div>
+      <div class="pay-mode wx" (tap)="onWxTap()">
+        <img src="assets/imgs/pay/icon-wx.png">
+        <p>微信支付</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 支付模块（苹果） -->
+  <div class="pay-panel" *ngIf="isIOS" [hidden]="orderDetail.orderStatus!=0">
+    <a class="btn-tutor" (tap)="onAppleTutorTap()">苹果支付教程</a>
+    <a class="btn-pay" (tap)="onApplyPay()">确定支付</a>
+  </div>
+
+  <!-- 支付已完成 -->
+  <div class="pay-panel" *ngIf="orderDetail.orderStatus==1">
+    <p class="status-text">支付已完成</p>
+  </div>
+
+  <!-- 支付已取消 -->
+  <div class="pay-panel" *ngIf="orderDetail.orderStatus==2">
+    <p class="status-text">订单已取消</p>
+  </div>
+
+</ion-content>   
+
+<!-- 模态苹果支付转发H5支付 -->
+<div class="modal-share-pay" [class.active]="cancelApplePay">
+    <div class="share-box">
+      <p class="tip-title">
+          扫描二维码进行支付
+          <br>
+          或将二维码分享到微信进行支付
+      </p>
+      <qr-code [value]="h5PayUrl" [size]="80" level="M" #myqrcode></qr-code>
+      <p class="pay-title">
+        <img src="assets/imgs/pay/line.png">
+        分享至
+        <img src="assets/imgs/pay/line.png">
+      </p>
+      <div class="pay-mode-list">
+        <div class="pay-mode ali" (tap)="shareToWx(0)">
+          <img src="assets/imgs/pay/icon-wx.png">
+          <p>微信好友</p>
+        </div>
+        <div class="pay-mode wx" (tap)="shareToWx(1)">
+          <img src="assets/imgs/pay/icon-timeline.png">
+          <p>朋友圈</p>
+        </div>
+      </div>
+      <a class="btn-pay" (tap)="onCompletePay()">已完成支付</a>
+      <a class="close" (tap)="onSharePayClose()"></a>
+    </div>
+</div>   

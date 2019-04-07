@@ -1,0 +1,75 @@
+<ion-header no-border>
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	  <div class="mine_pad">
+	  	<div class="mine_box">
+	  		<div class="mine_pad_top">
+			 <div class="mine_pad_topL">
+				<img [src]="avatar" (error)="errFn($event)" (tap)="goPersonalData()"/>
+			 </div>
+	  	 	 <div class="mine_pad_topR">{{isLogin ? name : '未登录'}}</div>
+	  	 	 <div class="punchCard_box" (tap)="goPunchCard()">
+	  	 	 	   <div class="punchCard_box_icon">{{isPunchCard ? '已打卡' : '打卡'}}</div>
+	  	 	 </div>
+	  	 </div>
+	  	</div>
+	  	 <div class="mine_card_all">
+	  	 	  <div class="mine_card_list" (tap)="goMyInvite()">
+	  	 	  	<div class="mine_card_liLTop"></div>
+	  	 	  	<div class="mine_card_liLBot">我的邀请</div>
+	  	 	  </div>
+	  	 	  <div class="mine_card_list" (tap)="callNow_()">
+	  	 	  	<div class="mine_card_liRTop"></div>
+	  	 	  	<div class="mine_card_liLBot">在线客服</div>
+	  	 	  </div>
+	  	 </div>
+	  </div>
+	 <!--未登录啥的在这-->
+	 <div class="mine_content_all">
+	 	 <div class="mine_content_frame">
+	 	 	 <div class="mine_content_list" (tap)="goCollection()">
+	 	 	 	 <div class="mine_content_liL">
+	 	 	 	 	 <div class="star"></div>
+	 	 	 	 </div>
+	 	 	 	 <div class="mine_content_liR">收藏的书籍</div>
+	 	 	 </div>
+	 	 	  <div class="mine_content_list" (tap)="goCoursePaid()">
+	 	 	 	 <div class="mine_content_liL">
+	 	 	 	 	 <div class="buy"></div>
+	 	 	 	 </div>
+	 	 	 	 <div class="mine_content_liR">已购买课程</div>
+	 	 	 </div>
+	 	 	  <div class="mine_content_list" (tap)="goAttention()">
+	 	 	 	 <div class="mine_content_liL">
+	 	 	 	 	 <div class="heart"></div>
+	 	 	 	 </div>
+	 	 	 	 <div class="mine_content_liR">我的关注</div>
+	 	 	 </div>
+	 	 	  <div class="mine_content_list" (tap)="goWordBook()">
+	 	 	 	 <div class="mine_content_liL">
+	 	 	 	 	 <div class="note"></div>
+	 	 	 	 </div>
+	 	 	 	 <div class="mine_content_liR">我的生词本</div>
+	 	 	 </div>
+	 	 	  <div class="mine_content_list" (tap)="goChangePw()">
+	 	 	 	 <div class="mine_content_liL">
+	 	 	 	 	 <div class="clock"></div>
+	 	 	 	 </div>
+	 	 	 	 <div class="mine_content_liR">修改密码</div>
+	 	 	 </div>
+	 	 	 <div class="mine_content_list" (tap)="checkVerson()">
+	 	 	 	 <div class="mine_content_liL">
+	 	 	 	 	 <div class="info"></div>
+	 	 	 	 </div>
+	 	 	 	 <div class="mine_content_liR">版本信息{{versionInfo}}</div>
+	 	 	 </div>
+	 	 </div>
+	 </div>
+	 <div class="mine_exit_pad">
+	 	 <div (tap)="exit()">{{isLogin ? '退出登陆' : '去登录'}}</div>
+	 </div>
+</ion-content>

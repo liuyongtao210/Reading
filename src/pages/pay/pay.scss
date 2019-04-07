@@ -1,0 +1,224 @@
+page-pay {
+    .toolbar-content{
+        padding-right: 44px;
+    }
+    .scroll-content{
+        overflow: hidden;
+    }
+    .btn-back{
+        width: 44px;
+        background: url(../assets/imgs/login/btn-back-dark.png) no-repeat 10px center;
+        background-size: 12px 20px;
+    }
+    .double-line{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .product{
+        height: 36vw;
+        display: flex;
+        background: #ffffff;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 3px 18px rgba(203, 203, 203, 0.38);
+        box-sizing: border-box;
+        padding: 8px 12px;
+        margin-bottom: 20px;
+        .cover{
+            width: 23.6vw;
+            height: 31.6vw;
+            background: #f1f1f1;
+            overflow: hidden;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+        .content{
+            position: relative;
+            h1,h2,h3{
+                margin: 0;
+                padding: 0;
+                line-height: 1em;
+            }
+            .product-name{
+                font-size: 16px;
+                color: #333333;
+                line-height: 1.5em;
+                padding: 0 5px 0 15px;
+                position: relative;
+                top: 10px;
+            }
+            .product-price{
+                font-size: 18px;
+                color: #fe4743;
+                font-family: Arial;
+                padding-left: 15px;
+                position: absolute;
+                left: 0;
+                bottom: 10px;
+                span{
+                    font-size: 12px;
+                    margin-right: 3px;
+                }
+            }
+            h3{
+                font-size: 14px;
+                color: #999999;
+                position: relative;
+                top: 20px;
+                padding-left: 15px;
+            }
+        }
+    }
+
+    .pay-panel{
+        position: fixed;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        .status-text{
+            text-align: center;
+            font-size: 16px;
+            color: #666666;
+            margin: 0;
+            padding: 30px 0;
+        }
+    }
+    .pay-title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        color: #999999;
+        margin: 0;
+        line-height: 1em;
+        img{
+            width: 49px;
+            height: 1px;
+            margin: 0 15px;
+        }
+    }
+    .pay-mode-list{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 20px;
+        .pay-mode{
+            text-align: center;
+            img{
+                width: 45px;
+                height: 45px;   
+            }
+            p{
+                margin: 0;
+                font-size: 14px;
+                color: #333333;
+                line-height: 1em;
+                margin: 20px 0;
+            }
+        }
+    }
+    .btn-tutor{
+        display: block;
+        width: 120px;
+        height: 30px;
+        line-height: 30px;
+        margin: 0 auto;
+        padding-left: 20px;
+        background: url(../assets/imgs/pay/icon-tutor.png) no-repeat 0 center;
+        background-size: 16px 16px;
+        color: #333333;
+        font-size: 14px;
+    }
+    .btn-pay{
+        width: 92vw;
+        height: 50px;
+        line-height: 50px;
+        font-size: 18px;
+        color: #ffffff;
+        border-radius: 50px;
+        text-align: center;
+        display: block;
+        background: #fe4743;
+        margin: 40px auto 15px auto;
+    }
+
+    .modal-share-pay{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity .2s;
+        .share-box{
+            width: 251px;
+            padding-bottom: 15px;
+            background: #ffffff;
+            border-radius: 10px;
+            position: relative;
+            .close{
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                width: 30px;
+                height: 30px;
+                background: url(../assets/imgs/read/close_btn.png) no-repeat center center;
+                background-size: 12px 12px;
+                opacity: 0.6;
+            }
+            .tip-title{
+                margin-bottom: 10px;
+            }
+            qr-code img{
+                display: block;
+                margin: 0 auto 10px auto;
+            }
+            .pay-mode{
+                p{
+                    margin: 6px 0 15px 0;
+                }
+            }
+        }
+        .btn-pay{
+            width: 129px;
+            margin: 10px auto 0 auto;
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+        }
+        .tip-title{
+            margin: 30px 0 20px 0;
+            font-size: 14px;
+            color: #333333;
+            line-height: 1.5em;
+            text-align: center;
+        }
+    }
+    @keyframes box-open {
+        0%{
+            transform: scale(0.5);
+        }
+        60%{
+            transform: scale(1.1);
+        }
+        100%{
+            transform: scale(1);
+        }
+    }
+    .modal-share-pay.active{
+        pointer-events: auto;
+        opacity: 1;
+        .share-box{
+            animation: box-open 0.5s ease-out;
+        }
+    }
+}

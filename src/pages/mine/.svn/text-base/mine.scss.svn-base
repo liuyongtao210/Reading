@@ -1,0 +1,279 @@
+page-mine {
+    .scroll-content{
+        overflow-y: hidden;
+    }
+    .header{
+        .toolbar-background{
+            background: #f66264 !important;
+        }
+    }
+   .mine_pad{
+       background-color: #fff;
+       border-bottom: 1px solid #f5f5f5;
+       min-height: 120px;
+       background: url('../assets/imgs/mine/mine_pad.png') no-repeat center top;
+       background-size: cover;
+       position: relative;
+   }
+   .mine_box{
+       padding: 2px 15px;
+       box-sizing: border-box;
+   }
+   .mine_card_all{
+       position: absolute;
+       width: 100%;
+       height: 85px;
+       bottom: -38px;
+       left: 0;
+       box-sizing: border-box;
+       padding: 0 15px;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       
+   }
+   .mine_pad_top{
+       height: 50px;
+       display: flex;
+       flex-direction: row;
+       align-items: center;
+       justify-content: flex-start;
+       
+   }
+   .mine_pad_topL{
+       box-sizing: border-box;
+       width: 55px;
+       height: 55px;
+       border-radius: 55px;
+       margin-right: 14px;
+       border: solid 1px #ffffff;
+       background: #ffffff;
+       overflow: hidden;
+       img{
+           width: 100%;
+           height: 100%;
+       }
+   }
+   .mine_pad_topR{
+       font-weight: bold;
+       font-size: 20px;
+       flex: 1;
+       font-size: 18px;
+       color: #fff;
+   }
+   .mine_frame{
+       padding: 15px 0;
+       margin: 9px 10px 20px 10px;
+       background-color: #fff;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       flex-direction: column;
+       border-radius: 5px;
+       box-shadow:0 5px 20px #eee;
+   }
+   .mine_frameT{
+       padding-bottom: 20px;
+       font-size: 16px;
+       color: #333;
+   }
+   .mine_frameB{
+       background: url('../assets/imgs/mine/date_bottom_top.png') no-repeat left center;
+       background-size:17px auto;
+       padding-left: 30px;
+       font-size: 16px;
+       color: #d81d4a;
+   }
+   .mine_frameB.dis{
+       color: #999;
+   }
+   .mine_list{
+       height: 50px;
+       line-height: 50px;
+       display: flex;
+       padding: 0 20px 0 0;
+       flex-direction: row;
+       justify-content: space-between;
+       align-items: center;  
+       border-bottom: 1px solid #f3f3f3;
+       margin: 0 0 0 12px;
+   }
+   .mine_list:last-child{
+       border: none;
+   }
+   .mine_listL{
+       font-size: 15px;
+       color: #333;
+       text-align: left;
+   }
+   .mine_listL.top{
+       background: url('../assets/imgs/mine/mine_workBook.png') no-repeat left center;
+       background-size:15.5px auto;
+       padding-left: 30px;
+   }
+   .mine_listL.bot{
+       background: url('../assets/imgs/mine/mine_lock.png') no-repeat left center;
+       background-size:auto 18px; 
+       padding-left: 30px;
+   }
+   .mine_listR{
+       width: 20px;
+       background: url('../assets/imgs/mine/mine_listR.png') no-repeat right center;
+       background-size:auto 8px;
+       height: 50px;
+   }
+   .mine_footer_btn{
+       padding: 20px 0 0 0;
+       overflow: hidden;
+   }
+   .mine_footer_btn>div{
+       height: 45px;
+       line-height: 45px;
+       text-align: center;
+       font-size: 15px;
+       background-color: #fff;
+       color: #d81d4a;
+   }
+   .mine_frame_btns{
+       margin: 0 10px;
+       border-radius: 5px;
+       background-color: #fff;
+       overflow: hidden;
+   }
+   //修改原css
+   .scroll-content{
+       background-color: #fff;
+   }
+   
+   .punchCard_box{
+       box-sizing: border-box;
+       width: 80px;
+       height: 28px;
+       line-height: 28px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       border: 1px solid #fff;
+       border-radius: 80px;
+   }
+   .punchCard_box_icon{
+       height: 28px;
+       background: url('../assets/imgs/mine/punchCard_box_icon.png') no-repeat left 6px;
+       background-size:14px 15px;
+       color: #fff;
+       font-size: 12px;
+       padding-left: 24px;
+       
+   }
+   .mine_card_list{
+       width: 48%;
+       background-color: #fff;
+       border-radius: 10px;
+       box-shadow: 0 2px 3px #f4f4f4;
+       height: 100%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+   }
+   .mine_card_liLTop{
+       background: url('../assets/imgs/mine/mine_card_liLTop.png') no-repeat center;
+       background-size:39px auto;
+       height: 40px;
+       width: 100%;
+       margin-bottom: 5px;
+   }
+   .mine_card_liRTop{
+       background: url('../assets/imgs/mine/mine_card_liRTop.png') no-repeat center;
+       background-size:43px auto;
+       height: 35px;
+       width: 100%;
+       margin-bottom: 4px;
+   }
+   .mine_card_liLBot{
+       font-size: 14px;
+       color: #333;
+       text-align: center;
+   }
+   .mine_content_all{
+       padding: 50px 15px 0 15px;
+       box-sizing: border-box;
+       background-color: #fff;
+   }
+   .mine_content_frame{
+       box-shadow: 0 1px 6px rgba(230, 230, 230, 0.7);
+       border-radius: 10px;
+       background-color: #fefefe;
+       min-height: 80px;
+   }
+   .mine_content_list{
+       min-height: 52px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       padding: 0 20px 0 15px;
+       box-sizing: border-box;
+   }
+   
+   .mine_content_liL{
+      margin-right: 8px; 
+      width: 20px;
+      margin-right: 12px;
+     
+   }
+   .mine_content_liL div{
+      height: 52px;
+      width: 100%;  
+   }
+   .mine_content_liL .star{
+      background: url('../assets/imgs/mine/mine_content_liL.star.png') no-repeat center;
+      background-size:auto 16px;
+   }
+   .mine_content_liL .heart{
+      background: url('../assets/imgs/mine/mine_content_liL.heart.png') no-repeat center;
+      background-size:16px auto;
+   }
+   .mine_content_liL .buy{
+      background: url('../assets/imgs/mine/mine_content_liL.buy.png') no-repeat center;
+      background-size:auto 17px;
+   }
+   .mine_content_liL .note{
+      background: url('../assets/imgs/mine/mine_content_liL.note.png') no-repeat center;
+      background-size:auto 15px;
+   }
+   .mine_content_liL .clock{
+      background: url('../assets/imgs/mine/mine_content_liL.clock.png') no-repeat  center;
+      background-size:auto 18px;
+   }
+   .mine_content_liL .info{
+      background: url('../assets/imgs/mine/mine_content_liL.info.png') no-repeat  center;
+      background-size:auto 15px;
+   }
+   .mine_content_liR{
+       flex: 1;
+       height: 52px;
+       line-height: 52px;
+       border-bottom: 1px solid #ebebeb;
+       color: #333;
+       font-size: 15px;
+       background: url('../assets/imgs/mine/mine_content_liR.png') no-repeat right center;
+       background-size:6px auto;
+       
+   }
+   .mine_content_list:last-child .mine_content_liR{
+       border: none;
+   }
+   .mine_exit_pad{
+      padding: 15px;
+      box-sizing: border-box; 
+   }
+   .mine_exit_pad div{
+      box-shadow: 0 1px 6px rgba(230, 230, 230, 0.7);
+      border-radius: 20px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      font-size: 15px;
+      color: #f64756;
+   }
+}

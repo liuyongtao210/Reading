@@ -1,0 +1,66 @@
+page-special {
+  .specila_share{
+      background: url('../assets/imgs/mine/specila_share.png') no-repeat center;
+      background-size:29px auto;
+      width: 40px;
+      height: 20px;
+  }
+  .special_all{
+      padding: 15px;
+      overflow: hidden;
+      box-sizing: border-box;
+  }
+  .special_frame{
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+  }
+  .special_frame:last-child{
+      margin-bottom: 0;
+  }
+  .special_frame img{
+      width: 100%;
+      border-radius: 4px;
+  }
+  .special_list{
+      width: 50%;
+  }
+  .special_li{
+      margin-right: 8px;
+      overflow: hidden;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+  .special_li img{
+      width: 100%;
+      border-radius: 5px;
+  }
+  .special_li p{
+      color: #333;
+      font-size: 14px;
+      line-height: 20px;
+      height: 20px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      text-align: center;
+      -webkit-box-orient: vertical;
+  }
+  .scroll-content{
+      background-color: #f6f6f6;
+  }
+  .p-nomore{
+    text-align: center;
+    padding-bottom: 20px;
+    color: #999999;
+    margin: 0;
+    font-size: 12px;
+}
+}

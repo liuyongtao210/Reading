@@ -1,0 +1,106 @@
+page-tabs {
+    .tabbar{
+        border-top: 1px solid #EBEBEB !important;
+        background: #ffffff !important;
+    }
+    .tab-button{
+        // height: 49px !important;
+        min-height: 49px !important;
+        background-color: #FFFFFF;
+    }
+    .tab-button-icon {
+        margin-top: 3px !important;
+        margin-bottom: 1px;
+        width: 30px !important;
+        min-width: 30px !important;
+        height: 26px !important;
+        min-height: 26px !important;
+        transform: none !important;
+        transition: none !important;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .indexTabs .tab-button-text {
+        margin-top: 0px !important;
+        font-size: 12px !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    .tab-button:nth-child(1) .tab-button-icon{
+        background-image: url(../assets/imgs/tabs/home.png);
+        background-size: 20px 20px;
+    }
+    .tab-button:nth-child(1)[aria-selected=true] .tab-button-icon{
+        background-image: url(../assets/imgs/tabs/home_2.png);
+    }
+    .tab-button:nth-child(2) .tab-button-icon{
+        background-image: url(../assets/imgs/tabs/read.png);
+        background-size: 22px 21px;
+    }
+    .tab-button:nth-child(2)[aria-selected=true] .tab-button-icon{
+        background-image: url(../assets/imgs/tabs/read_2.png);
+    }
+    .tab-button:nth-child(3) .tab-button-icon{
+        background-image: url(../assets/imgs/tabs/public.png);
+        background-size: 23px 19px;
+    }
+    .tab-button:nth-child(3)[aria-selected=true] .tab-button-icon{
+        background-image: url(../assets/imgs/tabs/public_2.png);
+    }
+    .tab-button:nth-child(4) .tab-button-icon{
+        background-image: url(../assets/imgs/tabs/speciala.png);
+        background-size: 20px 21px;
+    }
+    .tab-button:nth-child(4)[aria-selected=true] .tab-button-icon{
+        background-image: url(../assets/imgs/tabs/speciala_2.png);
+    }
+    .tab-button:nth-child(5) .tab-button-icon{
+        background-image: url(../assets/imgs/tabs/mine.png);
+        background-size: 20px 20px;
+    }
+    .tab-button:nth-child(5)[aria-selected=true] .tab-button-icon{
+        background-image: url(../assets/imgs/tabs/mine_2.png);
+    }
+    .ad-panel{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.75);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        transition: opacity .6s ease;
+        img{
+            width: 100%;
+            transform: scale(1);
+            transition: transform .6s ease;
+        }
+        img.close{
+            transform: scale(0.3);
+        }
+        .btn-close{
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            background: #ffffff url(../assets/imgs/read/close_btn.png) no-repeat center;
+            background-size: 16px 16px;
+            margin-top: 30px;
+        }
+    }
+    .ad-panel.close{
+        opacity: 0;
+    }
+    .ad-panel.tip{
+        justify-content: flex-start;
+        .read-tip{
+            width: 160px;
+            height: 82px;
+            margin-top: 200px;
+        }
+    }
+}

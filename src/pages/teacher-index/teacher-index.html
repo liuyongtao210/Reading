@@ -1,0 +1,96 @@
+<ion-header no-border>
+  <ion-navbar>
+   <ion-buttons left>
+			<button class="back" ion-button left (tap)="backPage()"></button>
+		</ion-buttons>
+		<ion-title></ion-title>
+		<ion-buttons right>
+			<button class="shareIcon" ion-button right (tap)="shareFn_title()"></button>
+		</ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ng-container *ngIf="teacherInfo">
+		<div class="teacherIndex_top">
+	 	 <div class="teacherIndex_top_avatar">
+	 	 	 <img [src]="filePath + teacherInfo.pic" />
+	 	 </div>
+	 	 <div class="teacherIndex_top_info">
+	 	 	 <div class="teacherIndex_top_info_name">{{teacherInfo.teacherName}}</div>
+	 	 	 <div class="teacherIndex_top_info_mid">{{teacherInfo.school}}</div>
+	 	 	 <div class="teacherIndex_top_info_bot">
+	 	 	 	 <div class="teacherIndex_top_info_botL">粉丝 {{teacherInfo.collects}}人</div>
+	 	 	 	 <div class="teacherIndex_top_info_botR" [class.dis]="teacherInfo.subscribe == 1" (tap)="subscribeFn(teacherInfo.subscribe)">
+	 	 	 	 	 <div>{{teacherInfo.subscribe == 1 ? '已关注' : '关注'}}</div>
+	 	 	 	 </div>
+	 	 	 </div>
+	 	 </div>
+	 </div>
+	  <div class="teacherIndex_intro">
+	 	 <div class="teacherIndex_introTxt" [style.display]="isShowAllContent ? '-webkit-box' : 'block'">
+	 	 	{{teacherInfo.intro}}
+	 	 </div>
+	 	 <ng-container *ngIf="teacherInfo.intro && teacherInfo.intro.length >= 100">
+	 	 	<div class="teacherIndex_introbtn" (tap)="isShowAllpage()">{{isShowAllContent ? '全文' :'收起'}}</div>
+	 	 </ng-container>
+	 </div>
+	</ng-container>
+	 <div class="teacherIndex_news">
+	 	 <div class="teacherIndex_news_title">最新动态</div>
+	 	 <!-- <div class="teacherIndex_news_all">
+	 	 	   <div>有故事的书</div>
+	 	 </div> -->
+	 </div>
+	 <div class="teacherIndex_frame">
+	 	<ng-container *ngFor="let teacher of teacherArr;let Index = index">
+	 		<ng-container *ngIf="teacher.type == 1">
+	 	  <div class="teacherIndex_list">
+	 	  	 <div class="teacherIndex_list_top">
+	 	  	 	  <div class="teacherIndex_list_top_left">
+	 	  	 	  	 <div class="teacherIndex_list_top_img"><img [src]="filePath + teacherInfo.pic"></div>
+	 	  	 	  	 <div class="teacherIndex_list_top_name">{{teacherInfo.teacherName}}</div>
+	 	  	 	  </div>
+	 	  	 	  <div class="teacherIndex_list_top_right">{{timestampToTime(teacher.createTime)}}</div>
+	 	  	 </div>
+	 	  	 <div class="teacherIndex_list_top_intro">{{teacher.name}}</div>
+	 	  	 <div class="teacherIndex_list_banner">
+	 	  	 	<ng-container *ngIf="teacher.picsArr && teacher.picsArr.length > 0">
+	 	  	 	 <div class="teacherIndex_list_banner_li" *ngFor="let pics of teacher.picsArr;let IndexPic = index">
+	 	  	 	 	  <div class="teacherIndex_list_banner_li_img">
+	 	  	 	 	  	<img [src]="filePath + pics" /> 
+	 	  	 	 	  </div>
+	 	  	 	 </div>
+	 	  	 	</ng-container>
+	 	  	 </div>
+	 	  	 <div class="teacherIndex_list_like" (tap)="onDyLike(teacher)">
+	 	  	 	  <div class="teacherIndex_list_love">{{teacher.favour}}</div>
+	 	  	 </div>
+	 	  </div>
+	 	  </ng-container>
+	 	  <!--动态模板-->
+	 	  <ng-container *ngIf="teacher.type == 2">
+	 	  <div class="teacherIndex_list">
+	 	  	 <div class="teacherIndex_list_top">
+	 	  	 	  <div class="teacherIndex_list_top_left">
+	 	  	 	  	 <div class="teacherIndex_list_top_img"><img [src]="filePath + teacherInfo.pic"></div>
+	 	  	 	  	 <div class="teacherIndex_list_top_name">{{teacherInfo.teacherName}}</div>
+	 	  	 	  </div>
+	 	  	 	  <div class="teacherIndex_list_top_right">{{timestampToTime(teacher.createTime)}}</div>
+	 	  	 </div>
+	 	  	 <div class="teacher_news_pad">
+	 	  	 	 <div class="teacher_news_frame" (tap)="goArticleDetail(teacher)">
+	 	  	 	 	<img [src]="filePath + teacher.smallPic" [hidden]="teacher.isImgError" (error)="errFn($event,teacher)" />
+	 	  	 	 	<div class="teacher_news_txt" [style.paddingLeft]="teacher.isImgError ? '64px' : '13px'">{{teacher.typename}}</div>
+	 	  	 	 </div>
+	 	  	 </div>
+	 	  	 <div class="teacherIndex_list_like usual">
+	 	  	 	  <div class="teacherIndex_list_read">{{teacher.readings}}人阅读</div>
+	 	  	 	  <div class="teacherIndex_list_love">{{teacher.favour}}</div>
+	 	  	 </div>
+	 	  </div>
+	 	  <!--新闻模板-->
+	 	  </ng-container>
+	 	  	</ng-container>
+	 </div>
+</ion-content>

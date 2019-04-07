@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>意见反馈</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="dark" class="submit" (tap)="onSubmitTap()">提交</button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h1>您的反馈是对我们最大的支持！</h1>
+  <textarea class="my-textarea" maxlength="300" [(ngModel)]="inputContent"
+    placeholder="产品bug、改进意见、英语学习内容、其他意见"></textarea>
+</ion-content>

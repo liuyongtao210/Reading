@@ -1,0 +1,155 @@
+ion-video-player {
+    .myVideoComponentBox {
+        position: relative;
+        overflow: hidden;
+        line-height: 0;
+        .myVideoComponent {
+            position: relative;
+            background-color: #666666;
+            height: 100vw*9/16;
+//          min-height: 100vw*9/16;
+        }
+        .myVideoComponent_buffer{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .spinnerBox {
+                ion-spinner * {
+                    stroke: #fff;
+                    fill: #fff;
+                }
+            }
+        }
+        .myVideoComponent_controlBox {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7));
+            color: #FFFFFF;
+            line-height: 42px;
+            font-size: 12px;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            transform: 'translate(0,0)';
+            .spinnerBox {
+                position: relative;
+                float: left;
+                width: 30px;
+                height: 42px;
+                text-align: center;
+                margin: 0 10px;
+                padding-top: 5px;
+                box-sizing: border-box;
+                ion-spinner {
+                    width: 22px;
+                    height: 22px;
+                }
+                ion-spinner * {
+                    width: 22px;
+                    height: 22px;
+                    stroke: #fff;
+                    fill: #222;
+                }
+            }
+            .playButton {
+                position: relative;
+                width: 42px;
+                height: 42px;
+                margin: 0;
+                background: none;
+                float: left;
+                background: url(../../assets/imgs/course-detail/btn-play.png) no-repeat center center;
+                background-size: 13px 16px;
+            }
+            .playButton.pause{
+                background: url(../../assets/imgs/course-detail/btn-pause.png) no-repeat center center;
+                background-size: 13px 16px;
+            }
+            .btn-fullscreen{
+                width: 42px;
+                height: 42px;
+                margin: 0;
+                background: none;
+                background: url(../../assets/imgs/course-detail/btn-fullscreen.png) no-repeat center center;
+                background-size: 15px 15px;
+            }
+            .btn-fullscreen.exit{
+                background: url(../../assets/imgs/course-detail/btn-fullscreen_.png) no-repeat center center;
+                background-size: 15px 15px;
+            }
+            .progressBarBox{
+                position: relative;
+                flex: 1;
+                height: 42px;
+                .progressBar {
+                    position: relative;
+                    width: 100%;
+                    height: 4px;
+                    background-color: rgba(255,255,255,0.3);
+                    border-radius: 4px;
+                    top: 19px;
+                    float: left;
+                    overflow: hidden;
+                    .progress {
+                        position: absolute;
+                        width: 100%;
+                        top: 0;
+                        background-color: #ffffff;
+                        border-radius: 4px;
+                        height: 4px;
+                        transform: translate(-100%, 0);
+                    }
+                }
+                .progress-ball{
+                    position: absolute;
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 12px;
+                    background-color: #ffffff;
+                    left: -6px;
+                    top: 15px;
+                    pointer-events: none;
+                }
+            }
+            .timeCount {
+                position: relative;
+                float: left;
+                margin: 0 0 0 10px;
+                //              width: 110px;
+                text-align: center;
+            }
+            .fullscreenButton {
+                position: relative;
+                width: 30px;
+                height: 42px;
+                background-color: transparent;
+                float: right;
+                margin: 0 3px;
+                color: #FFFFFF;
+            }
+        }
+    }
+    .videoBoxActive {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10000;
+        width: 100% !important;
+        height: 100% !important;
+        .myVideoComponent {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    } 
+}

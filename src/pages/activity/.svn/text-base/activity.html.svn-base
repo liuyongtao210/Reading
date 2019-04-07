@@ -1,0 +1,27 @@
+<ion-header no-border>
+  <ion-navbar>
+    <ion-title>活动</ion-title>
+  </ion-navbar>
+  
+</ion-header>
+
+<ion-content >
+	<ng-container *ngIf="products.length>0">
+	<div class="special_all">
+			 <div class="special_frame" *ngFor="let product of products;let Index = index" (tap)="goDetail(product)">
+			 	  <img [src]="product.src" />
+			 </div>
+		
+		<ion-infinite-scroll (ionInfinite)="doInfinite($event)" [hidden]="noMoreData">
+			<ion-infinite-scroll-content loadingText="加载中..."></ion-infinite-scroll-content>
+		</ion-infinite-scroll>
+	</div>
+	<p class="p-nomore" [hidden]="!noMoreData"> ~ 更多内容 敬请期待 ~ </p>
+	</ng-container>
+	<ng-container *ngIf="!ajaxrequest">
+		<div class="no_data_show">
+			<div class="no_data_img"></div>
+			<div class="no_data_txt">暂时还没有活动~</div>
+		</div>
+	</ng-container>
+</ion-content>

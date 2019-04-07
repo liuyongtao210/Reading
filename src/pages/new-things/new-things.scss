@@ -1,0 +1,149 @@
+page-new-things {
+//页面初始化的一些样式 start 
+
+   .back-button-icon:before{//返回按钮的默认内容 背景 文本等
+       content: '';
+    }
+    .back-button-ios,.back-button-md{//设置返回按钮的位置样式等
+        position: absolute;
+        left: 10px;
+//      top:20px;
+        font-size: 19px;
+        font-weight: normal;
+        margin: 0;
+        min-width: auto;
+        min-height: auto;
+    }
+   .back-button{//设置返回按钮的背景图
+        width: 12px;
+        height: 20px;
+        background: url(../assets/imgs/read/back_black.png) center center no-repeat;
+        background-size:12px 20px;
+        z-index: 10;
+    }
+    .back-button-text{//返回按钮的文本
+       display: none;
+    }
+    .toolbar{
+//      min-height: 60px !important;
+    }
+    .scroll-content{
+//      margin-top: 105px !important;
+//      background: #f3f3f3;
+//      height: 100% !important;
+//      overflow: hidden;
+//      display: flex;
+//      flex-direction: column;
+    }
+    
+//页面初始化的一些样式 end
+
+
+
+
+.things_content{
+    
+}
+
+.book_list_con{
+    font-size: 14px;
+    color: #fe4743;
+    border: 1px solid #fe4743;
+    width: 71px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+.curStyle{
+    border: none;
+    background: #fe4743;
+    color: #ffffff;
+}
+.tab_list{
+    padding-top: 15px;
+    padding-left: 15px;
+}
+.news_banner{
+    position: relative;
+    margin: 0 15px;
+    height: 200px;
+    border-radius: 15px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+.shadow_bottom{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+.news_title{
+    position: absolute;
+    font-size: 16px;
+    color: #ffffff;
+    left: 15px;
+    bottom: 13px;
+    z-index: 2;
+}
+.banner_img{
+    border-radius: 15px;
+//  height: 200px;
+    width: 100%;
+//  object-fit: contain;
+}
+.news_item{
+    height: 85px;
+    border-radius: 13px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    box-shadow: 0 0 13px rgba(0,0,0,0.1);
+    padding-right: 13px; 
+    margin-bottom: 20px;
+}
+
+.news_tip{
+    font-size: 16px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+     overflow: hidden;
+}
+.news_list{
+    padding: 0 15px;
+    padding-top: 15px;
+}
+.news_icon{
+    width: 95px;
+    height: 100%;
+    object-fit: cover;
+}
+.news_intro{
+    margin-left: 15px;
+    flex: 1;
+    width: 200px;
+}
+.news_read_num{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    align-items: center;
+}
+.news_s1{
+    color: #999999;
+}
+.news_s2{
+    color: #bebebe;
+    display: flex;
+    align-items: center;
+}
+.give_up{
+    width: 15px;
+    height: 12px;
+    margin-right: 10px;
+}
+}

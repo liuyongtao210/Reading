@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>我的邀请</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<div class="myInvite_top_all">
+	 <div class="myInvite_title">
+	 	  <ng-container *ngIf="status == 0">
+	 	    <div class="invite_rule" (tap)="showRule()"></div>
+	 	    <div class="invite_timer">
+	 	    	  <div class="invite_zero_top"></div>
+	 	    	  <div class="invite_zero_middle"></div>
+	 	    </div>
+	 	  </ng-container>
+	 	  <ng-container *ngIf="status == 1 || status == 2 || status == 3">
+	 	  	<div class="invite_status_one">
+	 	    	  <div class="invite_one_top"></div>
+	 	    </div>
+	 	  </ng-container>
+	 	   <div class="invite_green_pad">
+	  	   <div class="invite_green_frame">
+	  	   	  <div class="invite_green_notice">{{inviteNotice}}</div>
+	  	   	  <div class="invite_green_txt">
+	  	   	  	<ng-container *ngIf="invite_greenArr.length > 0">
+	  	   	  	 <div>{{invite_greenArr[status].top}}</div>
+	  	   	  	 <div>{{invite_greenArr[status].bot}}</div>
+	  	   	  	</ng-container>
+	  	   	  </div>
+	  	   </div>
+	     </div>
+	 </div>
+	 </div>
+	 <ng-container *ngIf="status == 0">
+	     	<div class="invite_share">
+	     	  <div class="invite_share_title">
+	     	  	<div class="invite_share_title_txt"></div>
+	     	  </div>
+	     	  <div class="invite_share_pad">
+	     	  	<div class="invite_share_frame">
+	     	  		 <div (tap)="shareFn(0)">
+	     	  		 	  <div class="invite_share_wx" ></div>
+	     	  		 	  <div>微信好友</div>
+	     	  		 </div>
+	     	  		 <div (tap)="shareFn(1)">
+	     	  		 	 <div class="invite_share_friend"></div>
+	     	  		 	  <div>微信朋友圈</div>
+	     	  		 </div>
+	     	  	</div>
+	     	  </div>
+	      </div>
+	     </ng-container>
+	     <ng-container *ngIf="status == 1">
+	     	<div class="invite_share">
+	     	  <div class="invite_share_title">
+	     	  	<div class="invite_share_title_way"></div>
+	     	  </div>
+	     	  <div class="invite_share_pad">
+	     	  	<div class="invite_share_one">
+	     	  		 <div class="invite_share_one_first">稍后工作人员会将电话费充至</div>
+	     	  		 <div class="invite_share_one_second">您{{phoneNumber}}的手机上，请耐心等待。</div>
+	     	  	</div>
+	     	  </div>
+	      </div>
+	     </ng-container>
+	     <ng-container *ngIf="status == 3">
+	     	<div class="invite_share">
+	     	  <div class="invite_share_title">
+	     	  	<div class="invite_share_title_gift"></div>
+	     	  </div>
+	     	  <div class="invite_share_exchange">
+	     	  	<div></div>
+	     	  </div>
+	      </div>
+	     </ng-container>
+	     <div class="invite_friend_all">
+	     	 <div class="invite_friend_pad">
+	     	 	  <div class="invite_friend_title">已邀请12个好友</div>
+	     	 	  <div class="invite_friend_frame">
+	     	 	  	<div class="invite_friend_cont">
+	     	 	  		 <div class="invite_friend_list_top">
+	     	 	  		 	 <div class="invite_friend_list_topL">昵称</div>
+	     	 	  		 	 <div class="invite_friend_list_topR">时间</div>
+	     	 	  		 </div>
+	     	 	  		 <div class="invite_friend_list_all">
+	     	 	  		 	 <div class="invite_friend_list_allL">没数据...</div>
+	     	 	  		 	 <div class="invite_friend_list_allR">2018-10-10 15：00</div>
+	     	 	  		 </div>
+	     	 	  	</div>
+	     	 	  </div>
+	     	 </div>
+	     </div>
+</ion-content>

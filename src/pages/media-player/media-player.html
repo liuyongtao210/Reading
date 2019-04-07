@@ -1,0 +1,29 @@
+
+<!--<ion-content class="player_content">-->
+	<div class="player_content">
+		<div class="player">
+	<!--assets/imgs/read/song.ogg-->
+	<audio class="audio_ele" id="playerAudio" controls [src]="audioSrc"  #wordsAudio 
+		 (ended)="playerOver($event)" 
+		 (loadedmetadata)="loadedmetadata($event)"
+		 (timeupdate)="timeupdate($event)"
+		 (canplay)="oncanplay($event)"
+		 ></audio>
+	
+	<div class="player_btn" (tap)="playerFn()">
+		<img src="assets/imgs/read/word_pause_new.png" alt="" class="play_btn_icon" *ngIf="!isPlay"/>
+		<img src="assets/imgs/read/word_play_new.png" alt="" class="play_btn_icon"  *ngIf="isPlay"/> 
+	</div>
+	<div class="progress_control" (touchmove)="moveFn($event)" (touchend)="endFn($event)" (tap)="tapFn($event)">
+		<div class="progress_box" id="progress_box">
+			<div class="progress_line" [style.width.px]="currentLeft"></div>
+			<div class="progress_yuan_box" (touchstart)="startFn($event)" [style.left.px]="currentLeft-difWidth">
+				<div class="progress_yuan"></div>
+			</div>
+			<div class="progress_time">{{currentTime}}</div>
+		</div>
+	</div>
+</div>
+	</div>
+
+<!--</ion-content>-->

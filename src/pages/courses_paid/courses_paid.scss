@@ -1,0 +1,88 @@
+page-courses_paid {
+    .toolbar-title-md{
+        padding-right: 56px !important;
+    }
+   .courses_paid_all{
+       padding: 0 15px;
+       background-color: #fff;
+   }
+   .courses_paid_frame{
+       margin-top: 15px;
+       border-radius: 10px;
+       background-color: #fff;
+       box-shadow: 0 3px 10px #ededed;
+       padding:15px 12px 13px 12px;
+   }
+   .courses_paid_top{
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       width: 100%;
+       border-bottom: 1px solid #eee;
+       padding-bottom: 15px;
+       margin-bottom: 15px;
+   }
+   .courses_paid_topL{
+       font-size: 14px;
+       color: #999;
+       width: 77%;
+       overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+   }
+   .courses_paid_topR{
+       flex:1;
+       color: #999;
+       font-size: 13px;
+       text-align: right;
+   }
+   .courses_paid_info{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        color: #333;
+        font-size: 14px;
+        line-height: 20px;
+   }
+   .courses_paid_price{
+       display: flex;
+       justify-content: flex-end;
+       align-items: center;
+       width: 100%;
+       padding-top: 10px;
+   }
+   .courses_paid_price div{
+       color: #fe4743;
+       font-size: 15px;
+   }
+   .no_data_show{
+    padding-top: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.no_data_img{
+    background:url('../assets/imgs/teacher/no_data_img.png') no-repeat top center;
+    background-size:175px 134px;
+    width: 175px;
+    height: 134px;
+}
+.no_data_txt{
+    padding-top: 32px;
+    font-size: 16px;
+    color: #999999;
+    width: 100%;
+    text-align: center;
+}
+.p-nomore{
+    text-align: center;
+    padding: 20px 0;
+    color: #999999;
+    margin: 0;
+    font-size: 12px;
+    width: 100%;
+}
+}

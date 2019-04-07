@@ -1,0 +1,383 @@
+page-live {
+    background: transparent !important;
+    .content-ios{
+        background: transparent !important;
+    }
+    .scroll-content{
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+    .header{
+        .toolbar-background{
+            background: #ffffff !important;
+        }
+    }
+    .footer{
+        .toolbar-background{
+            border-top: solid 1px #ebebeb !important;
+            background: rgba($color: #ffffff, $alpha: 0.9) !important;
+        }
+    }
+    .btn-share{
+        width: 32px;
+        background: url(../assets/imgs/article/btn-share.png) no-repeat center;
+        background-size: 18px 18px;
+    }
+    h1,h2,h3,h4,h5,h6,p,ul,li{
+        margin: 0;
+        padding: 0;
+        line-height: 1em;
+        list-style: none;
+    }
+
+    .live-area{
+        height: 56vw;
+        flex-shrink: 0;
+        position: relative;
+        .not-live{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #333333;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 60px;
+            font-size: 16px;
+            color: #fe4743;
+        }
+        .chat-bullet{
+            position: absolute;
+            width: 100%;
+            left: 0px;
+            bottom: 0px;
+            padding: 10px;
+            background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.6));
+            li{
+                font-size: 14px;
+                color: #eeeeee;
+                margin-top: 10px;
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                span{
+                    color: #fbc301;
+                }
+            }
+            li:nth-child(1){
+                opacity: 0.3;
+            }
+            li:nth-child(2){
+                opacity: 0.6;
+            }
+        }
+    }
+    .main-content{
+        padding: 0 15px;
+        flex-grow: 1;
+        height: 100px;
+        box-sizing: border-box;
+        background: #ffffff;
+        .panel{
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+    }
+    .base-info{
+        flex-shrink: 0;
+        height: 70px;
+        border-bottom: solid 1px #ebebeb;
+        box-sizing: border-box;
+        padding: 15px 20px 0 15px;
+        position: relative;
+        background: #ffffff;
+        h1{
+            font-size: 18px;
+            color: #333333;
+        }
+        h2{
+            font-size: 14px;
+            color: #999999;
+            margin-top: 10px;
+        }
+        .join-count{
+            position: absolute;
+            right: 20px;
+            bottom: 15px;
+            font-size: 14px;
+            color: #999999;
+            span{
+                color: #fdcb00;
+            }
+        }
+    }
+    .tab-bar{
+        padding: 15px;
+        flex-shrink: 0;
+        background: #ffffff;
+    }
+    .tab{
+        display: flex;
+        border-radius: 5px;
+        overflow: hidden;
+        box-sizing: border-box;
+        border: solid 1px #fe4743;
+        li{
+            width: 33.333%;
+            flex-grow: 1;
+            height: 33px;
+            line-height: 33px;
+            text-align: center;
+            color: #fe4743;
+            font-size: 16px;
+        }
+        li.active{
+            background: #fe4743;
+            color: #ffffff;
+        }
+    }
+    .module{
+        margin-bottom: 15px;
+        .title{
+            font-size: 16px;
+            color: #333333;
+            margin-bottom: 15px;
+        }
+        .detail{
+            font-size: 14px;
+            color: #333333;
+            line-height: 1.6em;
+            text-align: justify;
+            p{
+                line-height: 1.6em;
+                margin-bottom: 1em;
+            }
+        }
+        .teacher-bar{
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background: #f4f4f4 url(../../assets/imgs/course-detail/icon-arrow.png) no-repeat calc(100% - 10px) center;
+            background-size: 15px 13px;
+            .cover{
+                width: 35px;
+                height: 35px;
+                border-radius: 35px;
+                overflow: hidden;
+                background: #dfdfdf;
+                border: solid 1px #ffffff;
+                margin: 0 10px;
+                flex-shrink: 0;
+            }
+            .intro{
+                width: 100px;
+                flex-grow: 1;
+                padding-right: 30px;
+                .teacher-name{
+                    font-size: 14px;
+                    color: #333333;
+                    margin-bottom: 5px
+                }
+                .teacher-intro{
+                    font-size: 12px;
+                    color: #999999;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+        .ppt-list{
+            li{
+                background: #f5f5f5;
+                border-radius: 10px;
+                overflow: hidden;
+                min-height: 60px;
+                line-height: 0;
+                margin-bottom: 10px;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .course-list{
+        li{
+            height: 55px;
+            position: relative;
+            border-radius: 5px;
+            background: #ffffff;
+            box-shadow: 0 3px 16px #ebebeb;
+            margin-bottom: 20px;
+            padding-left: 30px;
+            .line{
+                position: absolute;
+                left: 15px;
+                top: 1px;
+                height: 53px;
+                border-left: solid 1px #ebebeb;
+            }
+            .icon{
+                position: absolute;
+                left: 10px;
+                top: 22px;
+                width: 12px;
+                height: 12px;
+                background: url(../../assets/imgs/course-detail/icon-circle-1.png) no-repeat center center;
+                background-size: 10px;
+            }
+            .lesson{
+                height: 55px;
+                line-height: 55px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                font-size: 16px;
+                color: #333333;
+                padding-right: 60px;
+            }
+            .play{
+                position: absolute;
+                width: 24px;
+                height: 24px;
+                top: 16px;
+                right: 15px;
+                background: url(../../assets/imgs/course-detail/btn-list-play.png) no-repeat;
+                background-size: 24px 24px;
+            }
+            .current{
+                position: absolute;
+                height: 24px;
+                line-height: 24px;
+                color: #999999;
+                top: 16px;
+                right: 15px;
+            }
+            .current:before{
+                content: "播放中"
+            }
+        }
+    }
+    .btn-buy-area{
+        padding: 0 10px 5px 10px;
+    }
+    .btn-buy{
+        display: block;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 50px;
+        text-align: center;
+        background: #fe4743;
+        color: #ffffff;
+        font-size: 18px;
+    }
+    .chat-bar{
+        display: flex;
+        height: 49px;
+        align-items: center;
+        .btn-hand{
+            display: block;
+            width: 49px;
+            height: 49px;
+            background: url(../assets/imgs/live/btn-hand.png) no-repeat center center;
+            background-size: 24px 24px;
+            flex-shrink: 0;
+        }
+        .input-div{
+            flex-grow: 1;
+            height: 30px;
+            border-radius: 30px;
+            background: #f2f2f2;
+            padding: 0 10px;
+            input{
+                width: 100%;
+                height: 30px;
+                background: none;
+                border: none;
+                color: #333333;
+            }
+        }
+        .btn-send{
+            flex-shrink: 0;
+            width: 50px;
+            text-align: center;
+            font-size: 14px;
+            color: #fe4743;
+        }
+    }
+    .chat-message{
+        position: relative;
+        margin-bottom: 15px;
+        .user-time{
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            .cover{
+                width: 30px;
+                height: 30px;
+                border-radius: 30px;
+                background: #ebebeb;
+                overflow: hidden;
+                flex-shrink: 0;
+            }
+            .user-name{
+                margin-left: 10px;
+                font-size: 14px;
+                color: #333333;
+                flex-grow: 1;
+            }
+            .mes-time{
+                font-size: 14px;
+                color: #999999;
+                flex-shrink: 0;
+            }
+        }
+        .mes-content{
+            display: flex;
+            padding-left: 30px;
+            .content{
+                padding: 10px;
+                border-radius: 10px;
+                box-shadow: 0 4px 15px rgba($color: #c4c4c4, $alpha: 0.5);
+                line-height: 1.5em;
+            }
+        }
+    }
+    .chat-message.my{
+        .user-time{
+            flex-direction: row-reverse;
+            .user-name{
+                flex-grow: 0;
+                margin-right: 10px;
+            }
+            .mes-time{
+                flex-grow: 1;
+            }
+        }
+        .mes-content{
+            padding-left: 0;
+            padding-right: 30px;
+            flex-direction: row-reverse;
+        }
+    }
+    .live-ppt{
+        position: relative;
+        img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        canvas{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+}

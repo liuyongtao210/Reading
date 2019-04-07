@@ -1,0 +1,111 @@
+punch-card-date {
+  .punchCard_pad{
+     position: relative;
+     border-bottom: 1px solid #e1e1e1;
+     background-color: #fff;
+     margin-top: 10px;
+ }
+ .punchCard_pad>div{
+     position: absolute;
+     top: 14px;
+     left: 0;
+     width: 100%;
+//   transition: left 1.3s;
+ }
+ .punchCard_frame{
+     background-color: #fff;
+     padding: 0 13px;
+ }   
+ .punchCard_date_top{
+     position: absolute;
+     top: -12px;
+     left: 0;
+     width: 100%;
+     text-align: center;
+     height: 54px;
+     line-height: 62px;
+     width: 100%;
+     background: url('../assets/imgs/mine/punchCard_date_top.png') no-repeat center;
+     background-size: 100% 54px;
+     font-size: 18px;
+     color: #fff;
+     font-weight: 700;   
+ }  
+ .punchCard_date_weeks{
+     padding: 51px 0 0 0;
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: center;
+ }  
+ .punchCard_date_weeks>div{
+     width: 14.28571%;
+     height: 50px;
+     line-height: 50px;
+     text-align: center;
+     font-size: 13px;
+     color: #999999;
+ }
+ .punchCard_date_month{
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+     justify-content: flex-start;
+     flex-direction: row;
+     box-sizing: border-box;
+ }
+ .punchCard_home{
+     box-shadow: 0 2px 14px #eeeef2;
+     border-radius: 10px;
+     position: relative;
+ }
+ .punchCard_date_month>div{
+     border-radius: 50px;
+     height: 50px;
+     line-height: 50px;
+     width: 14.28571%;
+     text-align: center;
+     background-color: #fff;
+     font-size: 13px;
+     color: #333;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
+ .punchCard_date_month>div.yes{
+     color: #999;
+ }
+ .punchCard_date_month>div.tomorrow{
+     color: #999;
+ }
+ .punchCard_date_month>div.cur{
+     background-color: blue;
+     color: #fff;
+ }
+ .month_sin_.yes{
+     color: #999;
+ }
+ .month_sin_.already{
+     background-color: #fec343;
+     color: #fff;
+     font-size: 13px;
+//   box-shadow: 0 0 8px #4f8bf9;
+ }
+ .month_sin_.already.cur{
+     background-color: #d81d4a;
+     color: #fff;
+//    box-shadow: 0 0 8px #d81d4a;
+ }
+ .month_sin_{
+     height: 35px;
+     line-height: 35px;
+     border-radius: 35px;
+     width: 35px;
+     
+ }
+ .month_sin_.cur{
+     color: #dc4851;     
+ }
+ 
+}

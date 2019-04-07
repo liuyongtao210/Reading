@@ -1,0 +1,22 @@
+<ion-header #header>
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+	  <div class="judge_show_pad" (tap)="hidePop($event)">
+	  	 <div class="judge_show_all">
+	  	 	  <div class="judge_show_all">
+	  	 	  	<div class="judge_show_list" (tap)="goSetPage()">
+	  	 	  		 <div class="judge_show_txt">申请规划</div>
+	  	 	  		 <div class="judge_show_bg add"></div>
+	  	 	  	</div>
+	  	 	  	<div class="judge_show_list" (tap)="callNow_()">
+	  	 	  		 <div class="judge_show_txt">联系我们</div>
+	  	 	  		 <div class="judge_show_bg phone"></div>
+	  	 	  	</div>
+	  	 	  </div>
+	  	 </div>
+	  </div>
+</ion-content>

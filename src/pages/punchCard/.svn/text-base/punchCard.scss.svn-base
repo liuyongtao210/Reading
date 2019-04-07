@@ -1,0 +1,160 @@
+page-punchCard {
+ .punchCard_date_btn{
+     margin-top: 20px;
+     border-top: 1px solid #ccc;
+     border-bottom: 1px solid #ccc;
+     height: 42px;
+     line-height: 42px;
+     text-align: center;
+     color: #333;
+     background-color: #fff;
+ }
+ .punchCanvas{
+     position: absolute;
+     top: 0;
+     left: 0;
+     
+ }
+ .punch-card_date_bottom{
+     background-color: #fff;
+     margin: 9px 0 0 0;
+ }
+ .date_bottom_all{
+     background-color: #fff;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     height: 46px;
+ }
+ .date_bottom_top{
+     font-size: 15px;
+     color: #999;
+     background: url('../assets/imgs/mine/date_bottom_top.png') no-repeat left center;
+     background-size:17px;
+     padding: 0 0 0 30px;
+ }
+ .date_bottom_top span{
+     color: #d81d4a;
+ }
+ .date_bottom_middle{
+     padding-bottom: 25px;
+     color: #666;
+     font-size: 18px;
+     font-weight: 700;
+ }
+ .date_share_all{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     padding: 0 54px;
+     align-items: center;
+     width: 100%;
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+ }
+
+ .date_share_all>div{
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+ }
+ .date_share_img{
+     border-radius: 41px;
+     width: 41px;
+     height: 41px;
+ }
+ .date_share_img.wx{
+     background: url('../assets/imgs/mine/date_wx.png') no-repeat center;
+     background-size: 41px 41px;
+ }
+ .date_share_img.wxfriend{
+     background: url('../assets/imgs/mine/date_wxFriend.png') no-repeat center;
+     background-size: 41px 41px; 
+ }
+ .data_share_txt{
+     color: #333;
+     padding-top: 8px;
+     font-size: 14px;
+ }
+ .hidden_{
+     visibility: hidden;
+     opacity: 0;
+     position: absolute;
+     left: -10000px;
+     top: -20000px;
+ }
+ //修改原生
+ .scroll-content{
+     background-color: #fff;
+ }
+ .toolbar-content-md{
+     padding-right: 58px;
+ }
+ .share_{
+    background: url('../assets/imgs/mine/share_.png') no-repeat  center;
+    background-size:auto 20px;
+    width: 30px;
+    height: 20px; 
+ }
+ .punch_card_footer{
+     padding: 20px 0 0 0;
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+ }
+ .punch_card_footer div{
+     height: 30px;
+     line-height: 30px;
+     background-color: #d81d4a;
+     color: #fff;
+     font-size: 15px;
+     text-align: center;
+     width: 85px;
+     border-radius: 4px;
+ }
+ .punchCard_all{
+     padding: 35px 13px 0 13px;
+ }
+ .punchCard_all_list{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-direction: row;
+     background-color: #fff;
+     padding: 0 15px 0 10px;
+     height: 80px;
+     box-shadow: 0 2px 14px #eeeef2;
+     border-radius: 10px;
+ }
+ .punchCard_all_listL{
+     flex: 1;
+     background: url('../assets/imgs/mine/punchCard_all_listL.png') no-repeat left center;
+     background-size:54px 54px;
+     padding-left:67px;
+     min-height: 54px;
+     line-height: 54px;
+     color: #999;
+     font-size: 18px;
+     
+ }
+ .punchCard_all_listL span{
+     color: #fb4169;
+     font-size: 18px;
+ }
+ .punchCard_all_listR{
+     width: 84px;
+     height: 33px;
+     line-height: 33px;
+     background: url('../assets/imgs/mine/punchCard_all_listR.png') no-repeat center;
+     background-size:84px auto;
+     text-align: center;
+     color: #fff;
+     font-size: 15px;
+ }
+}

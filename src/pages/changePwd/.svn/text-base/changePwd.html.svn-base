@@ -1,0 +1,58 @@
+<ion-header no-border>
+	<ion-navbar >
+		<ion-buttons left>
+			<button class="back" ion-button left (tap)="backPage()"></button>
+		</ion-buttons>
+		<ion-title></ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	  <div class="changePwd_pad">
+	  	 <h1>修改密码</h1>
+	  	 <div class="changePwd_list "  (tap)="changeBorder($event)">
+	  	 	  <input type="password" placeholder="请输入新密码"  [(ngModel)]="newPwd" class="changePwd_list_input one"  [class.cur]="stutesObj.one"/>
+	  	 	  <ng-container *ngIf="newPwd != ''">
+	  	 	     <div class="changePwd_list_delete" (tap)="deleteWordFn('newPwd')"></div>
+	  	 	  </ng-container>
+	  	 	  <ng-container *ngIf="stutesObj.one">
+	  	 	     <div class="changePwd_list_line"></div>
+	  	 	  </ng-container>
+	  	 </div>
+	  	 <div class="changePwd_list " (tap)="changeBorder($event)">
+	  	 	  <input type="password" placeholder="确认新密码"  [(ngModel)]="confirm" class="changePwd_list_input two"  [class.cur]="stutesObj.two"/>
+	  	 	  <ng-container *ngIf="confirm != ''">
+	  	 	     <div class="changePwd_list_delete" (tap)="deleteWordFn('confirm')"></div>
+	  	 	  </ng-container>
+	  	 	   <ng-container *ngIf="stutesObj.two">
+	  	 	     <div class="changePwd_list_line"></div>
+	  	 	  </ng-container>
+	  	 </div>
+	  	 <div class="changePwd_list "  (tap)="changeBorder($event)">
+	  	 	  <input type="tel" maxlength="11" placeholder="请输入手机号"  [(ngModel)]="phoneNumber" class="changePwd_list_input three" [class.cur]="stutesObj.three"/>
+	  	 	  <ng-container *ngIf="phoneNumber != ''">
+	  	 	     <div class="changePwd_list_delete" (tap)="deleteWordFn('phoneNumber')"></div>
+	  	 	  </ng-container>
+	  	 	   <ng-container *ngIf="stutesObj.three">
+	  	 	     <div class="changePwd_list_line"></div>
+	  	 	  </ng-container>
+	  	 </div>
+	  	 <div class="changePwd_list "  (tap)="changeBorder($event)">
+	  	 	  <input type="text" maxlength="4" placeholder="请输入图片验证码"  [(ngModel)]="codePt" class="changePwd_list_input four" [class.cur]="stutesObj.four"/>
+	  	 	  <img [src]="imgCodeSrc" (tap)="changeImg()"/>
+	  	 	  <ng-container *ngIf="stutesObj.four">
+	  	 	     <div class="changePwd_list_line"></div>
+	  	 	  </ng-container>
+	  	 </div>
+	  	 <div class="changePwd_list "  (tap)="changeBorder($event)">
+	  	 	  <input type="text" maxlength="6" placeholder="请输入短信验证码"  [(ngModel)]="codeMsg" class="changePwd_list_input five" [class.cur]="stutesObj.five"/>
+	  	 	  <div class="changePwd_li_msg" [class.cur]="phoneNumber != ''" [class.dis]="timer > 0" (tap)="sendMsg()">{{sendMsgVal}}</div>
+	  	 	  <ng-container *ngIf="stutesObj.five">
+	  	 	     <div class="changePwd_list_line"></div>
+	  	 	  </ng-container>
+	  	 </div>
+	  </div>
+	  <div class="changPwd_btn">
+	  	<div [class.cur]="checkStatus()" (tap)="save()">保存</div>
+	  </div>
+</ion-content>

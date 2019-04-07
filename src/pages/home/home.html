@@ -1,0 +1,153 @@
+<ion-header no-border>
+	<ion-navbar>
+		<ion-title></ion-title>
+		<ion-buttons begin>
+			<div class="header-userinfo" (tap)="onUserImgTap()">
+				<div class="head-image">
+					<img [src]="userInfo.userImg">
+				</div>
+				<span class="user-name">{{userInfo.name}}</span>
+			</div>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content no-padding (ionScroll)="ionScroll($event)" (ionScrollStart)="ionScrollStart($event)" (ionScrollEnd)="ionScrollEnd($event)">
+	
+	<!-- 暂时注释下拉刷新功能 -->
+	<!-- <ion-refresher (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content
+		pullingIcon="arrow-down"
+		pullingText="下拉刷新"
+		refreshingSpinner="crescent"
+		refreshingText="更新中..."></ion-refresher-content>
+	</ion-refresher> -->
+
+	<!-- 顶部Banner -->
+	<div *ngIf="AdvertismentList.length>0">
+		<ion-slides pager slidesPerView="1.08" centeredSlides="true" (ionSlideTap)="ionSlideTap($event)" (ionSlideDidChange)="ionSlideDidChange($event)" (ionSlideDrag)="ionSlideDrag()">
+			<ion-slide *ngFor="let advertisement of AdvertismentList" class="banner-slider">
+				<div class="banner-item">
+					<img [src]="advertisement.picUrl" />
+				</div>
+			</ion-slide>
+		</ion-slides>
+	</div>
+
+	<!-- 产品快捷入口 -->
+	<div class="productListBox" *ngIf="productList.length>0">
+		<ng-container *ngFor="let product of productList">
+			<div class="product" (click)="goProductDetail(product)">
+				<img class="product_img" [src]="product?.pic" (error)="imgError($event)" />
+				<p class="product_title">{{product?.name}}</p>
+			</div>
+		</ng-container>
+	</div>
+
+	<!-- DEMO -->
+	<!-- <div>
+		<button ion-button (tap)="testPay()">测试按钮</button>
+	</div> -->
+
+	<!-- 消息滚动区域 -->
+	<div class="message-bar" [hidden]="msgList.length==0" (tap)="onMsgTap()">
+		<p class="title">
+			{{msgTypeName[msgList[currentMsgIndex]?.type]}}
+			<span>{{msgList[currentMsgIndex]?.content}}</span>
+		</p>
+	</div>
+
+	<!-- 精品阅读 -->
+	<div class="module-panel">
+		<h1 class="module-bar reading">
+			精品阅读
+			<a class="more" (tap)="onMoreReadingTap()">更多</a>
+		</h1>
+		<div class="module-content">
+			<div class="book-list">
+				<div *ngFor="let book of bookList" class="book-slider" (tap)="onBookTap(book, '书籍')">
+					<div class="cover">
+						<img [src]="book.thumb" *ngIf="book.num>=0" />
+					</div>
+					<h1 class="book-title">{{book.name}}</h1>
+					<p class="viewcount" *ngIf="book.num>=0">{{book.num}}人已阅读</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 新鲜事 -->
+	<div class="module-panel" *ngIf="communityList.length>0">
+		<h1 class="module-bar news">
+			新鲜事
+			<a class="more" (tap)="onMoreNewsTap()">更多</a>
+		</h1>
+		<div class="module-content">
+			<ng-container *ngFor="let list of communityList; let i=index;">
+				<div class="news-item" [class.ad]="i==0" (tap)="goArticle(list)">
+					<img [src]="list?.pic" (error)="imgError($event)" />
+					<div class="black-mask" *ngIf="i==0"></div>
+					<p>{{list.sourceName}}</p>
+				</div>
+			</ng-container>
+		</div>
+	</div>
+
+	<!-- 分类阅读 -->
+	<div class="module-panel">
+		<h1 class="module-bar category">
+			分类阅读
+			<a class="more" (tap)="onMoreTagTap()">更多</a>
+		</h1>
+		<div class="module-content">
+			<ul class="read-category">
+				<li *ngFor="let category of bookCategory" [style.backgroundColor]="category.tagColour" (tap)="onCategoryTap(category)">
+					<h1>{{category.name}}</h1>
+					<p>{{category.nameEN}}</p>
+					<img class="icon" [src]="category.tagIcon">
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- 热门课程 -->
+	<div class="module-panel nopadding">
+		<h1 class="module-bar hot-course">
+			热门课程
+			<a class="more" (tap)="onMoreCourseTap()">更多</a>
+		</h1>
+		<div class="module-content">
+			<ion-slides slidesPerView="1.45">
+				<ion-slide *ngFor="let course of hotcourse" class="course-slider">
+					<div class="course-item" (tap)="onCourseTap(course)">
+						<div class="cover">
+							<img [src]="course.thumb" />
+							<div class="mask">
+								<span></span>
+							</div>
+						</div>
+						<h1 class="course-title">{{course.name}}</h1>
+						<p class="price" *ngIf="course.price<=0">免费</p>
+						<p class="price" *ngIf="course.price>0">¥ {{(course.price/100).toFixed(2)}}</p>
+						<p class="seecount">{{course.num}}人已观看</p>
+					</div>
+				</ion-slide>
+			</ion-slides>
+		</div>
+	</div>
+	
+	<!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)" [hidden]="noMoreData">
+		<ion-infinite-scroll-content loadingText="加载中..."></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+	<p class="p-nomore" [hidden]="!noMoreData"> ~ 更多内容 敬请期待 ~ </p> -->
+
+</ion-content>
+
+<div class="push-message-bar" [style.bottom]="pushMsgPanelBottom+'px'">
+	<div class="push-message" *ngFor="let message of pushMessageList; let i=index" (click)="onMessageClick(message, i)">
+		<p>{{message.content}}</p>
+		<a class="close" (click)="onMessageClose($event, i)"></a>
+	</div>
+</div>
+
+<!-- <button ion-button [hidden]="backTopHide" class="backTopBtn" [style.opacity]="canClick?'1':'0.3'" (tap)="backTop()" color="light"></button> -->

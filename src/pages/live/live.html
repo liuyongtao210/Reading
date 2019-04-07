@@ -1,0 +1,100 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>直播</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only color="dark" class="btn-share" (tap)="onShareTap()"></button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+    <!-- 直播图像区域 -->
+    <div class="live-area">
+      <div class="not-live" [hidden]="isTeacherLive">直播还未开始</div>
+      <ul class="chat-bullet">
+        <li *ngFor="let chat of chatBullet"><span>{{chat.name}}：</span>{{chat.content}}</li>
+      </ul>
+    </div>
+    <!-- 直播课基本信息区域 -->
+    <div class="base-info" *ngIf="sourceInfo.isBuy==0">
+      <h1>{{roomInfo.className}}</h1>
+      <h2>{{roomInfo.date}} {{roomInfo.bookingTime}}</h2>
+      <p class="join-count"><span>100</span>人参与</p>
+    </div>
+    <!-- Tab按钮切换区域 -->
+    <div class="tab-bar">
+      <!-- tab按钮 -->
+      <ul class="tab">
+        <li [class.active]="mode==0" (tap)="mode=0">课程介绍</li>
+        <li [class.active]="mode==1" (tap)="mode=1">PPT</li>
+        <li [class.active]="mode==2" (tap)="mode=2" *ngIf="sourceInfo.isBuy!=0">讨论区</li>
+      </ul>
+    </div>
+    <!-- 介绍、课件、PPT区域 -->
+    <div class="main-content" [style.paddingBottom]="(bottomBarHeight*2)+'px'">
+      <!-- 课程介绍区域 -->
+      <div class="panel course" [hidden]="mode!=0">
+        <!-- 课程介绍 -->
+        <div class="module">
+            <h1 class="title">课程介绍</h1>
+            <div class="detail" [innerHtml]="roomInfo.courseDesc | html"></div>
+        </div>
+        <!-- 老师介绍 -->
+        <div class="module">
+            <h1 class="title">老师介绍</h1>
+            <!-- 老师信息栏 -->
+            <div class="teacher-bar" (tap)="gotoTeacherDetail()">
+              <div class="cover"><img [src]="roomInfo.tIcon" /></div>
+              <div class="intro">
+                  <p class="teacher-name">{{roomInfo.tName}}</p>
+                  <p class="teacher-intro">{{roomInfo.tIntro}}</p>
+              </div>
+            </div>
+        </div>
+      </div>
+      <!-- PPT区域 -->
+      <div class="panel ppt" [hidden]="mode!=1">
+        <div class="module" [hidden]="sourceInfo.isBuy!=0">
+            <ul class="ppt-list">
+              <li *ngFor="let ppt of pptList"><img [src]="filePath+ppt" /></li>
+            </ul>
+        </div>
+        <div class="live-ppt" [hidden]="sourceInfo.isBuy==0">
+          <img #myppt [src]="pptUrl" (load)="onPPTLoaded(myppt)" />
+          <canvas #mycan></canvas>
+        </div>
+      </div>
+      <!-- 聊天区域 -->
+      <div class="panel ppt" [hidden]="mode!=2" #pptPanel>
+          <ul #messageUl>
+            <li class="chat-message" *ngFor="let message of chatList" [class.my]="message.isme">
+              <div class="user-time">
+                <div class="cover"><img [src]="message.icon" /></div>
+                <p class="user-name">{{message.name}}</p>
+                <p class="mes-time">{{message.time}}</p>
+              </div>
+              <div class="mes-content">
+                <div class="content">{{message.content}}</div>
+              </div>
+            </li>
+          </ul>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer no-border>
+    <ion-toolbar>
+      <div class="btn-buy-area" *ngIf="sourceInfo.isBuy==0">
+          <a class="btn-buy" (tap)="onBuyTap()">立即预约</a>
+      </div>
+      <div class="chat-bar" *ngIf="sourceInfo.isBuy!=0">
+        <a class="btn-hand" (tap)="onHandsUp()"></a>
+        <div class="input-div">
+          <form action="" (submit)="onChatSubmit($event)">
+              <input #myinput type="text" maxlength="50" placeholder="参与互动" [(ngModel)]="inputMsg" name="inputmsg">
+          </form>
+          <a class="btn-clear"></a>
+        </div>
+        <a class="btn-send" (tap)="onSendChat()">发送</a>
+      </div>
+    </ion-toolbar>
+  </ion-footer>

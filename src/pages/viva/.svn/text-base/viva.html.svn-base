@@ -1,0 +1,78 @@
+<!--
+  Generated template for the VivaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>viva</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="viva_content">
+<!--pinch-->
+<div class="viva_content" (click)="pinchEvent($event)">
+	<div class="viva_scroll">
+		“I can read that letter as well as Father can,” Parvana whispered into the folds of her chador. “Well,almost.”
+
+She didn’t dare say those words out loud. The man sitting beside her father would not want to hear her voice. Nor would anyone else in the Kabul market. Parvana was there only to help her father walk to the market and back home again after work. She sat well back on the blanket, her head and most of her face covered by her chador.
+
+She wasn’t really supposed to be outside at all. The Taliban had ordered all the girls and women in Afghanistan to stay inside their homes. They even forbade girls to go to school.Parvana had had to leave her sixth grade class,and her sister Nooria was not allowed to go to her high school.Their mother had been kicked out of her job as a writer for a Kabul radio station.For more than a year now,they had all been stuck inside one room,along with five-year-old Maryam and two-year-old Ali.
+
+Parvana did get out for a few hours most days to help her father walk.She was always glad to go outside,even though it meant sitting for hour on a blanked spread over the hard ground of the marketplace.At least it was something to do.She had even got used to holding her tongue and hiding her face.
+“I can read that letter as well as Father can,” Parvana whispered into the folds of her chador. “Well,almost.”
+
+She didn’t dare say those words out loud. The man sitting beside her father would not want to hear her voice. Nor would anyone else in the Kabul market. Parvana was there only to help her father walk to the market and back home again after work. She sat well back on the blanket, her head and most of her face covered by her chador.
+
+She wasn’t really supposed to be outside at all. The Taliban had ordered all the girls and women in Afghanistan to stay inside their homes. They even forbade girls to go to school.Parvana had had to leave her sixth grade class,and her sister Nooria was not allowed to go to her high school.Their mother had been kicked out of her job as a writer for a Kabul radio station.For more than a year now,they had all been stuck inside one room,along with five-year-old Maryam and two-year-old Ali.
+
+Parvana did get out for a few hours most days to help her father walk.She was always glad to go outside,even though it meant sitting for hour on a blanked spread over the hard ground of the marketplace.At least it was something to do.She had even got used to holding her tongue and hiding her face.
+“I can read that letter as well as Father can,” Parvana whispered into the folds of her chador. “Well,almost.”
+
+She didn’t dare say those words out loud. The man sitting beside her father would not want to hear her voice. Nor would anyone else in the Kabul market. Parvana was there only to help her father walk to the market and back home again after work. She sat well back on the blanket, her head and most of her face covered by her chador.
+
+She wasn’t really supposed to be outside at all. The Taliban had ordered all the girls and women in Afghanistan to stay inside their homes. They even forbade girls to go to school.Parvana had had to leave her sixth grade class,and her sister Nooria was not allowed to go to her high school.Their mother had been kicked out of her job as a writer for a Kabul radio station.For more than a year now,they had all been stuck inside one room,along with five-year-old Maryam and two-year-old Ali.
+
+Parvana did get out for a few hours most days to help her father walk.She was always glad to go outside,even though it meant sitting for hour on a blanked spread over the hard ground of the marketplace.At least it was something to do.She had even got used to holding her tongue and hiding her face.
+	</div>
+		<div class="page_btn_con">
+		<div class="page_btn">上一章</div>
+		<div class="page_btn page_btn_2">下一章</div>
+	</div>
+	<page-media-player class="media_player_compont"  [audioSrc]="audioSrc"></page-media-player>
+</div>
+
+	
+
+</ion-content>
+<!--pinch-->
+<div class="pinch_cover "  [class.pinch_cover_show]="pincShow" tappable (click)="pinchEvent($event)">
+	<div class="chapter_smal_content">
+		<div class="sml_data" *ngFor="let item of smlArr;let i =index">
+			<div class="sml_item" *ngFor="let chItem of item;let j = index">
+					<div class="item_con" *ngIf="chItem.name!='##@@##'">
+						<img src="assets/imgs/read/book_cover_img.png" class="book_cover_img"/>
+						
+						<div class="item_cover">
+							<div>
+								<img [src]="chapterIcon[(i+1)*3-3+j]" class="chapter_icon"/>
+								<div class="chapter_t">{{chItem.name}}</div>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+<div class="viva_tip_cover" *ngIf="meKnowShow">
+		<div class="tip_content">
+			<p class="cover_tip_txt">捏合屏幕可展开绘本全部页</p>
+			<img src="assets/imgs/read/viva_tip_img.png" class="viva_tip_img"/>
+			<div class="me_konw" (tap)="meKonwFn()">我知道了</div>
+		</div>
+</div>

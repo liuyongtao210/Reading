@@ -1,0 +1,59 @@
+<!--
+  Generated template for the ExercisePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border class="xiti" [class.daan]="resultShow">
+
+  <ion-navbar>
+    <ion-title>
+    	<span *ngIf="!resultShow">课后习题</span>
+    	<span *ngIf="resultShow">查看习题</span>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+<!--<ion-header no-border class="daan" *ngIf="resultShow">
+
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>-->
+
+
+
+<ion-content>
+	
+	<div class="exer_result" *ngIf="resultShow">
+	<div class="result_con">
+		<!--<span class="close_result"  data-tap-disabled="false" (tap)="closeResult($event)">X</span>-->
+		<!--<img src="assets/imgs/read/close_btn.png" class="close_btn"  tappable (click)="closeResult($event)"/>-->
+		<div class="anwser_num">
+			<!--正确：<span class="correct_num">{{correctNum}}</span> 错误：<span class="error_num">{{exercises.length-correctNum}}</span>-->
+			<div class="answer_qwe">
+				<img src="assets/imgs/read/answer_result_icon.png" class="answer_result_icon"/>
+				<div class="answer_asd">
+						<div class="answer_c">{{exercises.length-correctNum}}道</div>
+						<div class="answer_d">{{correctNum}}道</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="check_btn" (tap)="goExercisesResult()">查看习题</div>
+	</div>
+</div>
+	
+	<div class="e_conte" *ngIf="!resultShow">
+		<div class="cur_num"><span>{{curIndex}}</span>/{{exercises.length}}</div>
+				<ion-slides class="my-slide">
+					<ion-slide *ngFor="let item of exercises;let i = index;">
+						<div class="qu_t" [innerHtml]="item.subject | html"></div>
+						<!--[class.error_answer]="it.isSelect"-->
+						<div class="answer_list"  *ngFor="let it of item.answer;let lti =index" [ngClass]="it.isSelect"  (click)="selectAnswer(it,i,lti)"  [innerHTML]="it.answer | html">
+						</div>
+					</ion-slide>
+				</ion-slides>
+	</div>
+</ion-content>

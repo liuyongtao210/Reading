@@ -1,0 +1,117 @@
+<!--<ion-header no-border>
+  <ion-navbar>
+    <ion-title>课程</ion-title>
+  </ion-navbar>
+</ion-header>-->
+
+<ion-content #_content_>
+	<div class="course_title">
+		<!--[class.cur]="Index* 100 + '%' == domLeft"-->
+		<div class="course_title_list" [class.cover]="Index == 1" *ngFor="let productName of products;let Index = index" (tap)="highLigtType(Index)">
+			<ng-container *ngIf="Index* 100 + '%' == domLeft">
+				<div class="course_title_li">{{productName.name}}</div>
+			</ng-container>
+			<ng-container *ngIf="Index* 100 + '%' != domLeft">
+				{{productName.name}}
+			</ng-container> 
+		</div>
+		<div class="course_bottomLine" [style.transform]="'translate('+domLeft+',0)'" [style.transition]="isTransition ? 'all .2s' : 'none'"></div>
+	</div>
+	<div class="course_pad" [ngStyle]="{maxHeight:heighter + 'px'}">
+		<ng-container *ngIf="slideIndex != 0">
+			<div class="course_call_pad" (tap)="callNow()">
+				<div>电话</div>
+				<div>咨询</div>
+			</div>
+		</ng-container>
+		<ion-slides [ngStyle]="{ 'height': slidesMoving ? 'auto' : (slidesHeight + 'px') }" (ionSlideWillChange)="slideWillChange($event)" (ionSlideDrag)="slideMove($event)" (touchend)="slideEnd($event)" (ionSlideDidChange)="slideChanged($event)">
+			<ion-slide *ngFor="let product of products;let Index = index">
+				<ng-container *ngIf="Index == 0">
+					<div class="course_one_pad">
+						<ng-container *ngIf="product.content && product.content.length > 0 ">
+							<div class="course_one_list" *ngFor="let content of product.content;let IndexSon = index" (tap)="buyCourse(content)">
+							<div class="course_one_frame">
+								<div class="course_one_img">
+									<img [src]="content.imgPath" />
+									<div class="course_one_redPad">{{content.isBuy == 1 ? '已购' : content.price == 0 ? '免费' : !content.price ? '免费' : '￥' + (content.price)/100 }}</div>
+								</div>
+								<div class="course_one_name">{{content.name}}</div>
+								<div class="course_one_read">{{content.num}}人已阅读</div>
+							</div>
+							
+						</div>
+						<div (tap)="doInfinite($event)" class="p-nomore" [hidden]="noMoreData">点击加载更多</div>
+						<p class="p-nomore" [hidden]="!noMoreData"> ~ 更多内容 敬请期待 ~ </p>
+						</ng-container>
+						<ng-container *ngIf="!product.content || product.content.length == 0 ">
+							 <div class="no_data_show">
+								<div class="no_data_img"></div>
+								<div class="no_data_txt">暂时还没有课程~</div>
+							</div>
+						</ng-container>
+						
+					</div>
+				</ng-container>
+				<ng-container *ngIf="Index == 1">
+					<ng-container *ngFor="let content of product.content;let IndexSon = index">
+						<ng-container *ngIf="IndexSon < 5">
+							<img [src]="content.imgPath" class="course_img" (tap)="pay(IndexSon)" />
+						</ng-container>
+						<ng-container *ngIf="IndexSon == 5">
+							<div class="course_box_all">
+								<div class="course_box_title">
+									<div class="course_box_title_role">4</div>
+									<div class="course_box_title_txt">{{content.title}}</div>
+								</div>
+								<div class="course_box_serve">
+									<div class="course_box_title_">{{content.partCourse.name}}</div>
+									<ng-container *ngIf="content.partCourse.children.length>0">
+										<div class="course_all_slide" (touchstart)="event($event)">
+											<div class="course_box_slide" *ngFor="let contentSon of content.partCourse.children;let IndexGrandSon = index">
+												<img [src]="contentSon.imgPath" />
+											</div>
+										</div>
+									</ng-container>
+								</div>
+							</div>
+						</ng-container>
+						<ng-container *ngIf="IndexSon > 5">
+							<div class="course_BSTL_footer">
+								<img [src]="content.imgPath" class="course_img" />
+								<div class="course_BSTL_footer_title">{{content.title}}</div>
+							</div>
+						</ng-container>
+					</ng-container>
+				</ng-container>
+				<ng-container *ngIf="Index == 2">
+					<ng-container *ngFor="let content of product.content;let IndexSon = index">
+						<ng-container *ngIf="IndexSon < 5">
+							<img [src]="content.imgPath" class="course_img" />
+						</ng-container>
+						<ng-container *ngIf="IndexSon >= 5">
+							<div class="course_steam_all">
+								<div class="course_steam_title">
+									<div class="course_steam_title_role">{{IndexSon}}</div>
+									<div class="course_box_title_txt">{{content.title}}</div>
+								</div>
+								<ng-container *ngIf="content.partCourse.children.length>0">
+									<div class="course_all_slide" (touchstart)="event($event)">
+										<div class="course_box_slide" *ngFor="let contentSon of content.partCourse.children;let IndexGrandSon = index">
+											<img [src]="contentSon.imgPath" />
+										</div>
+									</div>
+								</ng-container>
+							</div>
+						</ng-container>
+
+					</ng-container>
+				</ng-container>
+				<ng-container *ngIf="Index == 3">
+					<ng-container *ngFor="let content of product.content;let IndexSon = index">
+						<img [src]="content.imgPath" class="course_img" />
+					</ng-container>
+				</ng-container>
+			</ion-slide>
+		</ion-slides>
+	</div>
+</ion-content>

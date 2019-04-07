@@ -1,0 +1,67 @@
+<!--<ion-header no-border>
+	<ion-navbar>
+		<ion-title></ion-title>
+	</ion-navbar>
+</ion-header>-->
+
+<ion-content no-padding>
+	<!--公开课-->
+	<div class="OR_panel" [hidden]="openCourseList.length==0">
+		<div class="OR_panel_header">
+			<span class="paddingLine"></span>
+			<span class="OR_panel_header_title">最新公开课</span>
+		</div>
+		<ng-container *ngFor="let course of openCourseList">
+			<div class="OR_panel_list OR_panel_fullList" (click)="goLive(course,$event)">
+				<div class="OR_panel_list_imgBox">
+					<img [src]="course?.courseBigPic" (error)="imgError($event)" />
+				</div>
+				<div class="OR_panel_list_content">
+					<div class="textBox_courseName">{{course?.sourceName}}</div>
+					<div class="textBox_date">{{course?.courseTime}}</div>
+					<div class="viewsBox">{{course?.views}}人参与</div>
+					<div class="liveIconBox">直播</div>
+					<button class="appointmentButton" *ngIf="course?.viewType==2" (click)="appointmentCourse(course,$event)">立即预约</button>
+					<button class="appointmentButton" *ngIf="course?.viewType==0" (click)="goLive(course,$event)">已预约</button>
+					<button class="appointmentButton" *ngIf="course?.viewType==1" (click)="goLive(course,$event)">正在上课</button>
+				</div>
+			</div>
+		</ng-container>
+		<div class="OR_panel_empty" *ngIf="openCourseList.length==0">暂无公开课</div>
+	</div>
+	<!--往期公开课-->
+	<div class="OR_panel">
+		<div class="OR_panel_header">
+			<span class="paddingLine"></span>
+			<span class="OR_panel_header_title">往期公开课</span>
+		</div>
+		<ng-container *ngFor="let course of historyCourseList">
+			<div class="OR_panel_list" (click)="goLive(course,$event)">
+				<!--<div class="recordIconBox" *ngIf="course?.dataType==12">录播</div>-->
+				<div class="OR_panel_list_imgBox">
+					<img [src]="course?.courseSmallPic" (error)="imgError($event)" />
+				</div>
+				<div class="OR_panel_list_content">
+					<div class="textBox">
+						{{course?.sourceName}}
+					</div>
+					<div class="viewsBox">
+						<span class="viewsBox_span viewsBox_viewsLabel"><span>{{course?.views}}</span>人参与</span>
+						<span class="viewsBox_span viewsBox_time" *ngIf="course?.dataType!=12">{{course?.courseTimeStamp|formatDate:'YY/MM/DD'}}</span>
+					</div>
+				</div>
+			</div>
+		</ng-container>
+		<div class="OR_panel_empty" *ngIf="historyCourseList.length==0">暂无往期公开课</div>
+	</div>
+	<ion-refresher (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content
+      pullingIcon="arrow-down"
+      pullingText="下拉刷新"
+      refreshingSpinner="crescent"
+      refreshingText="更新中..."></ion-refresher-content>
+	</ion-refresher>
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+		<ion-infinite-scroll-content [loadingText]="infi_loadingText"></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+</ion-content>

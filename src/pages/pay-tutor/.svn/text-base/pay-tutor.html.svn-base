@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>苹果支付教程</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <img src="assets/imgs/pay-tutor/tutor-banner.png">
+  <h1>如何设置苹果支付？</h1>
+  <p>1. 进入App Store，点击App选项卡，滑动到底部点击“快速链接”</p>
+  <img class="appstore" src="assets/imgs/pay-tutor/tutor-appstore.png">
+  <p>2. 选择“绑定支付宝，微信支付或银联卡”</p>
+  <img class="screen" src="assets/imgs/pay-tutor/tutor-screen.png">
+  <p>3. 根据提示完成支付设置</p>
+</ion-content>

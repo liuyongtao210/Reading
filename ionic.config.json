@@ -1,0 +1,7 @@
+{
+  "name": "OriginalReading",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

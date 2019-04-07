@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{mytitle}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="dark" class="btn-share" (tap)="onShareTap()"></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <iframe id="iframe" class="iframe" #myiframe
+    sandbox="allow-scripts allow-top-navigation allow-pointer-lock allow-same-origin allow-popups allow-forms"
+    (load)="onIframeLoaded()">
+  </iframe>
+</ion-content>

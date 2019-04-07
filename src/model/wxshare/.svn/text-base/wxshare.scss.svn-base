@@ -1,0 +1,89 @@
+.wxShareBody .action-sheet-group:nth-child(1){
+    margin-bottom:0px;
+    border-bottom-left-radius:0px;
+    border-bottom-right-radius:0px;
+    border-bottom:1px solid #ededed;
+    padding-top:0px;
+}
+.wxShareBody .action-sheet-group:nth-child(2){
+    background:yellow!important;
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+    background:#fff!important;
+}
+.wxShareBody .action-sheet-group:nth-child(1) button{
+    width:50%;
+    font-size:16px;
+    color:#333!important;
+    border-bottom:none!important;
+    text-align:center;
+}
+.wxShareBody .action-sheet-group:nth-child(1) button span{
+    justify-content:center;
+}
+.wxShareBody .action-sheet-group:nth-child(2) button span{
+    justify-content:center;
+}
+//左边
+.wxShareLeft{
+    float:left;
+    
+}
+.wxShareLeft:before{
+    display:inline-block;
+    content:'';
+    width:46px;
+    height:46px;
+    background:url('../assets/imgs/wx_firend.png')no-repeat center center;
+    background-size:46px 46px;
+    width:100%;
+    margin-bottom:10px;
+}
+//右边
+.wxShareRight{
+    float:right;
+}
+.wxShareRight:before{
+    display:inline-block;
+    content:'';
+    width:46px;
+    height:46px;
+    background:url('../assets/imgs/wx-friendcircle.png')no-repeat center center;
+    background-size:46px 46px;
+    width:100%;
+    margin-bottom:10px;
+}
+//取消
+.wxShareBottom{
+    color:#333!important;
+    font-weight:normal!important;
+    font-size:15px!important;
+    
+}
+//android
+.wxShareBody .action-sheet-md .action-sheet-group:last-child{
+    padding-bottom:0px;
+    height:48px;
+}
+.wxShareBody .action-sheet-group:first-child{
+    padding:20px 0px;
+}
+//ios
+.action-sheet-ios .action-sheet-cancel{
+    padding:0px;
+    height:48px;
+}
+.action-sheet-ios .action-sheet-button{
+    min-height: 48px;
+}
+//Toast
+.wxshareToast .toast-wrapper{
+    width:160px;
+    border-radius:12px;
+    text-align:center;
+    background:#ebebeb;
+    border:1px solid #ebebeb;
+}
+.wxshareToast .toast-message{
+    color:#333;
+}

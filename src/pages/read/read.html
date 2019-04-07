@@ -1,0 +1,215 @@
+<!--
+  Generated template for the ReadPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>阅读首页</ion-title>
+  </ion-navbar>
+
+</ion-header>-->
+
+
+<ion-content >
+	<!--<ion-scroll class="allContent" scrollY="{{scrollPoint}}">-->
+	<div class="allContent">
+
+		<div class="read_content_new" (touchmove)="moveFn($event)" (touchend)="endFn($event)" >
+			<div  [class.hideDom]="!userId" >
+					<div #readTitle id="readTitle" class="new_read_title">
+						<div class="title_con">
+							<img src="assets/imgs/read/read_iocn_title.png" alt="" class="read_iocn_title"/> 
+							<span>我的阅读进度({{newBookData.length}})</span>
+						</div>
+						<span class="edit_style" *ngIf="isBottom&&!isEdit&&newBookData.length>0" (tap)="editFn()">
+							<img src="assets/imgs/read/adm_icon_1.png" alt="" class="colle_icon"/> 
+						</span>
+						<span class="edit_style" *ngIf="isEdit&&newBookData.length>0" (tap)="successFn()">
+							<img src="assets/imgs/read/adm_icon_2.png" alt="" class="colle_icon"/> 
+						</span>
+					</div>
+					
+					<div class="read_list" id="zoneHeight"  #zoneHeight  [ngStyle]="currentStyles">
+					<!--<div *ngIf="newBookData.length==0">暂无阅读中的书籍...</div>-->
+					<div class="read_item"  *ngFor="let item of newBookData; let i = index"  >
+						<!--tappable (click)="goChapterListPage(item,$event)"-->
+								<div class="read_item_con" >
+									<div *ngIf="isEdit" class="sel_btn_box" (tap)="selectReadItem(item,$event)" >
+										<div class="sel_btn"   *ngIf="isEdit&&!item.select&&item.isFree==2"></div>
+					     			<img src="assets/imgs/read/sel_btn_icon.png" alt="" class="sel_btn_icon"   *ngIf="isEdit&&item.select&&item.isFree==2"/> 
+									</div>
+										<div class="item_con" (tap)="goChapterListPage(item,$event)">
+												 <div class="book_img">
+												 	<img [src]="item.pic" alt="" class="read_book_icon"/> 
+												 		<span class="is_cost">{{item.isFree==1?'免费':'已购'}}</span>
+												 </div>
+												 <div class="book_de_na"> 
+												 	<div class="books_name">{{item.bookName}}</div>
+												 	<div class="read_pro">
+												 		<div class="read_pro_con">
+												 			<span class="pro_num">{{item.progress>100?'100':item.progress}}%</span>
+												 			<span class="pro_line" [style.width.%]="item.progress>100?'100':item.progress"></span>
+												 		</div>
+												 	</div>
+												 </div>
+											</div>
+								</div>	
+						</div>
+						<div class="nomore_content" *ngIf="newBookData.length>0" >没有更多内容了...</div>
+<!--					
+					<ion-list class="ion_list" id="ion_list" *ngIf="newBookData.length>0">
+					  <ion-item-sliding class="read_item_sliding"
+					  	 [class.read_item_bottom]="isBottom" 
+					  	  #itemSliding *ngFor="let item of newBookData; let i = index" 
+					  	  item-ios-divider-color="transparent">
+					    <ion-item>
+					     				<div class="read_item" >
+					     						<div class="sel_btn" (tap)="selectReadItem(item)"  *ngIf="isEdit&&!item.select"></div>
+					     						<img src="assets/imgs/read/sel_btn_icon.png" alt="" class="sel_btn_icon"   (tap)="selectReadItem(item)"  *ngIf="isEdit&&item.select"/> 
+												 <div class="book_img">
+												 	<img src="assets/imgs/read/read_book_icon.png" alt="" class="read_book_icon"/> 
+												 		<span class="is_cost">{{item.cost?'已购':'免费'}}</span>
+												 </div>
+												 
+												 <div class="book_de_na"> 
+												 	<div class="books_name">{{item.bookName}}</div>
+												 	<div class="read_pro">
+												 		<div class="read_pro_con">
+												 			<span class="pro_num">90%</span>
+												 			<span class="pro_line"></span>
+												 		</div>
+												 		
+												 	</div>
+												 </div>
+										</div>
+					    </ion-item>
+					    <ion-item-options side="right">
+					      <button ion-button (tap)="unread(item)">
+					      		<img src="assets/imgs/read/dele_icon.png" alt="" class="dele_icon"/> 
+					      </button>
+					    </ion-item-options>
+					  </ion-item-sliding>
+					  
+					</ion-list>-->
+					
+					<div class="un_read_learn" *ngIf="newBookData.length==0">
+						<span class="un_read_txt">您还没有开始学习，快去书架上选一本吧~</span>
+					</div>
+					<!--<h1>没有更多进度了</h1>-->
+			</div> 
+					
+			</div>
+				
+				
+			<!--*ngIf="newBookData.length>0"-->
+			<div class="drap_hot_zone_1" *ngIf="newBookData.length==0||!userId"></div>
+			<div class="drap_hot_zone" (touchstart)="startFn($event)" [class.drap_hot_zone_show]="newBookData.length>0&&userId"  >
+				<img src="assets/imgs/read/slid_icon.png" alt="" class="slid_icon"  [class.slid_icon_trans]="isBottom"/> 
+			</div>
+			<div class="book_base" id="book_base" [class.book_base_over_hidden]="isBottom">
+				
+				<div class="book_shelf"  [class.hideDom]="isBottom">
+					<img src="assets/imgs/read/read_classification.png" alt="" class="read_classification read_icon_1"/> 
+					分类阅读
+					<!--<span (tap)="goNewThingsPage()">新鲜事页面</span>-->
+				</div>
+					<div class="book_type" [class.hideDom]="isBottom">
+						<ion-slides  slidesPerView=3.2  spaceBetween=10>
+							<ion-slide (tap)="selBookType(-1,-1)">
+								<div class="book_list_con">
+					  		 <div class="book_type_list"  [style.background-color]="selBookIndex==-1?'#9067fc':''">
+					  		 	<div class="book_type_icon">
+					  		 		<img src="assets/imgs/read/book_all_new.png" alt="" class="book_type_icon_img"  [class.book_type_icon_filter]="selBookIndex==-1"/> 
+					  		 	</div>
+						    		<div class="name_txt">全部</div>
+						    	</div>
+					  	</div>
+							</ion-slide>
+					  <ion-slide *ngFor="let item of bookType;let i =index " class="slides_style"  (tap)="selBookType(i,item)">
+					  	<div class="book_list_con">
+					  		 <div class="book_type_list" [style.background-color]="selBookIndex==item.id?item.tagColour:''">
+					  		 	<div class="book_type_icon">
+					  		 		<img [src]="item.tagIcon" alt="" class="book_type_icon_img" [class.book_type_icon_filter]="selBookIndex==item.id"/> 
+					  		 	</div>
+						    		<div class="name_txt">{{item.name}}</div>
+						    	</div>
+					  	</div>
+					   
+					  </ion-slide>
+					</ion-slides>
+					</div>
+				<div class="book_shelf"  [class.hideDom]="isBottom">
+					<img src="assets/imgs/read/read_inten.png" alt="" class="read_classification"/> 
+					精读
+				</div>
+				<div class="book_shelf"   *ngIf="isBottom&&intenSmlArr.length==0">
+					<img src="assets/imgs/read/read_inten.png" alt="" class="read_classification"/> 
+					精读
+				</div>
+				<div class="no_book" *ngIf="intenSmlArr.length==0">暂无书籍</div>
+				<div class="j_read_con" *ngFor="let item of intenSmlArr">
+					<div class="j_read_item" *ngFor="let itm of item" >
+							<div *ngIf="itm.type!='##@@##'"  (tap)="goChapterPage(itm)">
+									<div class="j_read_fm">
+										<img [src]="itm.thumb" alt="" class="book_cover_img"/> 
+										<!--<div class="is_buy_cost" *ngIf="itm.isBuy==1">免费</div>-->
+										<div class="is_buy_cost" *ngIf="itm.isBuy!=1">{{itm.price>0?'￥'+itm.price/100:'免费'}}</div>
+										<div class="is_buy_cost" *ngIf="itm.isBuy==1">已购买</div>
+										<div class="upd_stype"></div>
+										<span class="upd_stype_t">更新至 {{itm.chapter}}</span>
+									</div>
+									<div class="b_name">{{itm.name}}</div>
+									<div class="b_read_num">{{itm.num}}人已阅读</div>
+									<div class="read_star">
+										<img src="assets/imgs/read/read_star_icon.png" alt="" class="read_star_icon" *ngFor="let it of itm.difficulty"/> 
+									</div>
+								</div>
+					</div>
+							
+				</div>
+					<div class="book_shelf"  [class.hideDom]="isBottom">
+						<img src="assets/imgs/read/viva_icon.png" alt="" class="read_classification read_icon_1"/> 
+						畅读
+				</div>
+				<div class="book_shelf"  *ngIf="isBottom&&vivaSmlArr.length==0">
+						<img src="assets/imgs/read/viva_icon.png" alt="" class="read_classification read_icon_1"/> 
+						畅读
+				</div>
+				<div class="no_book" *ngIf="vivaSmlArr.length==0">暂无书籍</div>
+			<div class="j_read_con" *ngFor="let item of vivaSmlArr">
+					<div class="j_read_item" *ngFor="let itm of item" >
+							<div *ngIf="itm.type!='##@@##'" (tap)="goChapterPage(itm)">
+									<div class="j_read_fm">
+										<img [src]="itm.thumb" alt="" class="book_cover_img"/> 
+										<div class="is_buy_cost" *ngIf="itm.isBuy!=1">{{itm.price>0?'￥'+itm.price/100:'免费'}}</div>
+										<div class="is_buy_cost" *ngIf="itm.isBuy==1">已购买</div>
+										<div class="upd_stype"></div>
+										<span class="upd_stype_t">更新至 {{itm.chapter}}</span>
+									</div>
+									<div class="b_name">{{itm.name}}</div>
+									<div class="b_read_num">{{itm.num}}人已阅读</div>
+									<div class="read_star">
+										<img src="assets/imgs/read/read_star_icon.png" alt="" class="read_star_icon" *ngFor="let it of itm.difficulty"/> 
+									</div>
+								</div>
+					</div>
+							
+				</div>
+			</div>
+		</div>
+
+<!--</ion-scroll>-->
+</div>
+</ion-content>
+<div class="select_all_con" [style.bottom.px]="bottomHeight" *ngIf="isEdit&&newBookData.length>0&&userId">
+	<div class="sel_all_btn" (tap)="selectAll()">
+		<div class="sel_btn_a" *ngIf="!isSelectAll"></div>
+		<img src="assets/imgs/read/sel_btn_icon.png" alt="" class="sel_btn_icon"  *ngIf="isSelectAll"/>
+		全选
+	</div>
+	<div class="del_select_item" (tap)="deleteSelect()">删除</div>
+</div>
+<!--<div class="slide_cover_tip"></div>-->

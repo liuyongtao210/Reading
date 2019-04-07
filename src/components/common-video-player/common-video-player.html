@@ -1,0 +1,35 @@
+<!-- Generated template for the CommonVideoPlayerComponent component -->
+<div class="video-panel" [style.height]="panelHeight">
+  <video #myvideo 
+    [src]="videoUrl" [poster]="cover" 
+    (loadstart)="onVideoLoadStart($event)" 
+    (durationchange)="onVideoDurationChange($event)" 
+		(canplay)="onVideoCanplay($event)"  
+		(loadedmetadata)="onVideoLoadedMetadata($event)" 
+		(timeupdate)="onVideoTimeupdate($event)" 
+		(ended)="onVideoEnded($event)"
+    playsinline webkit-playsinline>
+  </video>
+  <audio #myaudio 
+    [src]="audioUrl" 
+    (loadstart)="onAudioLoadStart($event)"
+    (timeupdate)="onAudioTimeupdate($event)" 
+    playsinline webkit-playsinline>
+  </audio>
+  <div class="control-area">
+    <div class="control-bar">
+      <a class="btn-play" [class.pause]="isPlaying" [class.disbale]="!canplay" (tap)="onPlayPauseTap()"></a>
+      <span class="video-time">{{currentTimeLabel}}</span>
+      <div class="process-bar" (pan)="onProcessPan($event)">
+        <div class="process-bg">
+          <div class="process" [style.width]="processPosition"></div>
+        </div>
+        <div class="drag-wraper" [style.left]="processPosition">
+          <a class="btn-drag" [class.disbale]="!canplay"></a>
+        </div>
+      </div>
+      <span class="video-time total">{{totalTimeLabel}}</span>
+      <a class="btn-fullscreen" [class.exit]="isFullscreen" (tap)="onFullscreenTap()" [class.disbale]="!canplay"></a>
+    </div>
+  </div>
+</div>

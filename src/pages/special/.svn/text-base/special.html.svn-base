@@ -1,0 +1,23 @@
+<ion-header no-border>
+  <ion-navbar>
+    <ion-title>特优生全线产品</ion-title>
+    <ion-buttons right>
+     <div class="specila_share" (tap)="showPop()"></div>	
+	</ion-buttons>
+  </ion-navbar>
+  
+</ion-header>
+
+<ion-content >
+	<div class="special_all">
+		<ng-container *ngIf="products.length>0">
+			 <div class="special_frame" *ngFor="let product of products;let Index = index" (tap)="goDetail(product)">
+			 	  <img [src]="product.src" />
+			 </div>
+		</ng-container>
+		<ion-infinite-scroll (ionInfinite)="doInfinite($event)" [hidden]="noMoreData">
+			<ion-infinite-scroll-content loadingText="加载中..."></ion-infinite-scroll-content>
+		</ion-infinite-scroll>
+	</div>
+	<p class="p-nomore" [hidden]="!noMoreData"> ~ 更多内容 敬请期待 ~ </p>
+</ion-content>

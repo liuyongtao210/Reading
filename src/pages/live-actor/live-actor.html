@@ -1,0 +1,205 @@
+<ion-header class="eVisible" no-border [hidden]="isFullscreen">
+	<ion-navbar hideBackButton>
+		<ion-buttons left>
+			<button class="backButton" ion-button left (tap)="backPage()"></button>
+		</ion-buttons>
+		<ion-title>
+			{{pageName}}
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content [style.background]="isBgTransparent?'transparent':'#FFFFFF'">
+	<div class="videoTop">
+		<div class="videoLeft">
+			<div class="videoLeft_pic">
+				<img [src]="roomInfo?.tIcon" class="videoLeft_img" />
+				<span class="videoLeft_img_icon"></span>
+			</div>
+			<span class="videoLeft_name">{{roomInfo?.tName}}老师</span>
+		</div>
+		<div class="videoRight" style="color: #e96138;" *ngIf="!isClass">
+			<span style="color: #FFFFFF;">距离上课</span>
+			<!--<div class="clock_hour">12</div> :-->
+			<div class="clock_minute" style="color: #e96138;">{{roomInfo?.systemTime|formatDate:'countDownTimeH':roomInfo?.classTime}}</div> :
+			<div class="clock_second" style="color: #e96138;">{{roomInfo?.systemTime|formatDate:'countDownTimeM':roomInfo?.classTime}}</div>
+		</div>
+		<div class="videoRight" style="color: #51c3c4;" *ngIf="isClass">
+			<span style="color: #333333;">上课计时</span>
+			<!--<div class="clock_hour">12</div> :-->
+			<div class="clock_minute" style="color: #51c3c4;">{{roomInfo?.classTime|formatDate:'countDownTimeH':roomInfo?.systemTime}}</div> :
+			<div class="clock_second" style="color: #51c3c4;">{{roomInfo?.classTime|formatDate:'countDownTimeM':roomInfo?.systemTime}}</div>
+		</div>
+	</div>
+	<div class="streamVideoContent" *ngIf="viewType==1" [style.height.px]="videoBoxHeight">
+		<div class="liveRoomInfoPanel" *ngIf="!isTeacherInRoom">
+			老师不在直播间，请等待……
+		</div>
+		<div class="barrageArea" *ngIf="chatListHelf.length>0">
+			<div class="barrage_video" *ngFor="let chat of chatListHelf">
+				<div *ngIf="chat?.id==roomInfo?.teacherId&&chat?.name!=''" class="barrage_videoStyle barrage_video_teacherStyle">
+					<img [src]="chat?.icon" (error)='imgError($event)' /> {{chat?.name}}:
+					<span [innerHtml]="chat?.content|formatChat"></span>
+				</div>
+				<div *ngIf="chat?.id==userInfo?.userId&&chat?.name!=''" class="barrage_videoStyle barrage_video_studentStyle">
+					{{chat?.name}}:<span [innerHtml]="chat?.content|formatChat"></span>
+				</div>
+				<div *ngIf="chat?.id!=roomInfo?.teacherId&&chat?.id!=userInfo?.userId&&chat?.name!=''" class="barrage_videoStyle">
+					{{chat?.name}}:<span [innerHtml]="chat?.content|formatChat"></span>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="streamVideoContent" *ngIf="viewType==0" [style.height.px]="videoBoxHeight">
+		<div class="liveRoomInfoPanel courseInfoPanel" *ngIf="courseObj?.isFinish==0&&courseObj?.dataType==10">
+			<img class="courseInfo_img" [src]="roomObj?.bigPic" />
+			<p class="courseInfo_Time">{{roomObj?.date}} {{roomObj?.bookingTime}}</p>
+			<button class="appointmentButton" *ngIf="courseObj?.isSub==0&&courseObj?.isFinish==0" (tap)="appointmentCourse()">立即预约</button>
+			<button class="appointmentButton" *ngIf="courseObj?.isSub==1&&courseObj?.isFinish==0&&!courseObj?.isLive">已预约</button>
+		</div>
+		<div class="videoBackgroundDiv" *ngIf="courseObj?.isFinish==1||courseObj?.dataType==12" style="height: 100%;background-color: #333333;">
+			<ion-video-player [src]="videoUrl" [audioSrc]="audioUrl" [poster]="videoPic" videoWidth="100%" videoHeight="auto" (loadedActive)="videoLoadedActive($event)" (active)="videoActive($event)" (fullscreenEvent)="fullscreenEvent($event)"></ion-video-player>
+		</div>
+	</div>
+	<div class="liveBox eVisible" [ngStyle]="{'height':viewType==0?(liveBoxHeight+45)+'px':liveBoxHeight+'px','bottom':viewType==0?'0':'45px'}">
+		<div class="liveBox_tags">
+			<div class="liveBox_tags_info" [class.tagActivity]="tagNumber==0" (tap)="changeTag(0)"><span class="tagLine tagLine0">课程介绍</span></div>
+			<div class="liveBox_tags_ppt" [class.tagActivity]="tagNumber==1" (tap)="changeTag(1)" [hidden]="courseObj?.dataType==12&&pptlist.length==0"><span class="tagLine tagLine1">课件展示</span></div>
+			<div class="liveBox_tags_barrage" *ngIf="viewType==1" [class.tagActivity]="tagNumber==2" (tap)="changeTag(2)"><span class="tagLine tagLine2">讨论区<span style="transform:scale(0.8);font-size:10px">({{roomPersonNumber}})</span></span></div>
+			<div class="slide_line" [ngStyle]="currentStyles" [hidden]="courseObj?.dataType==12&&pptlist.length==0"></div>
+		</div>
+		<div class="courseInfo" [style.visibility]="tagNumber==0?'visible':'hidden'">
+			<div class="OR_panel">
+				<div class="OR_panel_header">
+					<span class="paddingLine"></span>
+					<span class="OR_panel_header_title">简介</span>
+				</div>
+				<ng-container *ngIf="courseObj?.dataType==10">
+					<div style="width: 100%;" [innerHtml]="roomObj?.courseDesc"></div>
+					<!--<div style="width: 100%;border-top: 1px solid #EBEBEB;">
+						<div class="teacherInfoBox">
+							<img class="teacherInfoBox_img" [src]="roomObj?.tIcon" (error)='imgError($event)' />
+							<span class="teacherInfoBox_name">{{roomObj?.tName}}</span>
+						</div>
+						<div style="width: 100%;margin-bottom: 13px;" [innerHtml]="roomObj?.tIntro"></div>
+						<div style="width: 100%;" [innerHtml]="roomObj?.tDes"></div>
+					</div>-->
+				</ng-container>
+				<ng-container *ngIf="courseObj?.dataType==12">
+					<div style="width: 100%;" [innerHtml]="ccVideoInfo?.originText"></div>
+				</ng-container>
+			</div>
+
+		</div>
+		<div class="img-canvas" [style.visibility]="tagNumber==1?'visible':'hidden'">
+			<img id="pptImg" [src]="pptImgUrl" [hidden]="courseObj?.dataType==12" />
+			<canvas [hidden]="courseObj?.dataType==12" #myCanvas style="position: absolute;margin: auto; top: 0; left: 0;right: 0;" id="mycan" [width]="canvasWidth" [height]="canvasHeight"></canvas>
+			<img *ngFor="let ppt of pptlist" [src]="filePath+ppt.file" />
+		</div>
+		<div class="barrage" *ngIf="chatList.length>0" [style.visibility]="tagNumber==2?'visible':'hidden'">
+			<div class="barrage_p" *ngFor="let chat of chatList">
+				<div *ngIf="chat?.id==roomInfo?.teacherId" class="teacherStyle">
+					<div class="barrage_imgBox">
+						<img [src]="chat?.icon" (error)='imgError($event)' />
+					</div>
+					<div>
+						<div class="teacherTitle"><span>主讲人</span>{{chat?.name}}</div>
+						<div class="barrage_content">
+							<!--{{chat?.id}}-->
+							<span [innerHtml]="chat?.content|formatChat"></span>
+						</div>
+						<span class="barrage_arrow"></span>
+					</div>
+				</div>
+				<div *ngIf="chat?.id==userInfo?.userId" class="studentStyle">
+					<div class="barrage_imgBox">
+						<img [src]="chat?.icon" (error)='imgError($event)' />
+					</div>
+					<div>
+						<div class="barrage_content">
+							<!--{{chat?.id}}-->
+							<span [innerHtml]="chat?.content|formatChat"></span>
+						</div>
+						<span class="barrage_arrow"></span>
+					</div>
+				</div>
+				<div *ngIf="chat?.id!=roomInfo?.teacherId&&chat?.id!=userInfo?.userId">
+					<div class="barrage_imgBox">
+						<img [src]="chat?.icon" (error)='imgError($event)' />
+					</div>
+					<div>
+						<div class="barrage_content">
+							<!--{{chat?.id}}-->
+							<span [innerHtml]="chat?.content|formatChat"></span>
+						</div>
+						<span class="barrage_arrow"></span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!--<div class="inputArea eVisible" *ngIf="viewType==1">
+		<button class="requestActor" (tap)="requestActor(roomInfo?.teacherId)"></button>-->
+		<!--<button class="sendEmot" (tap)="onFaceClick()"></button>-->
+		<!--<input class="sentInput" #box type="text" (keyup.enter)="testD(box.value)" placeholder="请输入内容" />
+		<a class="sendButton" (tap)="testD(box.value)">发送</a>
+	</div>-->
+	<ion-card class="voicePanel" [style.visibility]="isShowVoice?'visible':'hidden'">
+		<ion-card-header>
+			{{word}}
+		</ion-card-header>
+		<ion-card-content>
+			<div class="voicePanel_content">
+				<h1 *ngIf="isReadOver">{{score}}</h1>
+				<!--<button class="voicePanel_content_button" *ngIf="!isSpeeking&&!isReadOver" (tap)="speek(word)" ion-button icon-only round>
+  					<ion-icon name="mic"></ion-icon>
+				</button>-->
+				<button class="voicePanel_content_button" *ngIf="isSpeeking&&!isReadOver" (tap)="readOver()" [style.boxShadow]="volumeShadow" color="buttonOrange" ion-button icon-only round>
+  					<ion-icon name="pause" *ngIf="isSpeeking"></ion-icon>
+				</button>
+				<button *ngIf="isReadOver" (tap)="closePanel()" ion-button full>
+  					关闭
+				</button>
+
+			</div>
+		</ion-card-content>
+	</ion-card>
+	<!--<span style="position: absolute;top: 0;left: 0;visibility: visible;">
+		<button ion-button (tap)="pushView()">推页面</button>
+		<button ion-button (tap)="destroyView()">销毁页面</button>
+		<p>message:{{message}}</p>
+	</span>-->
+	<!--bonescreen-->
+	<div class="liveSkeletonScreen_box" *ngIf="skeletonShow">
+		<div class="liveSkeletonScreen_videoBox">
+			
+		</div>
+		<div class="liveSkeletonScreen_liveBox">
+			<div class="liveSkeletonScreen_liveBox_header">
+				<div class="liveSkeletonScreen_liveBox_menu">
+					<span></span>
+				</div>
+				<div class="liveSkeletonScreen_liveBox_menu">
+					<span></span>
+				</div>
+			</div>
+			<div class="liveSkeletonScreen_liveBox_content">
+				<p class="liveSkeletonScreen_liveBox_content_title"></p>
+				<p style="width: 95%;"></p>
+				<p style="width: 95%;"></p>
+				<p style="width:30%"></p>
+			</div>
+		</div>
+	</div>
+</ion-content>
+<ion-footer [style.opacity]="viewType==1&&tagNumber!=0?'1':'0'" [hidden]="isFullscreen">
+  <ion-toolbar>
+	<div class="inputArea eVisible" *ngIf="viewType==1&&tagNumber!=0">
+		<button class="requestActor" (tap)="requestActor(roomInfo?.teacherId)"></button>
+		<!--<button class="sendEmot" (tap)="onFaceClick()"></button>-->
+		<input class="sentInput" #box type="text" (keyup.enter)="testD(box.value)" placeholder="请输入内容" />
+		<a class="sendButton" (tap)="testD(box.value)">发送</a>
+	</div>
+  </ion-toolbar>
+</ion-footer>

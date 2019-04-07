@@ -1,0 +1,28 @@
+<ion-content [style.background]="contentBgColorList[currentSlideIndex]">
+  <ion-slides pager (ionSlideWillChange)="onSlideChange($event)">
+    <ion-slide class="start-slider">
+      <div class="start-item ad1">
+        <img src="assets/imgs/home-new/start-1.png">
+      </div>
+    </ion-slide>
+    <ion-slide class="start-slider">
+      <div class="start-item ad2">
+        <img src="assets/imgs/home-new/start-2.png">
+      </div>
+    </ion-slide>
+    <ion-slide class="start-slider">
+      <div class="start-item ad3">
+        <img src="assets/imgs/home-new/start-3.png">
+      </div>
+    </ion-slide>
+    <ion-slide class="start-slider">
+      <div class="start-item ad4">
+        <div class="content">
+            <img src="assets/imgs/home-new/start-4.png">
+            <a class="btn-start" (tap)="onGotoIndex()"></a>
+        </div>
+      </div>
+    </ion-slide>
+  </ion-slides>
+  <a class="btn-jump" (tap)="onGotoIndex()">跳过</a>
+</ion-content>

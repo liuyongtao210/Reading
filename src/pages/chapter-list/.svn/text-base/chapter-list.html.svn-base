@@ -1,0 +1,76 @@
+<!--
+  Generated template for the ChapterListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+  <ion-navbar>
+    <ion-title>
+    	<div class="intro_msg">
+    		<img src="assets/imgs/read/intro_icon_1.png" class="intro_icon" (tap)="goIntroPage()"/>
+    		<img src="assets/imgs/read/intro_icon_2.png" class="intro_icon" (tap)="goArticleDetail()"/>
+    	</div>
+    </ion-title>
+    
+    	
+  </ion-navbar>
+</ion-header>
+
+	<div class="share_content" *ngIf="isShare" (tap)="hiddenShare($event)">
+	
+	</div>  
+			<div class="share_con" *ngIf="isShare" (tap)="noHidden($event)"> 
+				<div class="book_name">书籍名称</div>
+				<div class="share_txt">分享解锁<span>免费</span>学</div>
+				<div class="share_select">
+					<div class="share_btn" (tap)="shareFn(0)">
+						<img src="assets/imgs/read/share_w.png" class="share_icon1"/>
+						微信好友
+					</div>
+					<div class="share_btn" (tap)="shareFn(1)">
+						<img src="assets/imgs/read/share_p.png" class="share_icon2"/>
+						朋友圈
+					</div>
+				</div>
+			</div>
+<ion-content>
+<div class="read_content">
+			<div class="t_img" [style.height.px]="coverHeight">
+			<img [src]="currentChapterImg" alt="" class="book_header_bg"/>
+			
+			<div class="collection_icon" (tap)="collectionBook()" >
+				<img src="assets/imgs/read/coll_icon_has.png" *ngIf="collect==1"/>
+				<img src="assets/imgs/read/coll_icon_un.png"  *ngIf="collect==0"/>
+			</div>
+		</div>
+
+<!--<div class="cha_header"></div>-->
+<div class="slide_content">
+	<ion-slides (ionSlideDidChange)="slideChange()" slidesPerView='1.2' spaceBetween='15' centeredSlides='true'>
+  <ion-slide *ngFor="let item of newListData" class="slides_style" >
+   
+    <div class="slide_detail_list">
+    	 <div class="chap_title">
+    	 	<div class="t_title">{{item.chapterName}}</div>
+    	 	<div class="succ_pro" *ngIf="item.flag!=0">完成 <span>{{completeProgress}}</span>/{{newListData.length}}</div>
+    	 </div>
+    	 <img src="assets/imgs/read/no_chap_img.png" alt="" class="no_chap_img" *ngIf="item.length==0"/>
+    	 <div class="chap_list_con" *ngIf="item.length!=0">
+    	 		<div class="chap_list_item"  *ngFor="let its of item.source;let i = index;" (tap)="golChapterList(its,item)">
+    	 			<div class="item_left">
+    	 				<div class="cha_point" [style.borderColor]="listColorArr[i%5]">
+    	 					<span [style.background]="listColorArr[i%5]"></span>
+    	 				</div>
+    	 				{{its.sourceName}}
+    	 			</div>
+    	 			<img src="assets/imgs/read/task_success_icon.png" alt=""  class="task_success_icon" *ngIf="its.progress==100"/>
+    	 		</div>
+    	 </div>
+    </div>
+  </ion-slide>
+
+</ion-slides>
+</div>
+</div>
+</ion-content>

@@ -1,0 +1,292 @@
+page-teacher-index {
+   .shareIcon{
+      background: url('../assets/imgs/teacher/shareIcon.png') no-repeat center;
+      background-size:18px 18px; 
+      width: 44px;
+      height: 53px;
+   }
+   .teacherIndex_top{
+       padding: 15px 15px 20px 15px;
+       display: flex;
+       justify-content: flex-start;
+       align-items: flex-start;
+       flex-direction: row;
+   }
+   .teacherIndex_top_avatar{
+       width: 90px;
+       height: 90px;
+       border-radius: 90px;
+       overflow: hidden;
+       margin-right: 23px;
+       background: #eeeeee;
+   }
+   .teacherIndex_top_avatar img{
+       width: 100%;
+   }
+   .teacherIndex_top_info{
+       flex: 1;
+       display: flex;
+       justify-content: flex-start;
+       flex-direction: column;
+       align-items: center;
+   }
+   .teacherIndex_top_info_name{
+       color: #333333;
+       font-size: 24px;
+       padding-bottom: 10px;
+       width: 100%;
+       text-align: left;
+   }
+   .teacherIndex_top_info_mid{
+       font-size: 13px;
+       color: #333;
+       padding-bottom: 10px;
+       width: 100%;
+       text-align: left;
+   }
+   .teacherIndex_top_info_bot{
+       width: 100%;
+       display: flex;
+       justify-content: space-between;
+       align-items: flex-end;
+   }
+   .teacherIndex_top_info_botL{
+       flex: 1;
+       font-size: 13px;
+       color: #333;
+   }
+   .teacherIndex_top_info_botR{
+       width: 70px;
+       height: 30px;
+       border-radius: 20px;
+       border: 1px solid #fe4743;
+       color: #fe4743;
+       display: flex;
+       justify-content: center;
+       align-items: center; 
+   }
+   .teacherIndex_top_info_botR div{
+       background: url('../assets/imgs/teacher/teacherIndex_top_info_botR.png') no-repeat left center;
+       background-size:15px 13px;
+       padding-left: 22px;
+       color: #fe4743;
+       font-size: 14px;
+   }
+   .teacherIndex_top_info_botR.dis{
+       border: 1px solid #bebebe;
+       color: #bebebe;
+   }
+   .teacherIndex_top_info_botR.dis div{
+       background: none;
+       padding-left: 0;
+       color: #bebebe;
+       font-size: 14px;
+   }
+   .teacherIndex_intro{
+       padding: 0 15px 18px 15px;
+       border-bottom: solid 5px #f5f3f3;
+   }
+   .teacherIndex_introTxt{
+       word-break: break-all;
+       font-size: 14px;
+       line-height: 25px;
+       color: #333;
+       display: -webkit-box;
+       -webkit-box-orient: vertical;
+       -webkit-line-clamp: 5;
+       overflow: hidden;
+       
+   }
+   .teacherIndex_introbtn{
+       padding: 18px 0 0 0;
+       color: #1374e2;
+       font-size: 13px;
+       text-align: left;
+   }
+   .teacherIndex_news{
+       padding: 25px 15px 0 15px;
+       display: flex;
+       justify-content: flex-start;
+       align-items: flex-start;
+       flex-direction: column;
+   }
+   .teacherIndex_news_title{
+       font-size: 21px;
+       color: #333;
+       font-weight: 700;
+       padding-bottom: 16px;
+       width: 100%;
+   }
+   .teacherIndex_news_all{
+       height: 38px;
+       width: 100%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       background-color: #fff3f3;
+       border: 1px solid #fcd0d0;
+       border-radius: 5px;
+   }
+   .teacherIndex_news_all div{
+       background: url('../assets/imgs/teacher/teacherIndex_news_all.png') no-repeat left center;
+       background-size: 18px auto;
+       color: #fe4743;
+       font-size: 13px;
+       padding-left: 28px;
+   }
+   .teacherIndex_frame{
+      background-color: #fff;
+      box-sizing: border-box; 
+   }
+   .teacherIndex_list{
+       padding: 20px 15px 0 25px;
+       display: flex;
+       justify-content: flex-start;
+       align-items: flex-start;
+       flex-direction: column;
+       border-bottom: 1px solid #ebebeb;
+   }
+   .teacherIndex_list:last-child{
+       border: none;
+   }
+   .teacherIndex_list_top{
+       display: flex;
+       width: 100%;
+       justify-content: space-between;
+       align-items: center;
+       flex-direction: row;
+   }
+   .teacherIndex_list_top_left{
+       flex: 1;
+       display: flex;
+       justify-content: flex-start;
+       align-items: center;
+   }
+   .teacherIndex_list_top_img{
+       width: 30px;
+       height: 30px;
+       border-radius: 50%;
+   }
+   .teacherIndex_list_top_img img{
+       width: 30px;
+       height: 30px;
+       border-radius: 50%;
+   }
+   .teacherIndex_list_top_name{
+       flex: 1;
+       color: #333;
+       font-size: 15px;
+       font-weight: 700;
+       padding-left: 10px;
+       display: -webkit-box;
+       -webkit-box-orient: vertical;
+       -webkit-line-clamp: 1;
+       overflow: hidden;
+   }
+   .teacherIndex_list_top_right{
+       color: #999999;
+       font-size: 13px;
+       text-align: right;
+   }
+   .teacherIndex_list_top_intro{
+       padding: 12px 15px 17px 40px;
+       font-size: 15px;
+       color: #333;
+   }
+   .teacherIndex_list_banner{
+       padding: 12px 0 0 25px;
+       display: flex;
+       justify-content: flex-start;
+       align-items: flex-start;
+       flex-direction: row;
+       flex-wrap: wrap;
+   }
+   .teacherIndex_list_banner_li{
+       width: 33.3333%;
+   }
+   .teacherIndex_list_banner_li_img{
+       padding-left: 15px;
+       border-radius: 10px;
+       padding-bottom: 5px;
+   }
+   .teacherIndex_list_banner_li_img img{
+       width: 100%;
+       height: 70px;
+       border-radius: 10px;
+       
+   }
+   .teacherIndex_list_like{
+       padding: 10px 0;
+       width: 100%;
+       display: flex;
+       justify-content: flex-end;
+       align-items: center;
+       flex-direction: row;
+       padding-left: 40px;
+   }
+   .teacherIndex_list_like.usual{
+       justify-content:space-between;
+   }
+   .teacherIndex_list_delete{
+       width: 100px;
+       color: #fe4743;
+       font-size: 13px;
+   }
+   .teacherIndex_list_love{
+       color: #bebebe;
+       font-size: 13px;
+       background:url('../assets/imgs/teacher/teacherIndex_list_love.png') no-repeat left center;
+       background-size:auto 12px;
+       padding-left: 20px;
+   }
+   .teacher_news_pad{
+       padding: 20px 0 20px 40px;
+       overflow: hidden;
+       width: 100%;
+   }
+   .teacher_news_frame{
+       background-color: #f1f1f1;
+       display: flex;
+       width: 100%;
+       padding: 10px;
+       justify-content: flex-start;
+       align-items: center;
+       border-radius: 5px;
+       min-height: 71px;
+   }
+   .teacher_news_img{
+      width: 51px;
+      height: 51px;
+      border-radius: 5px;  
+   }
+   .teacher_news_frame img{
+      width: 51px;
+      height: 51px;
+      border-radius: 5px;  
+   }
+   .teacher_news_txt{
+       flex: 1;
+       font-size: 14px;
+       color: #333;
+       line-height: 25px;
+       padding-left: 13px;
+       word-break: break-all;
+       
+   }
+   .teacherIndex_list_read{
+       font-size: 13px;
+       color: #999;
+   }
+   .teacherIndex_add{
+       position: fixed;
+       bottom: 25px;
+       right: 15px;
+       width: 60px;
+       height: 60px;
+       border-radius: 50%;
+       background:#fff url('../assets/imgs/teacher/teacherIndex_add.png') no-repeat center;
+       background-size:30px 30px;
+       box-shadow: 0 3px 22px #d5d5d5;
+       
+   }
+}

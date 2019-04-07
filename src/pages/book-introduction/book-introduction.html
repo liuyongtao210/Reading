@@ -1,0 +1,13 @@
+<ion-header no-border>
+  <ion-navbar class="headerheight">
+    <ion-title>
+    	<div>书籍简介</div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="ion-content">
+	<div class="ppt-img" *ngFor="let ppt of pptlist">
+		<img [src]="filePath+ppt.file" #myimg (click)="presentImage(myimg)" />
+	</div>
+</ion-content>

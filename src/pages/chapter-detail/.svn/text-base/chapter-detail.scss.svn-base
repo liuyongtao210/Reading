@@ -1,0 +1,104 @@
+page-chapter-detail {
+
+
+
+//页面初始化的一些样式 start 
+
+
+.toolbar-background{
+    background: transparent !important;
+}
+
+   .back-button-icon:before{//返回按钮的默认内容 背景 文本等
+       content: '';
+    }
+    .back-button-ios,.back-button-md{//设置返回按钮的位置样式等
+        position: absolute;
+        left: 10px;
+//      top:20px;
+        font-size: 19px;
+        font-weight: normal;
+        margin: 0;
+        min-width: auto;
+        min-height: auto;
+    }
+   .back-button{//设置返回按钮的背景图
+        width: 12px;
+        height: 20px;
+        background: url(../assets/imgs/read/back_black.png) center center no-repeat;
+        background-size:12px 20px;
+        z-index: 10;
+    }
+    .back-button-text{//返回按钮的文本
+       display: none;
+    }
+    .toolbar{
+//      min-height: 60px !important;
+    }
+    .scroll-content{
+//      margin-top: 105px !important;
+        background: #f3f3f3;
+    }
+    
+//页面初始化的一些样式 end
+
+
+
+.chapter-detail-content{
+    
+}
+.detail-banner{
+//  height: 150px;
+//  border: 1px solid #333333;
+margin: 0 15px;
+display: flex;
+justify-content: center;
+align-items: center;
+padding-top: 15px;
+padding-bottom: 15px;
+}
+.detail-banner img{
+    border-radius: 10px;
+//  width: 100%;
+}
+.detail_item{
+   display: flex;
+   height: 55px;
+   align-items: center;
+   background: #ffffff;
+   margin: 0 15px;
+   margin-bottom: 5px;
+   border-radius: 5px;
+   position: relative;
+}
+.complete_num{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.complete_num span{
+    color: #d81d4a;
+}
+.circle_a{
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #5bb4ba;
+    margin: 0 13px;
+}
+.complete_icon{
+    width: 17px;
+    height: 17px;
+//  position: absolute;
+//  right: 14px;
+    margin-right: 14px;
+}
+.complete_icon_box{
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+}

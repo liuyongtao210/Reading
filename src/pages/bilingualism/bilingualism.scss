@@ -1,0 +1,79 @@
+page-bilingualism {
+
+//页面初始化的一些样式 start 
+
+
+.toolbar-background{
+    background: transparent !important;
+    border: none !important;
+}
+
+   .back-button-icon:before{//返回按钮的默认内容 背景 文本等
+       content: '';
+    }
+    .back-button-ios,.back-button-md{//设置返回按钮的位置样式等
+        position: absolute;
+        left: 10px;
+//      top:20px;
+        font-size: 19px;
+        font-weight: normal;
+        margin: 0;
+        min-width: auto;
+        min-height: auto;
+    }
+   .back-button{//设置返回按钮的背景图
+        width: 12px;
+        height: 20px;
+        background: url(../assets/imgs/read/back_black.png) center center no-repeat;
+        background-size:12px 20px;
+        z-index: 10;
+    }
+    .back-button-text{//返回按钮的文本
+       display: none;
+    }
+    .toolbar{
+//      min-height: 60px !important;
+    }
+    .scroll-content{
+//      padding: 0 !important;
+//      overflow: hidden !important;
+        border-top: 1px solid #ebebeb;
+    }
+    
+//页面初始化的一些样式 end
+
+
+.ppt_content{
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid #ebebeb;
+//  display: flex;
+//  align-items: center;
+//  flex-direction: column;
+    position: relative;
+}
+.cur_index{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+   z-index: 10;
+   left: 0;
+   top:10px
+}
+.ion_slides{
+    padding-top: 10px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+.cur_index span{
+    color: #d81d4a;
+}
+//ion-slides{
+//  height: auto;
+//}
+}

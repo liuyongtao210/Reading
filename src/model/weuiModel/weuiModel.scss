@@ -1,0 +1,191 @@
+$alert-min-width: 290px;
+$alert-max-height: 290px;
+$alert-md-max-width: 290px;
+
+.toast-ios, .toast-md{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.toast-wrapper{
+    top: 0 !important;
+    left: auto !important;
+    right: auto !important;
+    position: relative !important;
+    width: auto !important;
+    max-width: auto !important;
+}
+
+.alert-wrapper {
+    max-width:calc(100% - 40px)!important;
+    min-width: 270px!important;
+    min-height:140px;
+    position: relative;
+    top: -80px;
+    border-radius: 0 !important;
+    background-color: #FFFFFF!important;
+//  background-color:transparent!important;
+//  background:url("../assets/imgs/newAppAlertBg.png");
+//  background-size:334px 176px;
+    border-radius:10px!important;
+    box-shadow:none!important;
+//  left: 50%;
+//  transform: translateX(-50%);
+overflow: hidden;
+}
+.alert-ios .alert-wrapper{
+    max-width:calc(100% - 40px)!important;
+}
+.alert-input-group {
+    padding: 0 20px 20px !important;
+}
+.alert-ios .alert-head{
+    padding:20px 0px 3px 0px!important;
+    text-align:center!important;;
+}
+.alert-md .alert-head {
+    padding:20px 0px 0px 0px!important;
+    text-align:center!important;
+}
+
+.alert-md .alert-message {
+    padding-bottom: 20px !important;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.alert-ios .alert-message {
+    padding-bottom: 20px !important;
+    text-align: center;
+    margin-bottom: 52px;
+}
+.alert-message{
+    font-size:15px!important;
+    font-weight:normal;
+    color:#888888!important;
+    line-height: 26px;
+}
+.alert-input-wrapper input {
+    height: 25px;
+    box-sizing: border-box;
+    border: solid 1px #333333 !important;
+    border-radius: 4px;
+    margin-bottom: 10px !important;
+    position: relative;
+    padding: 0 10px;
+    background-color: #ebebeb;
+    font-size: 16px;
+    color: #333333 !important;
+}
+.alert-title{
+    font-size:18px!important;
+    color: #333333;
+    font-weight:bold;
+}
+.txt {
+    position: relative;
+    margin: 0 auto;
+    display: inline-block;
+    font-size: 22px;
+}
+.tp img {
+    position: relative;
+    width: 92px;
+    height: 45px;
+}
+
+.tt {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size:18px!important;
+    text-align:center;
+}
+.alert-button-group {
+    width:calc(100% + 1px);
+    position:absolute;
+    bottom:0;
+    left: 50%;
+    transform:translateX(-50%);
+    padding: 0!important;
+    text-align:center;
+    margin:0px auto;
+    border-top: 1px solid #EBEBEB;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.alert-ios .alert-button{
+//  min-width:80px!important;
+}
+.alert-button {
+    max-width: 50%;
+    min-width: 50%;
+    height:49px!important;
+    line-height:49px!important;
+    padding: 0 !important;
+    margin: 0 !important;
+    text-align: center !important;
+    vertical-align: top;
+    border: none !important;
+//  border-top:none!important;
+    margin:0px auto!important;
+}
+.alert-button:nth-child(1){
+//  margin-right:-30px!important;
+//  background:url("../assets/imgs/wordApp-clearbtn-icon.png");
+//  background-repeat:no-repeat;
+//  background-size:88px 32px;
+    background-color: #ffffff;
+    color: #999999;
+    border-right: solid 1px #ebebeb !important;
+}
+.alert-button:last-child{
+//  max-width: 89.5px;
+//  background:url("../assets/imgs/wordApp-okbtn-icon.png");
+//  background-repeat:no-repeat;
+//  background-size:89.5px 32px;
+    background-color: #ffffff;
+    color: #f8673b !important;
+}
+.alert-button .button-inner{
+    width: 80px;
+    height:32px!important;
+    line-height:32px!important;
+    font-size:15px;
+}
+.alert-button span {
+    text-align: center !important;
+    display: inline;
+    line-height: 49px;
+    font-size: 15px;
+}
+.ttA{
+    
+}
+.alert-button-group .toastStyle {
+    width: 100%;
+    max-width: none;
+    margin-right:0px!important;
+    text-align:center!important;
+    margin:0px auto!important;
+    position:relative;
+//  top:-15px;
+    background-color: #f8673b;
+    color: #FFFFFF !important;
+    
+}
+
+.alert-sub-title {
+    font-size:14px!important;
+    font-weight:normal;
+    color:#888!important;
+    line-height: 26px;
+}
+.hideAlertButton{
+    display: none;
+}
+.hideAlertButton100{
+    width: 100% !important;
+    max-width: none;
+}

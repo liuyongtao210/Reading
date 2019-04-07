@@ -1,0 +1,71 @@
+<!--
+  Generated template for the ClassPieviewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+
+  <ion-navbar>
+    <ion-title>课前预习</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<!-- Tab栏 -->
+	<ul class="mytab">
+		<li  (tap)="onTabClick(0)">
+			Vocabulary
+			<span class="under_line" [class.active]="tabIndex==0"></span>
+		</li>
+		<li (tap)="onTabClick(1)">
+			Phrase
+			<span class="under_line"  [class.active]="tabIndex==1"></span>
+		</li>
+		<li  (tap)="onTabClick(2)">
+			Sentences
+			<span class="under_line" [class.active]="tabIndex==2"></span>
+		</li>
+	</ul>
+	<div class="data-panel">
+		<audio class="audio-com" #readaudio  (ended)="audioEnd($event)" (loadedmetadata)="loadedmetadata($event)" (timeupdate)="timeupdate($event)"></audio>
+		<!-- 单词 -->
+		<div class="c_piev_all" *ngIf="vocabularyData.length>0" [hidden]="tabIndex!=0" > 
+			<!--<div class="a_title"><span></span>单词</div>-->
+			<div class="d_ci_content"  *ngFor="let item of vocabularyData;let i =index">
+				<div class="d_ci">
+					<span class="d_s1">{{item.wordName}}</span>
+					<span class="d_s2"> {{item.pronounce}}</span>
+					<div class="pronunciation">{{item.paraphrase}}</div>
+				</div>
+				<span class="d_s3" (tap)="clickWorld(item,i)">
+						<img [src]="item.comonearDefult" class="comonear" />
+					</span>
+					
+			</div>
+		</div>
+		<!-- 短语 -->
+		<div class="c_piev_all" *ngIf="phraseData.length>0" [hidden]="tabIndex!=1" > 
+		<!--<div class="a_title"><span></span>短语</div>--> 
+			<div class="d_ci_content" *ngFor="let item of phraseData;let i =index">
+				<div class="con_a">
+					{{item.wordName}}
+					<div>{{item.paraphrase}}</div>
+				</div>
+			<!--<div class="con_a">{{item.paraphrase}}</div>-->
+			</div>
+		</div>
+		<!-- 句子 -->
+		<div class="c_piev_all" *ngIf="sentenceData.length>0" [hidden]="tabIndex!=2" > 
+		<!--<div class="a_title"><span></span>句子</div>-->
+			<div class="d_ci_content" *ngFor="let item of sentenceData;let i =index">
+				<div class="con_a">
+					{{item.wordName}}
+					<div>{{item.paraphrase}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</ion-content>

@@ -1,0 +1,7 @@
+page-public-course {
+//  @import "theme/header_fullscreen";
+    @import "theme/or_panel";
+    .scroll-content{
+        // background-color: #E0E0E0 !important;
+    }
+}

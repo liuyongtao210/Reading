@@ -1,0 +1,318 @@
+page-my-invite {
+  .scroll-content{
+      background-color: #fff0b1;
+  }
+  .myInvite_title{
+      position: relative;
+      width: 100%;
+      background: url('../assets/imgs/my-invite/myInvite_title.png') no-repeat top center;
+      background-size:100% 100%;
+      min-height:233px ;
+  }
+  .invite_rule{
+      position: absolute;
+      background: url('../assets/imgs/my-invite/invite_rule.png') no-repeat center;
+      background-size: 63px 27px;
+      right: 0;
+      top: 10px;
+      width: 63px;
+      height: 27px;
+  }
+  .invite_status_one{
+      position: absolute;
+      width: 100%;
+      left: 50%;
+      transform: translate(-50%);
+      top: 43px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      pointer-events: none; 
+  }
+  .invite_one_top{
+      background: url('../assets/imgs/my-invite/invite_one_top.png') no-repeat center;
+      background-size: 247px 30px;
+      width: 100%;
+      height: 30px;
+  }
+  .invite_timer{
+      position: absolute;
+      width: 100%;
+      left: 50%;
+      transform: translate(-50%);
+      top: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      pointer-events: none;
+  }
+  .invite_zero_top{
+      background: url('../assets/imgs/my-invite/invite_zero_top.png') no-repeat center;
+      background-size: 83px 12px;
+      width: 100%;
+      height: 12px;
+      margin-bottom: 14px;
+  }
+  .invite_zero_middle{
+      background: url('../assets/imgs/my-invite/invite_zero_middle.png') no-repeat center;
+      background-size:185px 30px;
+      width: 100%;
+      height: 30px;
+  }
+  .invite_green_pad{
+        position: absolute;
+        bottom: -138px;
+        left: 0;
+        background: url(../assets/imgs/my-invite/invite_green_pad.png) no-repeat top center;
+        background-size: 298px 177px;
+        width: 100%;
+        height: 177px;
+  }
+  .invite_green_frame{
+      position: relative;
+      width: 100%;
+      height: 177px;
+  }
+  .invite_green_notice{
+      position: absolute;
+      font-size: 13px;
+      color: #fff;
+      top: 39%;
+      left: 55%;
+      transform: translate(-50%);
+  }
+  .invite_green_txt{
+      height: 68px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: absolute;
+      width:100%;
+      top: 49%;
+      left: 0;
+  }
+  .invite_green_txt div{
+      font-size: 13px;
+      color: #fff;
+      padding-bottom: 10px;
+  }
+  .invite_green_txt div:last-child{
+      padding-bottom: 0;
+  }
+  .invite_share{
+      padding-bottom: 52px;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+  }
+  .invite_share_title{
+      width: 170px;
+      height: 17px;
+      background: url('../assets/imgs/my-invite/invite_line.png') repeat-x center;
+      background-size: 100% 1px;
+      position: relative;
+      margin-bottom: 17px;
+  }
+  .invite_share_title_txt{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      height: 17px;
+      transform: translate(-50%,-50%);
+      background:#fff0b1 url('../assets/imgs/my-invite/invite_share_title_txt.png') no-repeat center;
+      background-size:53px 17px;
+      width: 103px;
+  }
+  .myInvite_top_all{
+      min-height: 410px;
+  }
+  .invite_share_pad{
+      padding: 0 25px 27px 25px;
+      width: 100%;
+      box-sizing: border-box;
+      height: 90px;
+  }
+  .invite_share_exchange{
+      padding: 39px 0 45px 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  .invite_share_exchange>div{
+      background: url('../assets/imgs/my-invite/invite_share_exchange.png') no-repeat center;
+      background-size:184px 139px;
+      width: 184px;
+      height: 139px;
+  }
+  .invite_share_frame{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      background-color: #fff;
+      border-radius: 10px;
+      height: 90px;
+  }
+  .invite_share_one{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      background-color: #fff;
+      border-radius: 10px;
+      height: 90px;
+      flex-direction: column;
+  }
+  .invite_share_one_first{
+      font-size: 18px;
+      color: #fe6305;
+      margin-bottom: 15px;
+  }
+  .invite_share_one_second{
+      font-size: 15px;
+      color: #fe6305;
+  }
+  .invite_share_frame>div{
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+  }
+  .invite_share_wx{
+      background: url('../assets/imgs/my-invite/invite_share_wx.png') no-repeat center;
+      background-size:38px 38px;
+      height: 38px;
+      width: 38px;
+      margin-bottom: 8px;
+  }
+  .invite_share_friend{
+      background: url('../assets/imgs/my-invite/invite_share_friend.png') no-repeat center;
+      background-size:38px 38px;
+      height: 38px;
+      width: 38px;
+      margin-bottom: 8px;
+  }
+  .invite_share_txt{
+      font-size: 14px;
+      color: #333;
+      text-align: center;
+  }
+  .invite_friend_all{
+      padding: 0 25px 25px 25px;
+  }
+  .invite_friend_pad{
+      position: relative;
+      background-color: #fff;
+      box-shadow: 0 2px 5px #d5bd7c;
+      border-radius: 10px;
+  }
+  .invite_friend_title{
+    background: url(../assets/imgs/my-invite/invite_friend_title.png) no-repeat center;
+    background-size: 215px 45px;
+    position: absolute;
+    top: -27px;
+    width: 215px;
+    height: 45px;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    line-height: 60px;
+    text-indent: 18px;  
+  }
+  .invite_friend_frame{
+      padding: 32px 16px 20px 16px;
+      background-color: #fff;
+      border-radius: 10px;
+  }
+  .invite_friend_cont{
+      max-height: 256px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: 256px;
+      background-color: #ffeed0;
+      border-radius: 10px;
+  }
+  .invite_friend_list_top{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 0 14px 0 14px;
+      height: 37px;
+      border-bottom: 1px solid #9b8161;
+      
+  }
+  .invite_friend_list_topL{
+      width: 40%;
+      font-size: 15px;
+      color: #9b8161;
+      font-weight: 400;
+  }
+  .invite_friend_list_topR{
+      flex: 1;
+      font-size: 15px;
+      color: #9b8161;
+      font-weight: 400;
+  }
+  .invite_friend_list_all{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 0 14px 0 14px;
+      height: 37px;
+  }
+  .invite_friend_list_allL{
+      width: 40%;
+      font-size: 15px;
+      color: #9b8161;
+      font-weight: 400;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      text-align: left;
+  }
+  .invite_friend_list_allR{
+      flex: 1;
+      font-size: 15px;
+      color: #9b8161;
+      font-weight: 400;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      text-align: left;
+  }
+  .invite_share_title_way{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 17px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background: #fff0b1 url(../assets/imgs/my-invite/invite_share_title_way.png) no-repeat center;
+    background-size: 70px 17px;
+    width: 103px;
+  }
+  .invite_share_title_gift{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 17px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background: #fff0b1 url(../assets/imgs/my-invite/invite_share_title_gift.png) no-repeat center;
+    background-size: 35px 17px;
+    width: 103px;  
+  }
+}

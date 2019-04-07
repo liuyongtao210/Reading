@@ -1,0 +1,42 @@
+<ion-header no-border>
+  <ion-navbar>
+    <ion-title>大咖说</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	  <div class="teacher_theme_pad">
+		<ng-container *ngIf="teacherArr.length > 0">
+	  	 <div class="teacher_theme_frame" *ngFor="let teacher of teacherArr;let Index = index">
+	  	 	  <div class="teacher_theme_list" (tap)="goteacherIndex(teacher)">
+	  	 	  	 <div class="teacher_theme_liT">
+	  	 	  	 	   <div class="teacher_theme_liT_img">
+	  	 	  	 	   	  <img [src]="teacher.pic" />
+	  	 	  	 	   </div>
+	  	 	  	 	   <div class="teacher_theme_liMiddle">
+	  	 	  	 	   	 <div class="teacher_theme_liMiddleL">{{teacher.teacherName}}</div>
+	  	 	  	 	   	 <div class="teacher_theme_liMiddleR">粉丝{{teacher.collects}}人</div>
+	  	 	  	 	   </div>
+	  	 	  	 	   <ng-container>
+										 <div class="teacher_theme_liRight" *ngIf="teacher.subscribe==1">已关注</div>
+									 </ng-container>
+	  	 	  	 	   <ng-container *ngIf="teacher.subscribe != 1">
+	  	 	  	 	     <div class="teacher_theme_liRight no-border"></div>
+	  	 	  	 	   </ng-container>
+	  	 	  	 </div>
+	  	 	  	 <div class="teacher_theme_liB">{{teacher.intro}}</div>
+	  	 	  </div>
+	  	 </div>
+	  	 	<ion-infinite-scroll (ionInfinite)="doInfinite($event)" [hidden]="noMoreData">
+								<ion-infinite-scroll-content loadingText="加载中..."></ion-infinite-scroll-content>
+						</ion-infinite-scroll>
+						<p class="p-nomore" [hidden]="!noMoreData"> ~ 更多内容 敬请期待 ~ </p>
+	  	 </ng-container>
+	  	 <ng-container *ngIf="teacherArr.length == 0">
+	  	 	 <div class="no_data_show">
+								<div class="no_data_img"></div>
+								<div class="no_data_txt">暂时还没有教师哦~</div>
+					</div>
+	  	 </ng-container>
+	  </div>
+</ion-content>

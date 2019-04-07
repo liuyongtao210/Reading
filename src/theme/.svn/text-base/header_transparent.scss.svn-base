@@ -1,0 +1,19 @@
+.back-button {
+    width: 40px;
+    height: 40px;
+    background: url('../assets/imgs/login/btn-back-dark.png') no-repeat center center;
+    background-size: 13px 22px;
+}
+.back-button-icon:before {
+    content: '';
+}
+.toolbar-background {
+    background: transparent !important;
+}
+.toolbar-title-md {
+    padding: 0 56px 0 0;
+    text-align: center;
+}
+//  .scroll-content{
+//      margin-top: 0 !important;
+//  }
